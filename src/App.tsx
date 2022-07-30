@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <div className={"layoutMain"}>
         <div className={"gridLeftSpace"}>
-          <NavBar/>
+          <NavBar options={["lightFont",0," focus"]}/>
         </div>
         <div className={"gridHome"}>
           <Home />

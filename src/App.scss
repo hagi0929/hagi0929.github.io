@@ -1,7 +1,11 @@
+$primary-color: white;
+$background-color: black;
 .App {
   display: flex;
   width: 100%;
   justify-content: center;
+  background-color: $background-color;
+  color: $primary-color;
 }
 
 .App-logo {
@@ -18,9 +22,7 @@
     "left aboutMe right"
     "left projects right"
     "left contacts right";
-  div {
-    margin: 0;
-    padding: 0;
+  > div {
   }
   .gridLeftSpace {
     grid-area: left;
