@@ -1,20 +1,11 @@
-$primary-color: white;
-$background-color: black;
 .App {
   display: flex;
   width: 100%;
   justify-content: center;
-  background-color: $background-color;
-  color: $primary-color;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .layoutMain {
-  border: 1px solid black;
   display: grid;
   grid-template-rows: auto;
   grid-template-areas:
@@ -26,43 +17,38 @@ $background-color: black;
   }
   .gridLeftSpace {
     grid-area: left;
-    border: black solid 1px;
   }
   .gridHome {
     grid-area: home;
-    border: black solid 1px;
   }
   .gridAboutMe {
     grid-area: aboutMe;
-    border: black solid 1px;
   }
   .gridProjects {
     grid-area: projects;
-    border: black solid 1px;
   }
   .gridContainer {
     grid-area: contacts;
-    border: black solid 1px;
   }
   .gridRightSpace {
     grid-area: right;
-    border: black solid 1px;
   }
 }
+
 @media (min-width: 1080px) {
   .layoutMain {
-    grid-template-columns: 90px auto 90px;
+    grid-template-columns: 80px auto 80px;
   }
   @media (min-width: 1320px) {
     .layoutMain {
       width: 1300px;
-      column-gap: 20px;
+      column-gap: 30px;
     }
   }
   @media (max-width: 1319px) {
     .layoutMain {
-      width: 1060px;
-      column-gap: 10px;
+      width: 1070px;
+      column-gap: 20px;
     }
   }
 }

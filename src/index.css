@@ -19,3 +19,6 @@ code {
   background: #41fffd;
   color: #000;
 }
+::-webkit-scrollbar {
+  display: none;
+}

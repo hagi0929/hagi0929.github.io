@@ -1,0 +1,13 @@
+@media (min-width: 1080px) {
+  .aboutLayout {
+  }
+  @media (min-width: 1440px) {
+    $colum: 110px;
+    $column-gap: 10px;
+  }
+  @media (max-width: 1439px) {
+    $colum: 80px;
+    $column-gap: 10px;
+  }
+}
+

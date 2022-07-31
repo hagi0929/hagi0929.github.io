@@ -1,6 +1,5 @@
 .homeLayout {
   width: 100%;
-  border: 1px solid black;
   display: grid;
   grid-template-rows: 30vh 30vh 40vh;
   grid-template-areas:
@@ -9,7 +8,6 @@
     ". . . . . . . . . .";
   .homeHeader {
     grid-area: header;
-    border: black solid 1px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -24,7 +22,7 @@
 }
 @media (min-width: 1080px) {
   .homeLayout {
-    grid-template-columns: repeat(10, 90px);
+    grid-template-columns: repeat(10, 80px);
   }
   @media (min-width: 1320px) {
     .homeLayout {

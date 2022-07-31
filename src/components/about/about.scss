@@ -1,0 +1,54 @@
+.aboutLayout {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    ". . . . . . . . . ."
+    "skills skills skills skills skills skills skills skills skills skills"
+    ". . . . . . . . . .";
+  min-height: 200vh;
+  .skillsHeader {
+    grid-area: skills;
+  }
+}
+
+.skillsTitle {
+  margin: 0;
+  font-weight: 900;
+}
+.big {
+  font-size: 64px;
+}
+.medium {
+  font-size: 36px;
+}
+.small {
+}
+.marquee {
+}
+.marqueeElem {
+  margin: 0 0 0 40px;
+  font-weight: 900;
+  opacity: 50%;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+.marqueeElem:hover {
+  opacity: 100%;
+}
+@media (min-width: 1080px) {
+  .aboutLayout {
+  }
+  @media (min-width: 1320px) {
+    .aboutLayout {
+      grid-template-columns: repeat(10, 80px);
+      column-gap: 20px;
+    }
+  }
+  @media (max-width: 1319px) {
+    .aboutLayout {
+      grid-template-columns: repeat(10, 80px);
+      column-gap: 10px;
+    }
+  }
+}
