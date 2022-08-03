@@ -1,7 +1,8 @@
 import "./navBar.scss";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { inflate } from "zlib";
 interface NavBarPropType {
+  menuNum: any;
   options: any;
 }
 function NavBar(props: NavBarPropType) {
@@ -12,10 +13,12 @@ function NavBar(props: NavBarPropType) {
   useEffect(() => {
     let focus = Array(5).fill(props.options[0]);
     focus[focusNum] += props.options[2];
-    console.log(focus)
   }, [focusNum]);
   function changeFocus(rcv: number) {
     setFocus(rcv);
+  }
+  const menuClicked = (event: React.MouseEvent<HTMLElement>) =>{
+    props.menuNum(focusNum)
   }
   return (
     <div className={"navBar"}>
@@ -24,6 +27,7 @@ function NavBar(props: NavBarPropType) {
           className={focus[0]}
           onMouseEnter={() => changeFocus(0)}
           onMouseLeave={() => changeFocus(props.options[1])}
+          onClick={menuClicked}
         >
           Home
         </a>
@@ -31,6 +35,7 @@ function NavBar(props: NavBarPropType) {
           className={focus[1]}
           onMouseEnter={() => changeFocus(1)}
           onMouseLeave={() => changeFocus(props.options[1])}
+          onClick={menuClicked}
         >
           About
         </a>
@@ -38,6 +43,7 @@ function NavBar(props: NavBarPropType) {
           className={focus[2]}
           onMouseEnter={() => changeFocus(2)}
           onMouseLeave={() => changeFocus(props.options[1])}
+          onClick={menuClicked}
         >
           Projects
         </a>
@@ -45,6 +51,7 @@ function NavBar(props: NavBarPropType) {
           className={focus[3]}
           onMouseEnter={() => changeFocus(3)}
           onMouseLeave={() => changeFocus(props.options[1])}
+          onClick={menuClicked}
         >
           Contact
         </a>

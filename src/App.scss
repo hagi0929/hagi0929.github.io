@@ -4,7 +4,9 @@
   justify-content: center;
   background-color: var(--bg-color);
   color: var(--primary-color);
+  transition: 0.25s all;
 }
+
 .layoutMain {
   display: grid;
   grid-template-rows: auto;
@@ -13,23 +15,30 @@
     "left aboutMe right"
     "left projects right"
     "left contacts right";
+
   > div {
   }
+
   .gridLeftSpace {
     grid-area: left;
   }
+
   .gridHome {
     grid-area: home;
   }
+
   .gridAboutMe {
     grid-area: aboutMe;
   }
+
   .gridProjects {
     grid-area: projects;
   }
+
   .gridContainer {
     grid-area: contacts;
   }
+
   .gridRightSpace {
     grid-area: right;
   }
