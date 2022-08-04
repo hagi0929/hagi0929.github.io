@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo, createRef } from "react";
 import "./globalStyle.scss";
 import { Navigate, Route } from "react-router-dom";
 import NavBar from "./components/floatItems/navBar";
@@ -19,15 +19,21 @@ let optionList = [
 
 function App() {
   const themeChooser = [<HomeTheme />, <AboutTheme />];
+  const pageRef = useMemo(
+    () =>
+      Array(4)
+        .fill(0)
+        .map((i) => createRef<HTMLInputElement>()),
+    []
+  );
   const [page, setPage] = useState(0);
   useEffect(() => {
     goToPage(page);
   }, [page]);
-  const pages = useRef<HTMLDivElement[]>([]);
 
   const goToPage = (pageNo: number) => {
-    if (pages.current[pageNo] != null) {
-      pages.current[pageNo].scrollIntoView({
+    if (pageRef[pageNo].current != null) {
+      pageRef[pageNo].current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -40,42 +46,14 @@ function App() {
         <div className={"gridLeftSpace"}>
           <NavBar options={optionList[page]} menuNum={setPage} />
         </div>
-        <div
-          ref={(el) => {
-            if (el) {
-              pages.current[0] = el;
-            }
-          }}
-          className={"gridHome "}
-        >
+        <div ref={pageRef[0]} className={"gridHome "}>
           <Home />
         </div>
-        <div
-          ref={(el) => {
-            if (el) {
-              pages.current[1] = el;
-            }
-          }}
-          className={"gridAboutMe "}
-        >
+        <div ref={pageRef[1]} className={"gridAboutMe "}>
           <About />
         </div>
-        <div
-          ref={(el) => {
-            if (el) {
-              pages.current[2] = el;
-            }
-          }}
-          className={"gridProjects"}
-        ></div>
-        <div
-          ref={(el) => {
-            if (el) {
-              pages.current[3] = el;
-            }
-          }}
-          className={"gridContacts"}
-        ></div>
+        <div ref={pageRef[2]} className={"gridProjects"}></div>
+        <div ref={pageRef[3]} className={"gridContacts"}></div>
         <div className={"gridRightSpace"}></div>
       </div>
     </div>

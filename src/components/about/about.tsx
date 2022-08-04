@@ -50,7 +50,7 @@ function Skills() {
         <Marquee
           className={"marquee"}
           gradient={false}
-          speed={30}
+          speed={40}
           direction={"right"}
           pauseOnClick={true}
         >
