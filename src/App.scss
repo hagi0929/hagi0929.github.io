@@ -8,8 +8,9 @@
 }
 
 .layoutMain {
+  scroll-snap-type: y mandatory;
+  overflow-x: scroll;
   display: grid;
-  grid-template-rows: auto;
   grid-template-areas:
     "left home right"
     "left aboutMe right"
@@ -21,26 +22,34 @@
 
   .gridLeftSpace {
     grid-area: left;
+    scroll-snap-align: none;
+
   }
 
   .gridHome {
     grid-area: home;
+    scroll-snap-align: start;
   }
 
   .gridAboutMe {
     grid-area: aboutMe;
+    scroll-snap-align: start;
   }
 
   .gridProjects {
     grid-area: projects;
+    scroll-snap-align: start;
+
   }
 
-  .gridContainer {
+  .gridContacts {
     grid-area: contacts;
+    scroll-snap-align: start;
   }
 
   .gridRightSpace {
     grid-area: right;
+    scroll-snap-align: none;
   }
 }
 

@@ -74,7 +74,7 @@ function App() {
               pages.current[3] = el;
             }
           }}
-          className={"gridContainer"}
+          className={"gridContacts"}
         ></div>
         <div className={"gridRightSpace"}></div>
       </div>
