@@ -15,10 +15,13 @@ import createScrollSnap from "scroll-snap";
 let optionList = [
   ["lightFont", 0, " focus"],
   ["blackFont", 1, " focus"],
+  ["blackFont", 2, " focus"],
+  ["blackFont", 3, " focus"],
 ];
 
 function App() {
-  const themeChooser = [<HomeTheme />, <AboutTheme />];
+  const pagesObserver = new Array(4);
+  const themeChooser = [<HomeTheme />, <AboutTheme />, <HomeTheme />, <AboutTheme />];
   const pageRef = useMemo(
     () =>
       Array(4)
@@ -28,6 +31,7 @@ function App() {
   );
   const [page, setPage] = useState(0);
   useEffect(() => {
+    console.log(page)
     goToPage(page);
   }, [page]);
 
@@ -39,6 +43,24 @@ function App() {
       });
     }
   };
+  const observerOption = {
+    threshold: 0.02,
+    rootMargin: "10px",
+  };
+
+  useEffect(() => {
+    const temp = new Array(4).fill(false);
+    for (let i = 0; i < 4; i += 1) {
+      pagesObserver[i] = new IntersectionObserver((entries, observer) => {
+        temp[i] = entries[0].isIntersecting;
+        if (temp.filter(Boolean).length == 1) {
+          setPage(temp.indexOf(true));
+        }
+      }, observerOption);
+      pagesObserver[i].observe(pageRef[i].current);
+    }
+  }, []);
+
   return (
     <div className="App">
       {themeChooser[page]}
@@ -46,14 +68,18 @@ function App() {
         <div className={"gridLeftSpace"}>
           <NavBar options={optionList[page]} menuNum={setPage} />
         </div>
-        <div ref={pageRef[0]} className={"gridHome "}>
+        <div ref={pageRef[0]} className={"gridHome"}>
           <Home />
         </div>
-        <div ref={pageRef[1]} className={"gridAboutMe "}>
+        <div ref={pageRef[1]} className={"gridAboutMe"}>
           <About />
         </div>
-        <div ref={pageRef[2]} className={"gridProjects"}></div>
-        <div ref={pageRef[3]} className={"gridContacts"}></div>
+        <div ref={pageRef[2]} className={"gridProjects"}>
+          <About />
+        </div>
+        <div ref={pageRef[3]} className={"gridContacts"}>
+          <About />
+        </div>
         <div className={"gridRightSpace"}></div>
       </div>
     </div>

@@ -1,30 +1,41 @@
 import "./navBar.scss";
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useMemo, useState } from "react";
 import { inflate } from "zlib";
+
 interface NavBarPropType {
   menuNum: any;
   options: any;
 }
+
 function NavBar(props: NavBarPropType) {
+  console.log(props.options);
   const [focusNum, setFocus] = useState(props.options[1]);
-  let focus = Array(5).fill(props.options[0]);
+  let focus = Array(4).fill(props.options[0]);
   focus[focusNum] += props.options[2];
+  const [menuStyle, setMenuStyle] = useState(focus);
 
   useEffect(() => {
-    let focus = Array(5).fill(props.options[0]);
+    console.log("focusNum", props.options)
+    let focus = Array(4).fill(props.options[0]);
     focus[focusNum] += props.options[2];
+    setMenuStyle(focus);
   }, [focusNum]);
+  useEffect(()=>{
+    changeFocus(props.options[1])
+  }, [props])
+
   function changeFocus(rcv: number) {
     setFocus(rcv);
   }
-  const menuClicked = (event: React.MouseEvent<HTMLElement>) =>{
-    props.menuNum(focusNum)
-  }
+
+  const menuClicked = (event: React.MouseEvent<HTMLElement>) => {
+    props.menuNum(focusNum);
+  };
   return (
     <div className={"navBar"}>
       <div className={"navBarMenu"}>
         <a
-          className={focus[0]}
+          className={menuStyle[0]}
           onMouseEnter={() => changeFocus(0)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
@@ -32,7 +43,7 @@ function NavBar(props: NavBarPropType) {
           Home
         </a>
         <a
-          className={focus[1]}
+          className={menuStyle[1]}
           onMouseEnter={() => changeFocus(1)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
@@ -40,7 +51,7 @@ function NavBar(props: NavBarPropType) {
           About
         </a>
         <a
-          className={focus[2]}
+          className={menuStyle[2]}
           onMouseEnter={() => changeFocus(2)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
@@ -48,7 +59,7 @@ function NavBar(props: NavBarPropType) {
           Projects
         </a>
         <a
-          className={focus[3]}
+          className={menuStyle[3]}
           onMouseEnter={() => changeFocus(3)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
@@ -60,4 +71,5 @@ function NavBar(props: NavBarPropType) {
     </div>
   );
 }
+
 export default NavBar;
