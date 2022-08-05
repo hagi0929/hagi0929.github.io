@@ -21,7 +21,12 @@ let optionList = [
 
 function App() {
   const pagesObserver = new Array(4);
-  const themeChooser = [<HomeTheme />, <AboutTheme />, <HomeTheme />, <AboutTheme />];
+  const themeChooser = [
+    <HomeTheme />,
+    <AboutTheme />,
+    <HomeTheme />,
+    <AboutTheme />,
+  ];
   const pageRef = useMemo(
     () =>
       Array(4)
@@ -30,10 +35,6 @@ function App() {
     []
   );
   const [page, setPage] = useState(0);
-  useEffect(() => {
-    console.log(page)
-    goToPage(page);
-  }, [page]);
 
   const goToPage = (pageNo: number) => {
     if (pageRef[pageNo].current != null) {
@@ -47,7 +48,10 @@ function App() {
     threshold: 0.02,
     rootMargin: "10px",
   };
-
+  const menuClicked = (pageClicked: number) => {
+    goToPage(pageClicked);
+    setPage(pageClicked);
+  };
   useEffect(() => {
     const temp = new Array(4).fill(false);
     for (let i = 0; i < 4; i += 1) {
@@ -66,7 +70,7 @@ function App() {
       {themeChooser[page]}
       <div className={"layoutMain"}>
         <div className={"gridLeftSpace"}>
-          <NavBar options={optionList[page]} menuNum={setPage} />
+          <NavBar options={optionList[page]} menuNum={menuClicked} />
         </div>
         <div ref={pageRef[0]} className={"gridHome"}>
           <Home />

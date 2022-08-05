@@ -20,6 +20,12 @@ function NavBar(props: NavBarPropType) {
     focus[focusNum] += props.options[2];
     setMenuStyle(focus);
   }, [focusNum]);
+  useEffect(() => {
+    console.log("focusNum", props.options)
+    let focus = Array(4).fill(props.options[0]);
+    focus[props.options[1]] += props.options[2];
+    setMenuStyle(focus);
+  }, [props]);
   useEffect(()=>{
     changeFocus(props.options[1])
   }, [props])
