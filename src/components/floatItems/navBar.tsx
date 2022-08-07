@@ -15,20 +15,20 @@ function NavBar(props: NavBarPropType) {
   const [menuStyle, setMenuStyle] = useState(focus);
 
   useEffect(() => {
-    console.log("focusNum", props.options)
+    console.log("focusNum", props.options);
     let focus = Array(4).fill(props.options[0]);
     focus[focusNum] += props.options[2];
     setMenuStyle(focus);
   }, [focusNum]);
   useEffect(() => {
-    console.log("focusNum", props.options)
+    console.log("focusNum", props.options);
     let focus = Array(4).fill(props.options[0]);
     focus[props.options[1]] += props.options[2];
     setMenuStyle(focus);
   }, [props]);
-  useEffect(()=>{
-    changeFocus(props.options[1])
-  }, [props])
+  useEffect(() => {
+    changeFocus(props.options[1]);
+  }, [props]);
 
   function changeFocus(rcv: number) {
     setFocus(rcv);
@@ -39,14 +39,14 @@ function NavBar(props: NavBarPropType) {
   };
   return (
     <div className={"navBar"}>
-      <div className={"navBarMenu"}>
+      <div className={"navBarMenu link-1"}>
         <a
           className={menuStyle[0]}
           onMouseEnter={() => changeFocus(0)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          Home
+          <span>Home</span>
         </a>
         <a
           className={menuStyle[1]}
@@ -54,7 +54,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          About
+          <span>About</span>
         </a>
         <a
           className={menuStyle[2]}
@@ -62,7 +62,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          Projects
+          <span>Projects</span>
         </a>
         <a
           className={menuStyle[3]}
@@ -70,7 +70,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          Contact
+          <span>Contact</span>
         </a>
       </div>
       <style>{}</style>

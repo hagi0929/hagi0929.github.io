@@ -1,13 +1,31 @@
 .aboutLayout {
   width: 100%;
   display: grid;
+  grid-template-rows: 200px minmax(min-content, max-content) 50px minmax(min-content, max-content) 200px minmax(min-content, max-content) 200px;
+  height: 100vh;
+  overflow: scroll;
   grid-template-areas:
     ". . . . . . . . . ."
-    "skills skills skills skills skills skills skills skills skills skills"
+    "header header header header . . . . . ."
+    ". . . . . . . . . ."
+    "description description description description description description description . . ."
+    ". . . . . . . . . ."
+    "tech tech tech tech tech tech tech tech tech tech"
     ". . . . . . . . . .";
-  min-height: 100vh;
+
+  .aboutHeader {
+    font-size: 96px;
+    font-weight: bolder;
+    grid-area: header;
+  }
+
+  .aboutDescription {
+    grid-area: description;
+    font-size: 36px;
+  }
+
   .skillsHeader {
-    grid-area: skills;
+    grid-area: tech;
   }
 }
 
@@ -15,16 +33,21 @@
   margin: 0;
   font-weight: 900;
 }
+
 .big {
   font-size: 64px;
 }
+
 .medium {
   font-size: 36px;
 }
+
 .small {
 }
+
 .marquee {
 }
+
 .marqueeElem {
   margin: 0 0 0 40px;
   font-weight: 900;
@@ -33,9 +56,11 @@
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
+
 .marqueeElem:hover {
   opacity: 100%;
 }
+
 @media (min-width: 1080px) {
   .aboutLayout {
   }

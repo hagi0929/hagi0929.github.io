@@ -1,23 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+    margin: 0;
+    font-family: "nanumsquare", sans-serif;
+    height: 100vh;
 }
+
+:root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: "nanumsquare", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 ::-moz-selection {
-  background: #41fffd;
-  color: #000;
+    background: #41fffd;
+    color: #000;
 }
+
 ::selection {
-  background: #41fffd;
-  color: #000;
+    background: #41fffd;
+    color: #000;
 }
+
 ::-webkit-scrollbar {
+    scroll-behavior: smooth;
 }

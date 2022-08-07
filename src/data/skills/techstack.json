@@ -1,0 +1,26 @@
+{
+  "languages": [
+    "TYPESCRIPT",
+    "JAVASCRIPT",
+    "JAVA",
+    "C",
+    "C++",
+    "PYTHON",
+    "PHP",
+    "HTML",
+    "CSS",
+    "SASS",
+    "SQL"
+  ],
+  "skillsTools": [
+    "TENSORFLOW",
+    "REACT",
+    "GITHUB",
+    "NODEJS",
+    "MYSQL",
+    "VUE",
+    "AWS",
+    "LINUX",
+    "JQUERY"
+  ]
+}
