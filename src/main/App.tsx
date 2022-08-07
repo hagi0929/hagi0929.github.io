@@ -52,6 +52,7 @@ function useWindowDimensions() {
 function App() {
   const { height, width } = useWindowDimensions();
   const pagesObserver = new Array(4);
+  const fullpageObserver = new Array(4);
   const themeChooser = [
     <HomeTheme />,
     <AboutTheme />,
@@ -66,36 +67,99 @@ function App() {
     []
   );
   const [page, setPage] = useState(0);
-
-  const goToPage = (pageNo: number) => {
-    if (pageRef[pageNo].current != null) {
-      pageRef[pageNo].current?.scrollIntoView({
+  const [fullPage, setFullPage] = useState(0);
+  const [destination, setDestination] = useState<any>(null);
+  const [viewPage, setViewPage] = useState<any>(0);
+  useEffect(() => {
+    console.log("viewPage", viewPage);
+    console.log("page", page);
+    console.log("des:", destination);
+    if (viewPage == destination || destination === null) {
+      if (page > viewPage) {
+        console.log("going Up");
+      } else if (page < viewPage) {
+        console.log("going Down");
+      }
+      setPage(viewPage);
+      setDestination(null);
+      // @ts-ignore
+    }
+  }, [viewPage]);
+  useEffect(() => {
+    console.log(destination);
+    if (destination !== null) {
+      goToPage(destination);
+    }
+  }, [destination]);
+  useEffect(() => {
+    let snapCon = Array(4).fill(true);
+    snapCon.fill(false, 0, fullPage);
+    let snapAlign = (i: boolean) => {
+      if (i) {
+        return "start";
+      } else {
+        return "end";
+      }
+    };
+  }, [fullPage]);
+  const goToPage = (pageNo: number, top: boolean = true) => {
+    console.log(
+      pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY
+    );
+    if (top) {
+      window.scroll({
+        top:
+          pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY,
         behavior: "smooth",
-        block: "start",
+      });
+    } else {
+      window.scroll({
+        top:
+          // @ts-ignore
+          pageRef[pageNo].current!.getBoundingClientRect().top +
+          window.scrollY +
+          // @ts-ignore
+          pageRef[pageNo].current?.clientHeight -
+          // @ts-ignore
+          height,
+        behavior: "smooth",
       });
     }
   };
   const menuClicked = (pageClicked: number) => {
-    goToPage(pageClicked);
+    setDestination(pageClicked);
   };
   useEffect(() => {
     const temp = new Array(4).fill(false);
     for (let i = 0; i < 4; i += 1) {
       // @ts-ignore
-      const ratio = height / 2 / pageRef[i].current?.clientHeight -0.01;
+      const ratio = height / 2 / pageRef[i].current?.clientHeight - 0.01;
       const observerOption = {
         rootMargin: "10px",
-        threshold: [ratio,ratio+0.02],
+        threshold: [ratio],
       };
-      console.log("ratio:", i, observerOption["threshold"])
-      pagesObserver[i] = new IntersectionObserver((entries, observer) => {
-        console.log(i, entries[0].intersectionRatio);
+      pagesObserver[i] = new IntersectionObserver((entries) => {
         temp[i] = entries[0].intersectionRatio > ratio;
+        if (entries[0].intersectionRatio > ratio * 2 && i) {
+          console.log("fullPage", i);
+        }
         if (temp.filter(Boolean).length == 1) {
-          setPage(temp.indexOf(true));
+          setViewPage(temp.indexOf(true));
         }
       }, observerOption);
+      fullpageObserver[i] = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].intersectionRatio > ratio * 2 && i) {
+            if (fullPage !== i) {
+              setFullPage(i);
+            }
+          }
+        },
+        { threshold: [ratio * 2] }
+      );
+
       pagesObserver[i].observe(pageRef[i].current);
+      fullpageObserver[i].observe(pageRef[i].current);
     }
   }, [
     height,
@@ -105,6 +169,7 @@ function App() {
     pageRef[2].current?.clientHeight,
     pageRef[3].current?.clientHeight,
   ]);
+  useEffect(() => {}, [page]);
   return (
     <div className="App">
       {themeChooser[page]}

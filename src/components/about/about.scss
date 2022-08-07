@@ -1,9 +1,8 @@
 .aboutLayout {
   width: 100%;
   display: grid;
-  grid-template-rows: 200px minmax(min-content, max-content) 50px minmax(min-content, max-content) 200px minmax(min-content, max-content) 200px;
-  height: 100vh;
-  overflow: scroll;
+  grid-template-rows: 200px auto 50px auto 200px auto 200px;
+  min-height: 100vh;
   grid-template-areas:
     ". . . . . . . . . ."
     "header header header header . . . . . ."

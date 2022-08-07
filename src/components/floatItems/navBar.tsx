@@ -8,26 +8,18 @@ interface NavBarPropType {
 }
 
 function NavBar(props: NavBarPropType) {
-  console.log(props.options);
   const [focusNum, setFocus] = useState(props.options[1]);
-  let focus = Array(4).fill(props.options[0]);
-  focus[focusNum] += props.options[2];
-  const [menuStyle, setMenuStyle] = useState(focus);
+  const [menuStyle, setMenuStyle] = useState(
+    new Array(4).fill(props.options[0])
+  );
+  useEffect(() => {
+    let style = new Array(4).fill(props.options[0]);
+    style[focusNum] += props.options[2];
+    setMenuStyle(style);
+  }, [focusNum]);
 
   useEffect(() => {
-    console.log("focusNum", props.options);
-    let focus = Array(4).fill(props.options[0]);
-    focus[focusNum] += props.options[2];
-    setMenuStyle(focus);
-  }, [focusNum]);
-  useEffect(() => {
-    console.log("focusNum", props.options);
-    let focus = Array(4).fill(props.options[0]);
-    focus[props.options[1]] += props.options[2];
-    setMenuStyle(focus);
-  }, [props]);
-  useEffect(() => {
-    changeFocus(props.options[1]);
+    setFocus(props.options[1]);
   }, [props]);
 
   function changeFocus(rcv: number) {

@@ -10,6 +10,7 @@ body {
 :root {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -27,6 +28,6 @@ code {
     color: #000;
 }
 
+
 ::-webkit-scrollbar {
-    scroll-behavior: smooth;
 }
