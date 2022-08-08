@@ -77,14 +77,20 @@ function App() {
     if (viewPage == destination || destination === null) {
       if (page > viewPage) {
         console.log("going Up");
+        goToPage(viewPage, false);
       } else if (page < viewPage) {
         console.log("going Down");
+        goToPage(viewPage, true);
       }
       setPage(viewPage);
       setDestination(null);
       // @ts-ignore
     }
   }, [viewPage]);
+  useEffect(() => {
+    if (viewPage == destination || destination === null) {
+    }
+  }, [fullPage]);
   useEffect(() => {
     console.log(destination);
     if (destination !== null) {
@@ -103,59 +109,52 @@ function App() {
     };
   }, [fullPage]);
   const goToPage = (pageNo: number, top: boolean = true) => {
-    console.log(
-      pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY
-    );
     if (top) {
-      window.scroll({
-        top:
-          pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY,
-        behavior: "smooth",
-      });
+      const adder = 0;
     } else {
-      window.scroll({
-        top:
-          // @ts-ignore
-          pageRef[pageNo].current!.getBoundingClientRect().top +
-          window.scrollY +
-          // @ts-ignore
-          pageRef[pageNo].current?.clientHeight -
-          // @ts-ignore
-          height,
-        behavior: "smooth",
-      });
+      // @ts-ignore
+      const adder = pageRef[pageNo].current?.clientHeight - height;
     }
+
+    window.scroll({
+      top:
+        pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY,
+      behavior: "smooth",
+    });
   };
   const menuClicked = (pageClicked: number) => {
     setDestination(pageClicked);
   };
   useEffect(() => {
+    const calculateRatio = (r: number, i: number) => {
+      // @ts-ignore
+      return (height * r) / pageRef[i].current?.clientHeight;
+    };
     const temp = new Array(4).fill(false);
     for (let i = 0; i < 4; i += 1) {
-      // @ts-ignore
-      const ratio = height / 2 / pageRef[i].current?.clientHeight - 0.01;
-      const observerOption = {
-        rootMargin: "10px",
-        threshold: [ratio],
-      };
-      pagesObserver[i] = new IntersectionObserver((entries) => {
-        temp[i] = entries[0].intersectionRatio > ratio;
-        if (entries[0].intersectionRatio > ratio * 2 && i) {
-          console.log("fullPage", i);
+        const ratioHalf = calculateRatio(0.5, i)
+        const ratioFull = calculateRatio(1, i)
+      pagesObserver[i] = new IntersectionObserver(
+        (entries) => {
+          temp[i] = entries[0].intersectionRatio > ratioHalf;
+          if (temp.filter(Boolean).length == 1) {
+            setViewPage(temp.indexOf(true));
+          }
+        },
+        {
+          rootMargin: "2px",
+          threshold: [ratioHalf],
         }
-        if (temp.filter(Boolean).length == 1) {
-          setViewPage(temp.indexOf(true));
-        }
-      }, observerOption);
+      );
       fullpageObserver[i] = new IntersectionObserver(
         (entries) => {
-          if (entries[0].intersectionRatio > ratio * 2 && i) {
+          if (entries[0].intersectionRatio > calculateRatio(1,i) && i) {
             if (fullPage !== i) {
               setFullPage(i);
             }
           }
         },
-        { threshold: [ratio * 2] }
+        { threshold: [ratioFull] }
       );
 
       pagesObserver[i].observe(pageRef[i].current);
