@@ -13,10 +13,10 @@ import "swiper/css/scrollbar";
 import createScrollSnap from "scroll-snap";
 
 let optionList = [
-  ["lightFont", 0, " focus"],
-  ["blackFont", 1, " focus"],
-  ["blackFont", 2, " focus"],
-  ["blackFont", 3, " focus"],
+  ["normalFont", 0, " focus"],
+  ["boldFont", 1, " focus"],
+  ["boldFont", 2, " focus"],
+  ["boldFont", 3, " focus"],
 ];
 
 function useWindowDimensions() {
@@ -51,8 +51,9 @@ function useWindowDimensions() {
 
 function App() {
   const { height, width } = useWindowDimensions();
-  const pagesObserver = new Array(4);
-  const fullpageObserver = new Array(4);
+  const beginningObserver = new Array(4);
+  const middleObserver = new Array(4);
+  const endObserver = new Array(4);
   const themeChooser = [
     <HomeTheme />,
     <AboutTheme />,
@@ -67,58 +68,36 @@ function App() {
     []
   );
   const [page, setPage] = useState(0);
-  const [fullPage, setFullPage] = useState(0);
   const [destination, setDestination] = useState<any>(null);
   const [viewPage, setViewPage] = useState<any>(0);
+  const [triggerLock, setTriggerLock] = useState<any>(false);
+  const [triggerTemp, setTriggerTemp] = useState<any>([
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+  ]);
   useEffect(() => {
-    console.log("viewPage", viewPage);
-    console.log("page", page);
-    console.log("des:", destination);
-    if (viewPage == destination || destination === null) {
-      if (page > viewPage) {
-        console.log("going Up");
-        goToPage(viewPage, false);
-      } else if (page < viewPage) {
-        console.log("going Down");
-        goToPage(viewPage, true);
-      }
-      setPage(viewPage);
-      setDestination(null);
-      // @ts-ignore
-    }
+    // console.log("viewPage", viewPage);
+    // console.log("page", page);
+    // console.log("des:", destination);
   }, [viewPage]);
   useEffect(() => {
-    if (viewPage == destination || destination === null) {
-    }
-  }, [fullPage]);
-  useEffect(() => {
-    console.log(destination);
-    if (destination !== null) {
-      goToPage(destination);
-    }
-  }, [destination]);
-  useEffect(() => {
-    let snapCon = Array(4).fill(true);
-    snapCon.fill(false, 0, fullPage);
-    let snapAlign = (i: boolean) => {
-      if (i) {
-        return "start";
-      } else {
-        return "end";
-      }
-    };
-  }, [fullPage]);
+    console.log(triggerTemp);
+  }, [triggerTemp]);
   const goToPage = (pageNo: number, top: boolean = true) => {
+    let adder = 0;
     if (top) {
-      const adder = 0;
+      adder = 0;
     } else {
       // @ts-ignore
-      const adder = pageRef[pageNo].current?.clientHeight - height;
+      adder = pageRef[pageNo].current?.clientHeight - height;
     }
 
     window.scroll({
       top:
-        pageRef[pageNo].current!.getBoundingClientRect().top + window.scrollY,
+        pageRef[pageNo].current!.getBoundingClientRect().top +
+        window.scrollY +
+        adder,
       behavior: "smooth",
     });
   };
@@ -126,40 +105,62 @@ function App() {
     setDestination(pageClicked);
   };
   useEffect(() => {
-    const calculateRatio = (r: number, i: number) => {
-      // @ts-ignore
-      return (height * r) / pageRef[i].current?.clientHeight;
-    };
-    const temp = new Array(4).fill(false);
-    for (let i = 0; i < 4; i += 1) {
-        const ratioHalf = calculateRatio(0.5, i)
-        const ratioFull = calculateRatio(1, i)
-      pagesObserver[i] = new IntersectionObserver(
-        (entries) => {
-          temp[i] = entries[0].intersectionRatio > ratioHalf;
-          if (temp.filter(Boolean).length == 1) {
-            setViewPage(temp.indexOf(true));
-          }
-        },
-        {
-          rootMargin: "2px",
-          threshold: [ratioHalf],
-        }
-      );
-      fullpageObserver[i] = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].intersectionRatio > calculateRatio(1,i) && i) {
-            if (fullPage !== i) {
-              setFullPage(i);
-            }
-          }
-        },
-        { threshold: [ratioFull] }
-      );
-
-      pagesObserver[i].observe(pageRef[i].current);
-      fullpageObserver[i].observe(pageRef[i].current);
-    }
+    //   const observerState = new Array(4).fill(false);
+      const calculateRatio = (r: number, i: number) => {
+        // @ts-ignore
+        return (height * r) / pageRef[i].current?.clientHeight;
+      };
+    //   for (let i = 0; i < 4; i += 1) {
+    //     const ratioStart = calculateRatio(0.1, i);
+    //     const ratioHalf = calculateRatio(0.5, i);
+    //     const ratioFull = calculateRatio(1, i);
+    //     new IntersectionObserver(
+    //       (entries) => {
+    //         observerState[i] = entries[0].intersectionRatio > ratioHalf;
+    //         if (observerState.filter(Boolean).length == 1) {
+    //           setPage(observerState.indexOf(true));
+    //           setTriggerTemp(observerState);
+    //         }
+    //       },
+    //       {
+    //         rootMargin: "2px",
+    //         threshold: [ratioHalf],
+    //       }
+    //     ).observe(pageRef[i].current!);
+    //     new IntersectionObserver(
+    //       (entries) => {
+    //         if (triggerLock === false) {
+    //         console.log("start", i);
+    //           setTriggerLock(i);
+    //           setViewPage(i);
+    //           setTriggerTemp(i);
+    //         }
+    //       },
+    //       {
+    //         rootMargin: "20px",
+    //         threshold: [ratioStart],
+    //       }
+    //     ).observe(pageRef[i].current!);
+    //     new IntersectionObserver(
+    //       (entries) => {
+    //         console.log("full", i);
+    //         if (i == triggerLock) {
+    //           setTriggerLock(false);
+    //         }
+    //       },
+    //       {
+    //         threshold: [ratioFull],
+    //       }
+    //     ).observe(pageRef[i].current!);
+    //   }
+    new IntersectionObserver(
+      (entries) => {
+        console.log("full", 0);
+      },
+      {
+        threshold: [0.1],
+      }
+    ).observe(pageRef[0].current!);
   }, [
     height,
     width,

@@ -29,11 +29,10 @@
   transition: 0.1s all;
 }
 
-.lightFont {
-  font-weight: 100;
+.normalFont {
+  font-weight: normal;
 }
 
-.blackFont {
-  font-weight: 900;
-  text-transform: uppercase;
+.boldFont {
+  font-weight: bold;
 }
