@@ -8,7 +8,9 @@
 }
 
 
-html {scroll-behavior: smooth
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .layoutMain {
@@ -24,7 +26,6 @@ html {scroll-behavior: smooth
 
   .gridLeftSpace {
     grid-area: left;
-    scroll-snap-align: none;
 
   }
 
@@ -40,18 +41,17 @@ html {scroll-behavior: smooth
 
   .gridProjects {
     grid-area: projects;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
 
   }
 
   .gridContacts {
     grid-area: contacts;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
   }
 
   .gridRightSpace {
     grid-area: right;
-    scroll-snap-align: none;
   }
 }
 

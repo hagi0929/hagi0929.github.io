@@ -70,7 +70,6 @@ function App() {
   const [page, setPage] = useState(0);
   const [destination, setDestination] = useState<any>(null);
   const [viewPage, setViewPage] = useState<any>(0);
-  const [triggerLock, setTriggerLock] = useState<any>(false);
   const [triggerTemp, setTriggerTemp] = useState<any>([
     [false, false, false, false],
     [false, false, false, false],
@@ -105,60 +104,40 @@ function App() {
     setDestination(pageClicked);
   };
   useEffect(() => {
-    //   const observerState = new Array(4).fill(false);
-      const calculateRatio = (r: number, i: number) => {
-        // @ts-ignore
-        return (height * r) / pageRef[i].current?.clientHeight;
-      };
-    //   for (let i = 0; i < 4; i += 1) {
-    //     const ratioStart = calculateRatio(0.1, i);
-    //     const ratioHalf = calculateRatio(0.5, i);
-    //     const ratioFull = calculateRatio(1, i);
-    //     new IntersectionObserver(
-    //       (entries) => {
-    //         observerState[i] = entries[0].intersectionRatio > ratioHalf;
-    //         if (observerState.filter(Boolean).length == 1) {
-    //           setPage(observerState.indexOf(true));
-    //           setTriggerTemp(observerState);
-    //         }
-    //       },
-    //       {
-    //         rootMargin: "2px",
-    //         threshold: [ratioHalf],
-    //       }
-    //     ).observe(pageRef[i].current!);
-    //     new IntersectionObserver(
-    //       (entries) => {
-    //         if (triggerLock === false) {
-    //         console.log("start", i);
-    //           setTriggerLock(i);
-    //           setViewPage(i);
-    //           setTriggerTemp(i);
-    //         }
-    //       },
-    //       {
-    //         rootMargin: "20px",
-    //         threshold: [ratioStart],
-    //       }
-    //     ).observe(pageRef[i].current!);
-    //     new IntersectionObserver(
-    //       (entries) => {
-    //         console.log("full", i);
-    //         if (i == triggerLock) {
-    //           setTriggerLock(false);
-    //         }
-    //       },
-    //       {
-    //         threshold: [ratioFull],
-    //       }
-    //     ).observe(pageRef[i].current!);
-    //   }
+    const observerState = new Array(4).fill(false);
+    const calculateRatio = (r: number, i: number) => {
+      // @ts-ignore
+      return (height * r) / pageRef[i].current?.clientHeight;
+    };
+    for (let i = 0; i < 4; i += 1) {
+      const ratioStart = calculateRatio(0.1, i);
+      const ratioHalf = calculateRatio(0.5, i);
+      const ratioFull = calculateRatio(1, i);
+      new IntersectionObserver(
+        (entries) => {
+          observerState[i] = entries[0].intersectionRatio > ratioHalf;
+          if (observerState.filter(Boolean).length == 1) {
+            setPage(observerState.indexOf(true));
+            setTriggerTemp(observerState);
+          }
+        },
+        {
+          rootMargin: "2px",
+          threshold: [ratioHalf],
+        }
+      ).observe(pageRef[i].current!);
+    }
     new IntersectionObserver(
       (entries) => {
-        console.log("full", 0);
+        observerState[0] = entries[0].intersectionRatio > ratioHalf;
+        if (observerState.filter(Boolean).length == 1) {
+          setPage(observerState.indexOf(true));
+          setTriggerTemp(observerState);
+        }
       },
       {
-        threshold: [0.1],
+        rootMargin: "2px",
+        threshold: [calculateRatio(0.1,0),calculateRatio(0.9,0)],
       }
     ).observe(pageRef[0].current!);
   }, [
