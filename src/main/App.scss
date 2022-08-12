@@ -31,23 +31,19 @@ html {
 
   .gridHome {
     grid-area: home;
-    scroll-snap-align: start;
   }
 
   .gridAboutMe {
     grid-area: aboutMe;
-    scroll-snap-align: start;
   }
 
   .gridProjects {
     grid-area: projects;
-    scroll-snap-align: none;
 
   }
 
   .gridContacts {
     grid-area: contacts;
-    scroll-snap-align: none;
   }
 
   .gridRightSpace {

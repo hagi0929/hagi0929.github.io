@@ -75,14 +75,10 @@ function App() {
     [false, false, false, false],
     [false, false, false, false],
   ]);
+  const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([false, false]);
   useEffect(() => {
-    // console.log("viewPage", viewPage);
-    // console.log("page", page);
-    // console.log("des:", destination);
-  }, [viewPage]);
-  useEffect(() => {
-    console.log(triggerTemp);
-  }, [triggerTemp]);
+    console.log(scrollSnapSwitch);
+  }, [scrollSnapSwitch]);
   const goToPage = (pageNo: number, top: boolean = true) => {
     let adder = 0;
     if (top) {
@@ -110,9 +106,7 @@ function App() {
       return (height * r) / pageRef[i].current?.clientHeight;
     };
     for (let i = 0; i < 4; i += 1) {
-      const ratioStart = calculateRatio(0.1, i);
       const ratioHalf = calculateRatio(0.5, i);
-      const ratioFull = calculateRatio(1, i);
       new IntersectionObserver(
         (entries) => {
           observerState[i] = entries[0].intersectionRatio > ratioHalf;
@@ -127,17 +121,28 @@ function App() {
         }
       ).observe(pageRef[i].current!);
     }
+    const start = calculateRatio(0.1, 0);
+    const end = calculateRatio(0.9, 0);
     new IntersectionObserver(
       (entries) => {
-        observerState[0] = entries[0].intersectionRatio > ratioHalf;
-        if (observerState.filter(Boolean).length == 1) {
-          setPage(observerState.indexOf(true));
-          setTriggerTemp(observerState);
-        }
+        console.log("0",scrollSnapSwitch)
+        let temp1 = [...scrollSnapSwitch];
+        temp1[0] = entries[0].intersectionRatio > end;
+        setScrollSnapSwitch(temp1);
       },
       {
-        rootMargin: "2px",
-        threshold: [calculateRatio(0.1,0),calculateRatio(0.9,0)],
+        threshold: [end],
+      }
+    ).observe(pageRef[0].current!);
+    new IntersectionObserver(
+      (entries) => {
+        console.log("1",scrollSnapSwitch)
+        let temp2 = [...scrollSnapSwitch];
+        temp2[1] = entries[0].intersectionRatio > start;
+        setScrollSnapSwitch(temp2);
+      },
+      {
+        threshold: [start],
       }
     ).observe(pageRef[0].current!);
   }, [

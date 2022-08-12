@@ -16,7 +16,10 @@ code {
     font-family: "nanumsquare", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+html{
+      scroll-behavior: smooth;
 
+}
 ::-moz-selection {
     background: #41fffd;
     color: #000;
