@@ -6,7 +6,7 @@ import NavBar from "../components/floatItems/navBar";
 import { useMediaQuery } from "react-responsive";
 import Home from "../components/home/home";
 import About from "../components/about/about";
-import { HomeTheme, AboutTheme } from "./globalStyle";
+import { HomeTheme, AboutTheme, Crazy } from "./globalStyle";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
@@ -15,7 +15,7 @@ import createScrollSnap from "scroll-snap";
 let optionList = [
   ["normalFont", 0, " focus"],
   ["boldFont", 1, " focus"],
-  ["boldFont", 2, " focus"],
+  ["extraBoldFont", 2, " focus"],
   ["boldFont", 3, " focus"],
 ];
 
@@ -54,12 +54,7 @@ function App() {
   const beginningObserver = new Array(4);
   const middleObserver = new Array(4);
   const endObserver = new Array(4);
-  const themeChooser = [
-    <HomeTheme />,
-    <AboutTheme />,
-    <AboutTheme />,
-    <AboutTheme />,
-  ];
+  const themeChooser = [<HomeTheme />, <Crazy />, <AboutTheme />, <Crazy />];
   const pageRef = useMemo(
     () =>
       Array(4)
@@ -75,8 +70,9 @@ function App() {
     [false, false, false, false],
     [false, false, false, false],
   ]);
-  const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([false, false]);
+  const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([null, null]);
   useEffect(() => {
+    console.log("sibal");
     console.log(scrollSnapSwitch);
   }, [scrollSnapSwitch]);
   const goToPage = (pageNo: number, top: boolean = true) => {
@@ -107,6 +103,7 @@ function App() {
     };
     for (let i = 0; i < 4; i += 1) {
       const ratioHalf = calculateRatio(0.5, i);
+      console.log(pageRef[0].current?.clientHeight);
       new IntersectionObserver(
         (entries) => {
           observerState[i] = entries[0].intersectionRatio > ratioHalf;
@@ -121,14 +118,21 @@ function App() {
         }
       ).observe(pageRef[i].current!);
     }
-    const start = calculateRatio(0.1, 0);
-    const end = calculateRatio(0.9, 0);
+    const start = calculateRatio(0.01, 0);
+    const end = calculateRatio(0.99, 0);
+    const temp = [true, true];
+    let snapLock = false;
     new IntersectionObserver(
       (entries) => {
-        console.log("0",scrollSnapSwitch)
-        let temp1 = [...scrollSnapSwitch];
-        temp1[0] = entries[0].intersectionRatio > end;
-        setScrollSnapSwitch(temp1);
+        temp[0] = entries[0].intersectionRatio > end;
+        if (temp != scrollSnapSwitch) {
+          setScrollSnapSwitch(temp);
+          if (temp.filter(Boolean).length == 1 && !snapLock) {
+            snapLock = true;
+            console.log("hi");
+            goToPage(1);
+          }
+        }
       },
       {
         threshold: [end],
@@ -136,13 +140,25 @@ function App() {
     ).observe(pageRef[0].current!);
     new IntersectionObserver(
       (entries) => {
-        console.log("1",scrollSnapSwitch)
-        let temp2 = [...scrollSnapSwitch];
-        temp2[1] = entries[0].intersectionRatio > start;
-        setScrollSnapSwitch(temp2);
+        temp[1] = entries[0].intersectionRatio > start;
+        setScrollSnapSwitch(temp);
+        if (temp.filter(Boolean).length == 1 && !snapLock) {
+          snapLock = true;
+          console.log("hi");
+          goToPage(0);
+        }
       },
       {
         threshold: [start],
+      }
+    ).observe(pageRef[0].current!);
+    new IntersectionObserver(
+      (entries) => {
+        console.log("snapLock", snapLock);
+        snapLock = false;
+      },
+      {
+        threshold: [calculateRatio(0.0001, 2), calculateRatio(1, 2)],
       }
     ).observe(pageRef[0].current!);
   }, [
@@ -157,13 +173,19 @@ function App() {
   return (
     <div className="App">
       {themeChooser[page]}
-      <div className={"layoutMain"}>
-        <div className={"gridLeftSpace"}>
+      <div className={"floatLayout"}>
+        <div className={"menuBar"}>
           <NavBar options={optionList[page]} menuNum={menuClicked} />
         </div>
-        <div ref={pageRef[0]} className={"gridHome"}>
-          <Home />
+        <div className={"socials"}>
+          <NavBar options={optionList[page]} menuNum={menuClicked} />
         </div>
+        <div className={"progress"}>
+          <NavBar options={optionList[page]} menuNum={menuClicked} />
+        </div>
+      </div>
+      <div className={"layoutMain"}>
+        <div ref={pageRef[0]} className={"gridHome"}></div>
         <div ref={pageRef[1]} className={"gridAboutMe"}>
           <About />
         </div>
@@ -173,7 +195,6 @@ function App() {
         <div ref={pageRef[3]} className={"gridContacts"}>
           <About />
         </div>
-        <div className={"gridRightSpace"}></div>
       </div>
     </div>
   );

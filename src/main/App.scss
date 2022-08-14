@@ -9,28 +9,27 @@
 
 
 html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 .layoutMain {
   display: grid;
   grid-template-areas:
-    "left home right"
-    "left aboutMe right"
-    "left projects right"
-    "left contacts right";
+    "home"
+    "aboutMe"
+    "projects"
+    "contacts";
 
   > div {
   }
 
-  .gridLeftSpace {
-    grid-area: left;
-
+  .fixed {
+    position: fixed;
   }
 
   .gridHome {
     grid-area: home;
+    opacity: 0;
+    height: 100vh;
   }
 
   .gridAboutMe {
@@ -39,7 +38,6 @@ html {
 
   .gridProjects {
     grid-area: projects;
-
   }
 
   .gridContacts {
@@ -51,9 +49,31 @@ html {
   }
 }
 
+.floatLayout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "uperLeft right"
+    "lowerLeft right";
+  background-color: rgba(0, 0, 0, 0);
+
+  > .menuBar {
+    grid-area: uperLeft;
+  }
+
+  > .socials {
+    grid-area: lowerLeft;
+  }
+
+  > .progress {
+    grid-area: right;
+  }
+}
+
 @media (min-width: 1080px) {
   .layoutMain {
-    grid-template-columns: 80px auto 80px;
+    grid-template-columns:  1320px;
   }
   @media (min-width: 1320px) {
     .layoutMain {

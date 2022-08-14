@@ -14,13 +14,12 @@
     padding: 2px;
     border: 0;
     margin: 0 0 30px 0;
-    opacity: 50%;
     mix-blend-mode: difference;
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
+    opacity: 50%;
     cursor: pointer;
-    transform: rotate(0.04deg);
   }
 }
 
@@ -30,7 +29,8 @@
 }
 
 .normalFont {
-  font-weight: normal;
+  font-weight: normal;  overflow: hidden !important;
+
 }
 
 .boldFont {

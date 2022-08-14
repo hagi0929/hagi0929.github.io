@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;200;300;400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap");
-@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
 body {
     margin: 0;
-    font-family: "nanumsquare", sans-serif;
+    font-family: "font-family", serif;
     height: 100vh;
+
 }
 
 :root {
@@ -13,12 +14,10 @@ body {
 }
 
 code {
-    font-family: "nanumsquare", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+font-family: 'IBM Plex Serif', serif;
 }
 html{
       scroll-behavior: smooth;
-
 }
 ::-moz-selection {
     background: #41fffd;
