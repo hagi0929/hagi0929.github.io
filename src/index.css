@@ -5,6 +5,8 @@ body {
     margin: 0;
     font-family: "font-family", serif;
     height: 100vh;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
 }
 
@@ -14,11 +16,13 @@ body {
 }
 
 code {
-font-family: 'IBM Plex Serif', serif;
+    font-family: 'IBM Plex Serif', serif;
 }
-html{
-      scroll-behavior: smooth;
+
+html {
+    scroll-behavior: smooth;
 }
+
 ::-moz-selection {
     background: #41fffd;
     color: #000;
@@ -31,4 +35,5 @@ html{
 
 
 ::-webkit-scrollbar {
+    display: none
 }

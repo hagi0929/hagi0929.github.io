@@ -1,11 +1,14 @@
 .homeLayout {
   width: 100%;
+  position: fixed;
   display: grid;
   grid-template-rows: 30vh 30vh 40vh;
   grid-template-areas:
-    ". . . . . . . . . ."
-    "header header header header header header . . . ."
-    ". . . . . . . . . .";
+    ". . . . . . . . . . . ."
+    "header header header header header header . . . . . ."
+    ". . . . . . . . . . . .";
+  background: #111111;
+  color: white;
 
   .homeHeader {
     grid-area: header;
@@ -14,25 +17,31 @@
     flex-direction: column;
 
     > .TitleContainer {
-    transform: rotate(0.04deg);
+      transform: rotate(0.04deg);
       font-size: 64px;
       display: flex;
       flex-direction: row;
+
       > .homeHeaderTitleText {
-        animation: glitch 1s infinite;
       }
+
       > .homeHeaderTitleIcon {
-    transform: rotate(0.04deg);
+        transform: rotate(0.04deg);
         font-size: 50px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 
       }
 
       > .homeHeaderTitleIcon:hover {
-    transform: rotate(0.04deg);
+        transform: rotate(0.04deg);
         animation-duration: 0.5s;
         animation-name: shake;
         animation-iteration-count: infinite;
-
       }
     }
 
@@ -46,7 +55,7 @@
 
 @media (min-width: 1080px) {
   .homeLayout {
-    grid-template-columns: repeat(10, 80px);
+    grid-template-columns: repeat(12, 1fr);
   }
   @media (min-width: 1320px) {
     .homeLayout {
@@ -66,50 +75,20 @@
 @keyframes shake {
   0% {
     transform: rotate(0);
-  transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
   }
   25% {
     transform: rotate(5deg);
-  transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
   }
 
   75% {
     transform: rotate(-5deg);
-  transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
   }
 
   100% {
     transform: rotate(0);
-  transform-origin: 50% 100%;
-  }
-}
-@keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-      0.025em 0.04em 0 #fffc00;
-  }
-  15% {
-    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-      0.025em 0.04em 0 #fffc00;
-  }
-  16% {
-    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
-      -0.05em -0.05em 0 #fffc00;
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
-      -0.05em -0.05em 0 #fffc00;
-  }
-  50% {
-    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
-      0 -0.04em 0 #fffc00;
-  }
-  99% {
-    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
-      0 -0.04em 0 #fffc00;
-  }
-  100% {
-    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
-      -0.04em -0.025em 0 #fffc00;
+    transform-origin: 50% 100%;
   }
 }

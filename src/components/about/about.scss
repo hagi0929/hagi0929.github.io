@@ -1,16 +1,20 @@
 .aboutLayout {
   width: 100%;
   display: grid;
+  align-items: center;
+  grid-template-columns: repeat(12, 1fr);
+  background: var(--bg-color);
+  color: var(--primary-color);
   grid-template-rows: 200px auto 50px auto 200px auto 200px;
   min-height: 100vh;
   grid-template-areas:
-    ". . . . . . . . . ."
-    "header header header header . . . . . ."
-    ". . . . . . . . . ."
-    "description description description description description description description . . ."
-    ". . . . . . . . . ."
-    "tech tech tech tech tech tech tech tech tech tech"
-    ". . . . . . . . . .";
+    ". . . . . . . . . . . ."
+    "header header header header . . . . . . . ."
+    ". . . . . . . . . . . ."
+    "description description description description description description description . . . . ."
+    ". . . . . . . . . . . ."
+    "tech tech tech tech tech tech tech tech tech tech tech tech"
+    ". . . . . . . . . . . .";
 
   .aboutHeader {
     font-size: 96px;
@@ -55,6 +59,7 @@
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
+
 .marqueeElem:hover {
   opacity: 100%;
 }
@@ -64,13 +69,11 @@
   }
   @media (min-width: 1320px) {
     .aboutLayout {
-      grid-template-columns: repeat(10, 80px);
       column-gap: 20px;
     }
   }
   @media (max-width: 1319px) {
     .aboutLayout {
-      grid-template-columns: repeat(10, 80px);
       column-gap: 10px;
     }
   }

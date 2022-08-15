@@ -11,12 +11,18 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import createScrollSnap from "scroll-snap";
-
+import ScrollTracker from "../components/floatItems/scrollIndicator";
 let optionList = [
   ["normalFont", 0, " focus"],
-  ["boldFont", 1, " focus"],
-  ["extraBoldFont", 2, " focus"],
-  ["boldFont", 3, " focus"],
+  ["normalFont", 1, " focus"],
+  ["normalFont", 2, " focus"],
+  ["normalFont", 3, " focus"],
+];
+const themeChooser = [
+  <AboutTheme />,
+  <AboutTheme />,
+  <AboutTheme />,
+  <Crazy />,
 ];
 
 function useWindowDimensions() {
@@ -51,10 +57,6 @@ function useWindowDimensions() {
 
 function App() {
   const { height, width } = useWindowDimensions();
-  const beginningObserver = new Array(4);
-  const middleObserver = new Array(4);
-  const endObserver = new Array(4);
-  const themeChooser = [<HomeTheme />, <Crazy />, <AboutTheme />, <Crazy />];
   const pageRef = useMemo(
     () =>
       Array(4)
@@ -63,18 +65,7 @@ function App() {
     []
   );
   const [page, setPage] = useState(0);
-  const [destination, setDestination] = useState<any>(null);
-  const [viewPage, setViewPage] = useState<any>(0);
-  const [triggerTemp, setTriggerTemp] = useState<any>([
-    [false, false, false, false],
-    [false, false, false, false],
-    [false, false, false, false],
-  ]);
   const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([null, null]);
-  useEffect(() => {
-    console.log("sibal");
-    console.log(scrollSnapSwitch);
-  }, [scrollSnapSwitch]);
   const goToPage = (pageNo: number, top: boolean = true) => {
     let adder = 0;
     if (top) {
@@ -93,7 +84,7 @@ function App() {
     });
   };
   const menuClicked = (pageClicked: number) => {
-    setDestination(pageClicked);
+    // setDestination(pageClicked);
   };
   useEffect(() => {
     const observerState = new Array(4).fill(false);
@@ -102,14 +93,13 @@ function App() {
       return (height * r) / pageRef[i].current?.clientHeight;
     };
     for (let i = 0; i < 4; i += 1) {
-      const ratioHalf = calculateRatio(0.5, i);
+      const ratioHalf = calculateRatio(0.7, i);
       console.log(pageRef[0].current?.clientHeight);
       new IntersectionObserver(
         (entries) => {
           observerState[i] = entries[0].intersectionRatio > ratioHalf;
           if (observerState.filter(Boolean).length == 1) {
             setPage(observerState.indexOf(true));
-            setTriggerTemp(observerState);
           }
         },
         {
@@ -118,49 +108,6 @@ function App() {
         }
       ).observe(pageRef[i].current!);
     }
-    const start = calculateRatio(0.01, 0);
-    const end = calculateRatio(0.99, 0);
-    const temp = [true, true];
-    let snapLock = false;
-    new IntersectionObserver(
-      (entries) => {
-        temp[0] = entries[0].intersectionRatio > end;
-        if (temp != scrollSnapSwitch) {
-          setScrollSnapSwitch(temp);
-          if (temp.filter(Boolean).length == 1 && !snapLock) {
-            snapLock = true;
-            console.log("hi");
-            goToPage(1);
-          }
-        }
-      },
-      {
-        threshold: [end],
-      }
-    ).observe(pageRef[0].current!);
-    new IntersectionObserver(
-      (entries) => {
-        temp[1] = entries[0].intersectionRatio > start;
-        setScrollSnapSwitch(temp);
-        if (temp.filter(Boolean).length == 1 && !snapLock) {
-          snapLock = true;
-          console.log("hi");
-          goToPage(0);
-        }
-      },
-      {
-        threshold: [start],
-      }
-    ).observe(pageRef[0].current!);
-    new IntersectionObserver(
-      (entries) => {
-        console.log("snapLock", snapLock);
-        snapLock = false;
-      },
-      {
-        threshold: [calculateRatio(0.0001, 2), calculateRatio(1, 2)],
-      }
-    ).observe(pageRef[0].current!);
   }, [
     height,
     width,
@@ -170,20 +117,48 @@ function App() {
     pageRef[3].current?.clientHeight,
   ]);
   useEffect(() => {}, [page]);
+
   return (
     <div className="App">
       {themeChooser[page]}
-      <div className={"floatLayout"}>
-        <div className={"menuBar"}>
-          <NavBar options={optionList[page]} menuNum={menuClicked} />
-        </div>
-        <div className={"socials"}>
-          <NavBar options={optionList[page]} menuNum={menuClicked} />
-        </div>
-        <div className={"progress"}>
-          <NavBar options={optionList[page]} menuNum={menuClicked} />
-        </div>
+      <div className={"home"}>
+        <Home />
       </div>
+      <div className={"menuBar float"}>
+        <NavBar options={optionList[page]} menuNum={menuClicked} />
+      </div>
+      <div className={"socials float"}>
+        <div className={"socialText"}>
+          <a
+            href="https://www.facebook.com/hagi0929/"
+            target="_blank"
+            className={"facebook"}
+          >
+            FACEBOOK
+          </a>
+          <a
+            href="https://www.instagram.com/ha.__.gi/"
+            target="_blank"
+            className={"instagram"}
+          >
+            INSTAGRAM
+          </a>
+          <a href="" target="_blank" className={"linkedIn"}>
+            LINKED IN
+          </a>
+        </div>
+        <a href="https://github.com/hagi0929" target="_blank">
+          <img
+            className={"githubIcon"}
+            src="https://cdn.cdnlogo.com/logos/g/55/github.svg"
+            width={"50px"}
+            height={"50px"}
+            alt="d"
+          />
+        </a>
+      </div>
+      <div className={"progress float"}>
+      <ScrollTracker/></div>
       <div className={"layoutMain"}>
         <div ref={pageRef[0]} className={"gridHome"}></div>
         <div ref={pageRef[1]} className={"gridAboutMe"}>

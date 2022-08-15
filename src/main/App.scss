@@ -2,89 +2,126 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  transition: 0.5s all;
 }
 
-
-html {
+.home {
+  background-color: black;
 }
 
 .layoutMain {
   display: grid;
+  transition: 0.5s all;
   grid-template-areas:
     "home"
     "aboutMe"
     "projects"
     "contacts";
 
-  > div {
-  }
-
-  .fixed {
-    position: fixed;
-  }
-
   .gridHome {
     grid-area: home;
-    opacity: 0;
     height: 100vh;
+    z-index: -1;
   }
 
   .gridAboutMe {
     grid-area: aboutMe;
+    z-index: 2;
   }
 
   .gridProjects {
     grid-area: projects;
+    z-index: 2;
   }
 
   .gridContacts {
     grid-area: contacts;
+    z-index: 2;
   }
 
   .gridRightSpace {
     grid-area: right;
+    z-index: 2;
   }
 }
 
-.floatLayout {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  grid-template-areas:
-    "uperLeft right"
-    "lowerLeft right";
-  background-color: rgba(0, 0, 0, 0);
-
-  > .menuBar {
-    grid-area: uperLeft;
-  }
-
-  > .socials {
-    grid-area: lowerLeft;
-  }
-
-  > .progress {
-    grid-area: right;
-  }
+.float {
+  mix-blend-mode: difference;
+  z-index: 4;
+  position: fixed;
 }
 
-@media (min-width: 1080px) {
-  .layoutMain {
-    grid-template-columns:  1320px;
+.menuBar {
+  top: 50px;
+  left: 50px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto, serif;
+  transform: translateY(-100%);
+  top: calc(100vh - 30px);
+  left: 50px;
+  color: white;
+
+  .githubIcon {
+    width: 25px;
+    height: 25px;
+    filter: invert(100%)
   }
-  @media (min-width: 1320px) {
-    .layoutMain {
-      width: 1300px;
-      column-gap: 30px;
+
+  .socialText {
+    text-decoration: none;
+    font-size: 16px;
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    padding-top: 5px;
+
+
+    > a {
+      text-decoration: none;
+      transform: rotate(0.04deg);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+    }
+
+    > .linkedIn {
+      background: linear-gradient(180deg, #0077B1 0%, #C4E0ED 90.7%, #FFFFFF 103.57%, rgba(0, 119, 177, 0) 103.57%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-blend-mode: difference;
+      font-weight: normal;
+    }
+
+    > .instagram {
+      background: linear-gradient(calc(271.22deg + 90deg), #FD1D1D 2.08%, #E1306C 22.64%, #C13584 41.2%, #833AB4 58.25%, #5851DB 84.83%, #405DE6 98.37%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-blend-mode: difference;
+      font-weight: normal;
+    }
+
+    > .facebook {
+      color: #1877F2;
+      font-weight: bold;
+    }
+
+    > a {
+      padding: 5px 0 5px 0;
+      text-decoration: none;
     }
   }
-  @media (max-width: 1319px) {
-    .layoutMain {
-      width: 1070px;
-      column-gap: 20px;
-    }
-  }
 }
+
+.progress {
+  top: 50px;
+  left: calc(100vw - 50px);
+  height: calc(100vh - 85px);
+}
+

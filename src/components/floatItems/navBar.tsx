@@ -1,6 +1,6 @@
 import "./navBar.scss";
-import React, { createRef, useEffect, useMemo, useState } from "react";
-import { inflate } from "zlib";
+import React, {createRef, useEffect, useMemo, useState} from "react";
+import {inflate} from "zlib";
 
 interface NavBarPropType {
   menuNum: any;
@@ -30,15 +30,15 @@ function NavBar(props: NavBarPropType) {
     props.menuNum(focusNum);
   };
   return (
-    <div className={"navBar"}>
-      <div className={"navBarMenu link-1"}>
+    <div className={"navBar"} >
+      <div className={"navBarMenu"}>
         <a
           className={menuStyle[0]}
           onMouseEnter={() => changeFocus(0)}
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          <span>Home</span>
+          <span className={"menuSpan"}>Home</span>
         </a>
         <a
           className={menuStyle[1]}
@@ -46,7 +46,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          <span>About</span>
+          <span className={"menuSpan"}>About</span>
         </a>
         <a
           className={menuStyle[2]}
@@ -54,7 +54,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          <span>Projects</span>
+          <span className={"menuSpan"}>Projects</span>
         </a>
         <a
           className={menuStyle[3]}
@@ -62,7 +62,7 @@ function NavBar(props: NavBarPropType) {
           onMouseLeave={() => changeFocus(props.options[1])}
           onClick={menuClicked}
         >
-          <span>Contact</span>
+          <span className={"menuSpan"}>Contact</span>
         </a>
       </div>
       <style>{}</style>

@@ -8,8 +8,8 @@ const HomeTheme = createGlobalStyle`
 `;
 const AboutTheme = createGlobalStyle`
 :root {
-  --bg-color: #293462;
-  --primary-color: #D61C4E;
+  --bg-color: white;
+  --primary-color: black;
 }
 `;
 const Crazy = createGlobalStyle`
