@@ -6,6 +6,7 @@
     font-family: 'IBM Plex Serif', serif;
     color: white;
     font-size: 16px;
+    font-weight: 300;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -16,5 +17,8 @@
 }
 
 .gray {
-
+  opacity: 70%;
+}
+.white {
+  color: #FEFDFD;
 }

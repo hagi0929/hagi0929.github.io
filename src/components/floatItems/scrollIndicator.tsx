@@ -29,7 +29,7 @@ function ScrollTracker() {
         href="https://github.com/hagi0929"
         target="_blank"
       >
-        Made by hagi0929
+        <span className={"gray"}>Made by</span> <span className={"white"}>hagi0929</span>
       </a>
     </div>
   );

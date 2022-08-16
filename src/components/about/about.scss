@@ -1,37 +1,57 @@
 .mainLayout {
+  font-weight: 700;
   width: 100%;
   display: grid;
-  grid-template-columns: 200px auto 200px;
-  grid-template-areas: ". content .";
+  grid-template-columns: 1fr minmax(800px, 1440px) 1fr;
+  grid-template-areas: "side content side1";
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
 
+  .side {
+    grid-area: side;
+    min-width: 200px;
+  }
+
+  .side1 {
+    grid-area: side1;
+    min-width: 200px;
+  }
+
   .aboutLayout {
-    height: 100px;
+
+    width: 100%;
     display: grid;
     grid-area: content;
-    grid-template-rows: 400px auto 10px auto 10px auto 100px auto 50px;
+    grid-template-rows: 250px min-content 0 min-content 30px min-content 100px min-content 50px;
     grid-template-areas:
   ". . . . . . . . . . . ."
-  "title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 title1"
+  ". title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 ."
   ". . . . . . . . . . . ."
-  "title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2"
+  ". title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 ."
   ". . . . . . . . . . . ."
-  "author author author author author author author author author author author author"
+  ". author author author author author author author author author author ."
   ". . . . . . . . . . . ."
-  ". description description description description description description description description description description ."
+  ". . description description description description description description description description . ."
   ". . . . . . . . . . . .";
     grid-template-columns: repeat(12, 1fr);
 
-    .titleText {
-      font-weight: 700;
-      font-size: 64px;
 
+    .titleText {
+      font-size: 64px;
+    }
+
+    .titleSubText {
+      font-size: 20px;
+    }
+
+    .translucent {
+      color: gray;
     }
 
     .title1 {
       grid-area: title1;
+      min-width: 757px;
     }
 
     .title2 {
@@ -44,6 +64,7 @@
 
     .author {
       grid-area: author;
+      text-align: center;
     }
   }
 }
@@ -55,10 +76,16 @@
     .aboutLayout {
       column-gap: 20px;
     }
+    .title2 {
+      text-align: right;
+    }
   }
   @media (max-width: 1319px) {
     .aboutLayout {
       column-gap: 10px;
+    }
+    .title2 {
+      text-align: center;
     }
   }
 }
