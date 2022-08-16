@@ -147,7 +147,7 @@ function App() {
             LINKED IN
           </a>
         </div>
-        <a href="https://github.com/hagi0929" target="_blank">
+        <a href="https://github.com/hagi0929/personal-website-v2" target="_blank">
           <img
             className={"githubIcon"}
             src="https://cdn.cdnlogo.com/logos/g/55/github.svg"
@@ -160,14 +160,14 @@ function App() {
       <div className={"progress float"}>
       <ScrollTracker/></div>
       <div className={"layoutMain"}>
-        <div ref={pageRef[0]} className={"gridHome"}></div>
-        <div ref={pageRef[1]} className={"gridAboutMe"}>
+        <div ref={pageRef[0]} className={"gridHome page"}></div>
+        <div ref={pageRef[1]} className={"gridAboutMe page"}>
           <About />
         </div>
-        <div ref={pageRef[2]} className={"gridProjects"}>
+        <div ref={pageRef[2]} className={"gridProjects page"}>
           <About />
         </div>
-        <div ref={pageRef[3]} className={"gridContacts"}>
+        <div ref={pageRef[3]} className={"gridContacts page"}>
           <About />
         </div>
       </div>

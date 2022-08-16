@@ -1,12 +1,12 @@
+
 .homeLayout {
+  grid-area: content;
+  padding-right: 1000px;
   width: 100%;
   position: fixed;
   display: grid;
   grid-template-rows: 30vh 30vh 40vh;
-  grid-template-areas:
-    ". . . . . . . . . . . ."
-    "header header header header header header . . . . . ."
-    ". . . . . . . . . . . .";
+  place-items: center;
   background: #111111;
   color: white;
 
@@ -23,6 +23,7 @@
       flex-direction: row;
 
       > .homeHeaderTitleText {
+        min-width: 427px;
       }
 
       > .homeHeaderTitleIcon {
@@ -55,16 +56,24 @@
 
 @media (min-width: 1080px) {
   .homeLayout {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: 200px repeat(12, 1fr) 200px;
   }
   @media (min-width: 1320px) {
     .homeLayout {
       column-gap: 20px;
+      grid-template-areas:
+    ". "+". . . . . . . . . . . ."+" ."
+    ". "+". header header header header header . . . . . ."+" ."
+    ". "+". . . . . . . . . . . ."+" .";
     }
   }
   @media (max-width: 1319px) {
     .homeLayout {
       column-gap: 10px;
+      grid-template-areas:
+    ". . . . . . . . . . . ."
+    ". header header header header header header header header header header ."
+    ". . . . . . . . . . . .";
     }
   }
 }

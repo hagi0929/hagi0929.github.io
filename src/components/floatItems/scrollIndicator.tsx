@@ -24,12 +24,12 @@ function ScrollTracker() {
         ref={child}
         className={"scrollIndicatorText"}
         style={{
-          transform: "translateY(" + scrollY + "px)",
+          transform: "translateY(" + scrollY + "px) translateX(0.1px)",
         }}
-        href="https://github.com/hagi0929/personal-website-v2"
+        href="https://github.com/hagi0929"
         target="_blank"
       >
-        Made by <strong>hagi0929</strong>
+        Made by hagi0929
       </a>
     </div>
   );

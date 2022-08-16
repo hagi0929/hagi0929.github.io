@@ -3,7 +3,7 @@
 
 body {
     margin: 0;
-    font-family: "font-family", serif;
+    font-family: 'IBM Plex Serif', serif;
     height: 100vh;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -11,16 +11,16 @@ body {
 }
 
 :root {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: 'IBM Plex Serif', serif;
-}
 
 html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+
+    -moz-osx-font-smoothing: grayscale;
+
+
 }
 
 ::-moz-selection {

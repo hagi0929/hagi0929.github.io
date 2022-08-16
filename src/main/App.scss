@@ -11,6 +11,7 @@
 .layoutMain {
   display: grid;
   transition: 0.5s all;
+  width: 100vw;
   grid-template-areas:
     "home"
     "aboutMe"
@@ -43,7 +44,9 @@
     z-index: 2;
   }
 }
-
+.page{
+  min-height: 100vh;
+}
 .float {
   mix-blend-mode: difference;
   z-index: 4;
@@ -62,7 +65,7 @@
   font-family: Roboto, serif;
   transform: translateY(-100%);
   top: calc(100vh - 30px);
-  left: 50px;
+  left: 35px;
   color: white;
 
   .githubIcon {

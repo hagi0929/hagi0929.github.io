@@ -1,67 +1,51 @@
-.aboutLayout {
+.mainLayout {
   width: 100%;
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 200px auto 200px;
+  grid-template-areas: ". content .";
+  min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
-  grid-template-rows: 200px auto 50px auto 200px auto 200px;
-  min-height: 100vh;
-  grid-template-areas:
-    ". . . . . . . . . . . ."
-    "header header header header . . . . . . . ."
-    ". . . . . . . . . . . ."
-    "description description description description description description description . . . . ."
-    ". . . . . . . . . . . ."
-    "tech tech tech tech tech tech tech tech tech tech tech tech"
-    ". . . . . . . . . . . .";
 
-  .aboutHeader {
-    font-size: 96px;
-    font-weight: bolder;
-    grid-area: header;
+  .aboutLayout {
+    height: 100px;
+    display: grid;
+    grid-area: content;
+    grid-template-rows: 400px auto 10px auto 10px auto 100px auto 50px;
+    grid-template-areas:
+  ". . . . . . . . . . . ."
+  "title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 title1"
+  ". . . . . . . . . . . ."
+  "title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2"
+  ". . . . . . . . . . . ."
+  "author author author author author author author author author author author author"
+  ". . . . . . . . . . . ."
+  ". description description description description description description description description description description ."
+  ". . . . . . . . . . . .";
+    grid-template-columns: repeat(12, 1fr);
+
+    .titleText {
+      font-weight: 700;
+      font-size: 64px;
+
+    }
+
+    .title1 {
+      grid-area: title1;
+    }
+
+    .title2 {
+      grid-area: title2;
+    }
+
+    .description {
+      grid-area: description;
+    }
+
+    .author {
+      grid-area: author;
+    }
   }
-
-  .aboutDescription {
-    grid-area: description;
-    font-size: 36px;
-  }
-
-  .skillsHeader {
-    grid-area: tech;
-  }
-}
-
-.skillsTitle {
-  margin: 0;
-  font-weight: 900;
-}
-
-.big {
-  font-size: 64px;
-}
-
-.medium {
-  font-size: 36px;
-}
-
-.small {
-}
-
-.marquee {
-}
-
-.marqueeElem {
-  margin: 0 0 0 40px;
-  font-weight: 900;
-  opacity: 50%;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-}
-
-.marqueeElem:hover {
-  opacity: 100%;
 }
 
 @media (min-width: 1080px) {

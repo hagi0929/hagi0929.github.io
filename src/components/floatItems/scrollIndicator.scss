@@ -2,10 +2,10 @@
   height: 100%;
 
   .scrollIndicatorText {
-    font-family: "ibm-plex-serif", serif;
     text-decoration: none;
+    font-family: 'IBM Plex Serif', serif;
     color: white;
-    transform: rotate(0.04deg);
+    font-size: 16px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -13,4 +13,8 @@
     user-select: none;
     writing-mode: vertical-rl;
   }
+}
+
+.gray {
+
 }
