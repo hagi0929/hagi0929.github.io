@@ -61,11 +61,13 @@
       }
 
       .quote1 {
+    transform: translateX(-100%);
         grid-area: title1;
         min-width: 757px;
       }
 
       .quote2 {
+    transform: translateX(100%);
         grid-area: title2;
       }
 
@@ -86,11 +88,11 @@
 .activateAnimation {
 
   .quote1 {
-    animation: LTR 1s forwards;
+    animation: moveToX 1s forwards;
   }
 
   .quote2 {
-    animation: RTL 1s forwards;
+    animation: moveToX 1s forwards;
   }
 
   .author {
@@ -123,37 +125,4 @@
       text-align: center;
     }
   }
-}
-
-@keyframes RTL {
-  0% {
-    transform: translateX(50%);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes LTR {
-  0% {
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes showUp {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-
 }

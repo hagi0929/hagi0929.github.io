@@ -6,7 +6,7 @@ import NavBar from "../components/floatItems/navBar";
 import { useMediaQuery } from "react-responsive";
 import Home from "../components/home/home";
 import About from "../components/about/about";
-import { HomeTheme, AboutTheme, Crazy } from "./globalStyle";
+import { HomeTheme, AboutTheme, Crazy, AnimationKit } from "./globalStyle";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
@@ -119,6 +119,7 @@ function App() {
 
   return (
     <div className="App">
+      <AnimationKit />
       {themeChooser[page]}
       <div className={"home"}>
         <Home />

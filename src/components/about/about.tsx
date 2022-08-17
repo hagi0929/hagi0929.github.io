@@ -1,7 +1,7 @@
 import "./about.scss";
 import Marquee from "react-fast-marquee";
-import tech from "../../data/skills/techstack.json";
-import awards from "../../data/skills/techstack.json";
+import tech from "../../../assets/techstack.json";
+import awards from "../../../assets/techstack.json";
 // @ts-ignore
 import jQuery from "jquery";
 import { useEffect, useRef, useState } from "react";
@@ -18,7 +18,7 @@ function AboutContent() {
         }
       },
       {
-        threshold: [0.8],
+        threshold: [0.5],
       }
     ).observe(quoteContainerRef.current!);
   }, []);

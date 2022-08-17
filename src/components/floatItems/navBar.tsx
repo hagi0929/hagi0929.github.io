@@ -1,6 +1,5 @@
 import "./navBar.scss";
-import React, {createRef, useEffect, useMemo, useState} from "react";
-import {inflate} from "zlib";
+import React, { createRef, useEffect, useMemo, useState } from "react";
 
 interface NavBarPropType {
   menuNum: any;
@@ -30,7 +29,7 @@ function NavBar(props: NavBarPropType) {
     props.menuNum(focusNum);
   };
   return (
-    <div className={"navBar"} >
+    <div className={"navBar"}>
       <div className={"navBarMenu"}>
         <a
           className={menuStyle[0]}

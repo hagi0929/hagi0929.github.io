@@ -21,29 +21,41 @@
       font-size: 64px;
       display: flex;
       flex-direction: row;
+      align-items: baseline;
 
       > .homeHeaderTitleText {
         min-width: 427px;
       }
 
-      > .homeHeaderTitleIcon {
-        transform: rotate(0.04deg);
-        font-size: 50px;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+      > .shaker {
+        width: 50px;
+        height: 50px;
+        animation: showUp 1s forwards, wave 1s forwards;
+        animation-delay: 2.5s, 3s;
+        animation-fill-mode: both;
 
+        > .homeHeaderTitleIcon {
+          background-image: url("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/118/waving-hand-sign_1f44b.png");
+          background-size: contain;
+
+          width: 100%;
+          height: 100%;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        > .homeHeaderTitleIcon:hover {
+          animation: wave 1s forwards;
+          animation-delay: 0.1s;
+          cursor: pointer;
+          animation-iteration-count: 1;
+        }
       }
 
-      > .homeHeaderTitleIcon:hover {
-        transform: rotate(0.04deg);
-        animation-duration: 0.5s;
-        animation-name: shake;
-        animation-iteration-count: infinite;
-      }
+
     }
 
     > .content {
@@ -78,26 +90,10 @@
   }
 }
 
-//1440 120
-//1320 110
-//1080 90
-@keyframes shake {
+@keyframes showUpAndWave {
   0% {
-    transform: rotate(0);
-    transform-origin: 50% 100%;
+    animation: wave 1s forwards;
   }
-  25% {
-    transform: rotate(5deg);
-    transform-origin: 50% 100%;
-  }
-
-  75% {
-    transform: rotate(-5deg);
-    transform-origin: 50% 100%;
-  }
-
-  100% {
-    transform: rotate(0);
-    transform-origin: 50% 100%;
+  50% {
   }
 }
