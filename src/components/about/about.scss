@@ -7,6 +7,7 @@
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
+  transition: 1s all;
 
   .side {
     grid-area: side;
@@ -23,49 +24,83 @@
     width: 100%;
     display: grid;
     grid-area: content;
-    grid-template-rows: 250px min-content 0 min-content 30px min-content 100px min-content 50px;
+    grid-template-rows: 250px min-content 50px;
     grid-template-areas:
   ". . . . . . . . . . . ."
-  ". title1 title1 title1 title1 title1 title1 title1 title1 title1 title1 ."
-  ". . . . . . . . . . . ."
-  ". title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 ."
-  ". . . . . . . . . . . ."
-  ". author author author author author author author author author author ."
-  ". . . . . . . . . . . ."
-  ". . description description description description description description description description . ."
+  ". quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea ."
   ". . . . . . . . . . . .";
     grid-template-columns: repeat(12, 1fr);
 
+    .quoteContainer {
+    width: 100%;
+    display: grid;
+      grid-area: quoteArea;
+      grid-template-areas:
+              "title1 title1 title1 title1 title1 title1 title1 title1 title1 title1"
+              ". . . . . . . . . ."
+              "title2 title2 title2 title2 title2 title2 title2 title2 title2 title2"
+              ". . . . . . . . . ."
+              "author author author author author author author author author author"
+              ". . . . . . . . . ."
+              ". description description description description description description description description .";
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: min-content 0 min-content 30px min-content 100px min-content;
 
-    .titleText {
-      font-size: 64px;
-    }
+      .titleText {
+        font-size: 64px;
+        opacity: 0;
+      }
 
-    .titleSubText {
-      font-size: 20px;
-    }
 
-    .translucent {
-      color: gray;
-    }
+      .titleSubText {
+        font-size: 20px;
+      }
 
-    .title1 {
-      grid-area: title1;
-      min-width: 757px;
-    }
+      .translucent {
+        color: gray;
+      }
 
-    .title2 {
-      grid-area: title2;
-    }
+      .quote1 {
+        grid-area: title1;
+        min-width: 757px;
+      }
 
-    .description {
-      grid-area: description;
-    }
+      .quote2 {
+        grid-area: title2;
+      }
 
-    .author {
-      grid-area: author;
-      text-align: center;
+      .author {
+        grid-area: author;
+        text-align: center;
+        opacity: 0;
+      }
+
+      .description {
+        grid-area: description;
+        opacity: 0;
+      }
     }
+  }
+}
+
+.activateAnimation {
+
+  .quote1 {
+    animation: LTR 1s forwards;
+  }
+
+  .quote2 {
+    animation: RTL 1s forwards;
+  }
+
+  .author {
+    animation: showUp 3s forwards;
+    animation-delay: 0.5s;
+  }
+
+  .description {
+    animation: showUp 3s forwards;
+    animation-delay: 1s;
   }
 }
 
@@ -76,7 +111,7 @@
     .aboutLayout {
       column-gap: 20px;
     }
-    .title2 {
+    .quote2 {
       text-align: right;
     }
   }
@@ -84,8 +119,41 @@
     .aboutLayout {
       column-gap: 10px;
     }
-    .title2 {
+    .quote2 {
       text-align: center;
     }
   }
+}
+
+@keyframes RTL {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes LTR {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
 }

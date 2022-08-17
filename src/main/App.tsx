@@ -94,7 +94,6 @@ function App() {
     };
     for (let i = 0; i < 4; i += 1) {
       const ratioHalf = calculateRatio(0.7, i);
-      console.log(pageRef[0].current?.clientHeight);
       new IntersectionObserver(
         (entries) => {
           observerState[i] = entries[0].intersectionRatio > ratioHalf;
