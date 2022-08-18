@@ -2,7 +2,7 @@ import "./home.scss";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
 import FadeIn from "../animation/animation";
-function Home() {
+function HomeContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [windowSize, setWindowSize] = useState(getWindowSize());
   useEffect(() => {
@@ -33,7 +33,16 @@ function Home() {
     </div>
   );
 }
+function Home(){
+  return (
+        <div className={"mainLayoutHome"}>
+      <div className={"side "}></div>
+      <HomeContent />
+      <div className={"side1 "}></div>
+    </div>
 
+  )
+}
 function getWindowSize() {
   const { innerWidth, innerHeight } = window;
   return { innerWidth, innerHeight };
