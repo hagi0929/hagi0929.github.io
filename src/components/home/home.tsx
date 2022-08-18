@@ -22,7 +22,7 @@ function Home() {
       <div className={"homeHeader"}>
         <div className={"TitleContainer"}>
           <span className={"homeHeaderTitleText"}><FadeIn delay={1} duration={0.3} text={["Hi,","I'm","Jaehak"]} /></span>
-          <div className={"shaker"}><div className={"homeHeaderTitleIcon"}></div></div>
+          <div className={"shaker"}><img src={"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/118/waving-hand-sign_1f44b.png"} className={"homeHeaderTitleIcon"} ></img></div>
       </div>
           <div className={"content"}>
             <FadeIn delay={4} duration={0.2} text={["An","enthusiastic","university","student,", "and", "a", "math", "lover", "who's",
