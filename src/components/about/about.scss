@@ -24,16 +24,81 @@
     width: 100%;
     display: grid;
     grid-area: content;
-    grid-template-rows: 250px min-content 50px;
+    grid-template-rows: 250px min-content 50vh min-content 50vh;
     grid-template-areas:
   ". . . . . . . . . . . ."
   ". quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea ."
+  ". . . . . . . . . . . ."
+  ". skills skills skills skills skills skills skills skills skills skills ."
   ". . . . . . . . . . . .";
     grid-template-columns: repeat(12, 1fr);
 
+    > .skillsContainer {
+      height: min-content;
+      grid-area: skills;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: min-content 100px min-content 10px min-content 10px min-content;
+      grid-template-areas:
+      ". skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro ."
+      ". . . . . . . . . ."
+      ". languageT languageC languageC languageC languageC languageC languageC languageC ."
+      ". . . . . . . . . ."
+      ". frameworkT frameworkC frameworkC frameworkC frameworkC frameworkC frameworkC frameworkC ."
+      ". . . . . . . . . ."
+      ". toolsT toolsC toolsC toolsC toolsC toolsC toolsC toolsC .";
+
+      > .skillIntro {
+        font-size: 64px;
+        grid-area: skillIntro;
+        display: flex;
+
+        > .skillIntroText {
+          color: gray;
+        }
+
+        > .skillIntroType {
+          transition: 0.2s;
+        }
+      }
+
+      > .T {
+        text-align: right;
+        overflow: visible;
+      }
+
+      > .C {
+        color: gray;
+      }
+
+      > .languageT {
+        grid-area: languageT;
+      }
+
+      > .languageC {
+        grid-area: languageC;
+      }
+
+      > .frameworkT {
+        grid-area: frameworkT;
+      }
+
+      > .frameworkC {
+        grid-area: frameworkC;
+      }
+
+      > .toolsT {
+        grid-area: toolsT;
+      }
+
+      > .toolsC {
+        grid-area: toolsC;
+      }
+    }
+
     .quoteContainer {
-    width: 100%;
-    display: grid;
+      width: 100%;
+      display: grid;
       grid-area: quoteArea;
       grid-template-areas:
               "title1 title1 title1 title1 title1 title1 title1 title1 title1 title1"
@@ -51,7 +116,6 @@
         opacity: 0;
       }
 
-
       .titleSubText {
         font-size: 20px;
       }
@@ -61,13 +125,13 @@
       }
 
       .quote1 {
-    transform: translateX(-100%);
+        transform: translateX(-100%);
         grid-area: title1;
         min-width: 757px;
       }
 
       .quote2 {
-    transform: translateX(100%);
+        transform: translateX(100%);
         grid-area: title2;
       }
 
@@ -110,7 +174,7 @@
   .aboutLayout {
   }
   @media (min-width: 1320px) {
-    .aboutLayout {
+    .grid {
       column-gap: 20px;
     }
     .quote2 {
@@ -118,7 +182,7 @@
     }
   }
   @media (max-width: 1319px) {
-    .aboutLayout {
+    .grid {
       column-gap: 10px;
     }
     .quote2 {

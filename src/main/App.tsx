@@ -10,8 +10,10 @@ import { HomeTheme, AboutTheme, Crazy, AnimationKit } from "./globalStyle";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
-import createScrollSnap from "scroll-snap";
 import ScrollTracker from "../components/floatItems/scrollIndicator";
+// @ts-ignore
+import { useScrollLock } from "@hornbeck/scroll-lock";
+
 let optionList = [
   ["normalFont", 0, " focus"],
   ["normalFont", 1, " focus"],
@@ -65,6 +67,8 @@ function App() {
     []
   );
   const [page, setPage] = useState(0);
+  const [lock, setLock] = useState(false);
+  useScrollLock(lock);
   const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([null, null]);
   const goToPage = (pageNo: number, top: boolean = true) => {
     let adder = 0;
@@ -86,6 +90,13 @@ function App() {
   const menuClicked = (pageClicked: number) => {
     // setDestination(pageClicked);
   };
+  useEffect(() => {
+    pageRef[0].current?.scrollIntoView()
+      setLock(true);
+    setTimeout(() => {
+      setLock(false);
+    }, 5000);
+  }, []);
   useEffect(() => {
     const observerState = new Array(4).fill(false);
     const calculateRatio = (r: number, i: number) => {
@@ -147,7 +158,10 @@ function App() {
             LINKED IN
           </a>
         </div>
-        <a href="https://github.com/hagi0929/personal-website-v2" target="_blank">
+        <a
+          href="https://github.com/hagi0929/personal-website-v2"
+          target="_blank"
+        >
           <img
             className={"githubIcon"}
             src="https://cdn.cdnlogo.com/logos/g/55/github.svg"
@@ -158,7 +172,8 @@ function App() {
         </a>
       </div>
       <div className={"progress float"}>
-      <ScrollTracker/></div>
+        <ScrollTracker />
+      </div>
       <div className={"layoutMain"}>
         <div ref={pageRef[0]} className={"gridHome page"}></div>
         <div ref={pageRef[1]} className={"gridAboutMe page"}>

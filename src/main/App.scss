@@ -2,12 +2,16 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  animation: enableScroll forwards;
+  animation-delay: 6s;
+  animation-fill-mode: both;
 }
 
 .home {
   background-color: black;
 }
-
+:root{
+}
 .layoutMain {
   display: grid;
   transition: 0.5s all;
@@ -17,7 +21,6 @@
     "aboutMe"
     "projects"
     "contacts";
-
   .gridHome {
     grid-area: home;
     height: 100vh;
@@ -44,9 +47,11 @@
     z-index: 2;
   }
 }
-.page{
+
+.page {
   min-height: 100vh;
 }
+
 .float {
   mix-blend-mode: difference;
   z-index: 4;
@@ -57,6 +62,7 @@
   transform: translateX(-100px);
   opacity: 0;
   animation: moveToX 2s forwards;
+  animation-delay: 4s;
   top: 50px;
   left: 50px;
 }
@@ -75,7 +81,7 @@
     padding-top: 5px;
     opacity: 0;
     animation: showUp 1s forwards;
-    animation-delay: 2s;
+    animation-delay: 5.5s;
     width: 25px;
     height: 25px;
     filter: invert(100%)
@@ -85,6 +91,7 @@
     transform: translateX(-100px) scale(-1);
     opacity: 0;
     animation: moveToInverse 2s forwards;
+    animation-delay: 4s;
     text-decoration: none;
     font-size: 16px;
     writing-mode: vertical-rl;
@@ -132,11 +139,20 @@
 }
 
 .progress {
-  transform: translateX(100px) ;
+  transform: translateX(100px);
   opacity: 0;
   animation: moveToX 2s forwards;
+  animation-delay: 4s;
   top: 50px;
   left: calc(100vw - 50px);
   height: calc(100vh - 85px);
 }
 
+@keyframes enableScroll {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible ;
+  }
+}
