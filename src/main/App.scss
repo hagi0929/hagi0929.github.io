@@ -10,9 +10,12 @@
 .home {
   background-color: black;
 }
-:root{
+
+:root {
 }
+
 .layoutMain {
+  overflow-x: hidden;
   display: grid;
   transition: 0.5s all;
   width: 100vw;
@@ -21,6 +24,7 @@
     "aboutMe"
     "projects"
     "contacts";
+
   .gridHome {
     grid-area: home;
     height: 100vh;
@@ -84,7 +88,8 @@
     animation-delay: 5.5s;
     width: 25px;
     height: 25px;
-    filter: invert(100%)
+    filter: invert(100%);
+    mix-blend-mode: difference;
   }
 
   .socialText {
@@ -153,6 +158,6 @@
     overflow: hidden;
   }
   100% {
-    overflow: visible ;
+    overflow: visible;
   }
 }

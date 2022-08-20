@@ -49,7 +49,7 @@
       ". toolsT toolsC toolsC toolsC toolsC toolsC toolsC toolsC .";
 
       > .skillIntro {
-        font-size: 64px;
+      font-size: 64px;
         grid-area: skillIntro;
         display: flex;
 
@@ -58,19 +58,17 @@
         }
 
         > .skillIntroType {
+          padding-left: 20px;
           transition: 0.2s;
         }
       }
-
-      > .T {
+      >.T{
         text-align: right;
         overflow: visible;
       }
-
-      > .C {
+      >.C{
         color: gray;
       }
-
       > .languageT {
         grid-area: languageT;
       }

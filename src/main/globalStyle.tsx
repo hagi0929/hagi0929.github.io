@@ -12,10 +12,10 @@ const AboutTheme = createGlobalStyle`
   --primary-color: black;
 }
 `;
-const Crazy = createGlobalStyle`
+const ProjectTheme = createGlobalStyle`
 :root {
-  --bg-color: #411530;
-  --primary-color: #D1512D;
+  --bg-color: #111111;
+  --primary-color: white;
 }
 `;
 // 0 % {
@@ -88,4 +88,4 @@ const AnimationKit = createGlobalStyle`
   
 }
 `;
-export { HomeTheme, AboutTheme, Crazy, AnimationKit };
+export { HomeTheme, AboutTheme, ProjectTheme, AnimationKit };

@@ -6,25 +6,31 @@ import NavBar from "../components/floatItems/navBar";
 import { useMediaQuery } from "react-responsive";
 import Home from "../components/home/home";
 import About from "../components/about/about";
-import { HomeTheme, AboutTheme, Crazy, AnimationKit } from "./globalStyle";
+import {
+  HomeTheme,
+  AboutTheme,
+  ProjectTheme,
+  AnimationKit,
+} from "./globalStyle";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import ScrollTracker from "../components/floatItems/scrollIndicator";
 // @ts-ignore
 import { useScrollLock } from "@hornbeck/scroll-lock";
+import Project from "../components/projects/project";
 
 let optionList = [
   ["normalFont", 0, " focus"],
   ["normalFont", 1, " focus"],
-  ["normalFont", 2, " focus"],
+  ["projectFont", 2, " focus"],
   ["normalFont", 3, " focus"],
 ];
 const themeChooser = [
   <AboutTheme />,
   <AboutTheme />,
+  <ProjectTheme />,
   <AboutTheme />,
-  <Crazy />,
 ];
 
 function useWindowDimensions() {
@@ -42,7 +48,6 @@ function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
-
   useEffect(() => {
     if (hasWindow) {
       const handleResize = () => {
@@ -53,7 +58,6 @@ function useWindowDimensions() {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [hasWindow]);
-
   return windowDimensions;
 }
 
@@ -87,12 +91,18 @@ function App() {
       behavior: "smooth",
     });
   };
+
+  const [destination, setDestination] = useState(0);
+
+  useEffect(() => {
+    goToPage(destination);
+  }, [destination]);
   const menuClicked = (pageClicked: number) => {
-    // setDestination(pageClicked);
+    setDestination(pageClicked);
   };
   useEffect(() => {
-    pageRef[0].current?.scrollIntoView()
-      setLock(true);
+    pageRef[0].current?.scrollIntoView();
+    setLock(true);
     setTimeout(() => {
       setLock(false);
     }, 5000);
@@ -180,7 +190,7 @@ function App() {
           <About />
         </div>
         <div ref={pageRef[2]} className={"gridProjects page"}>
-          <About />
+          <Project />
         </div>
         <div ref={pageRef[3]} className={"gridContacts page"}>
           <About />

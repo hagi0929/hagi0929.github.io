@@ -68,6 +68,7 @@ function AboutContent() {
                 for (const temp in temps)
                   typewriter
                     .callFunction(() => {
+                      changeTypeColor(temps[temp][1])
                     })
                     .pauseFor(500)
                     .typeString(temps[temp][0])

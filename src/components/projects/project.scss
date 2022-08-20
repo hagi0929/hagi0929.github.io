@@ -1,0 +1,21 @@
+.mainLayout {
+  font-weight: 700;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr minmax(800px, 1440px) 1fr;
+  grid-template-areas: "side content side1";
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  transition: 1s all;
+
+  .side {
+    grid-area: side;
+    min-width: 200px;
+  }
+
+  .side1 {
+    grid-area: side1;
+    min-width: 200px;
+  }
+}
