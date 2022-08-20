@@ -1,9 +1,8 @@
 .mainLayout {
   font-weight: 700;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr minmax(800px, 1440px) 1fr;
-  grid-template-areas: "side content side1";
+  display: flex;
+  align-content: center;
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
@@ -18,4 +17,17 @@
     grid-area: side1;
     min-width: 200px;
   }
+}
+
+.projectLayout {
+  width: 1000px;
+  .primaryProjectContainer {
+    .primaryProjectText {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+  }
+
 }
