@@ -1,12 +1,13 @@
 .mainLayout {
-  font-weight: 700;
+  font-family: "nanumsquare", sans-serif;
   width: 100%;
   display: flex;
-  align-content: center;
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
   transition: 1s all;
+  justify-content: center;
+
 
   .side {
     grid-area: side;
@@ -21,13 +22,83 @@
 
 .projectLayout {
   width: 1000px;
+
   .primaryProjectContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text slide";
+
     .primaryProjectText {
-      display: flex;
-      flex-direction: column;
+      grid-area: text;
+      display: grid;
+      grid-template-rows: auto 10px auto 0px auto 10px auto;
+      grid-template-areas:
+      "title"
+      "."
+      "content"
+      "."
+      "subContent";
+
+      > span:nth-child(1) {
+        grid-area: title;
+      }
+
+      > span:nth-child(2) {
+        grid-area: content;
+      }
+
+      > span:nth-child(3) {
+        grid-area: subContent;
+      }
+
+    }
+
+    .primaryProjectSlideContainer {
+      width: 100%;
+      height: 100%;
+      grid-area: slide;
+
+      .primaryProjectSlide {
+        height: 100%;
+        width: 100%;
+        overflow: visible;
+
+        .card {
+          width: 100%;
+          height: 100%;
+          border-radius: 30px;
+          background-color: rgba(255, 255, 255, 0.14);
+        }
+      }
+
+    }
+
+    .control {
+      grid-area: control;
 
     }
 
   }
+
+}
+
+.titleStyle {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.contentStyle {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.subContentStyle {
+  font-size: 27px;
+  font-weight: 500;
+  color: #A18B68 !important;
+}
+
+.opened {
 
 }
