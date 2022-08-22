@@ -69,60 +69,84 @@
           -ms-user-select: none;
           user-select: none;
 
-       }
-       > .controlButton:hover {
-         cursor: pointer;
+        }
 
-       }
-     }
+        > .controlButton:hover {
+          cursor: pointer;
 
-   }
+        }
+      }
 
-   .primaryProjectSlideContainer {
-     height: 100%;
-     grid-area: slide;
-     width: 100vw;
-     overflow: hidden;
+    }
 
-     .primaryProjectSlide {
-       height: 100%;
-       width: 400px;
-       overflow: visible;
-       margin-left: 0;
+    .primaryProjectSlideContainer {
+      height: 100%;
+      grid-area: slide;
+      width: 100vw;
+      overflow: hidden;
 
-       .card {
-         width: 400px;
-         height: 100%;
-         max-height: 200px;
-         border-radius: 30px;
-         background-color: #242424;
-       }
-     }
+      .primaryProjectSlide {
+        height: 100%;
+        width: 400px;
+        overflow: visible;
+        margin-left: 0;
 
-   }
+        .slide {
+          width: 400px;
+          height: 100%;
+
+          .cardFront {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            height: 80%;
+            position: relative;
+            border-radius: 30px;
+            background-color: #242424;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            z-index: 2;
+          }
+
+          .cardBack {
+            position: relative;
+            border-radius: 30px;
+            background-color: #242424;
+            z-index: 1;
+            top: -30px;
+          }
+        }
+      }
+
+    }
 
 
- }
+  }
 
 }
 
 .titleStyle {
- font-size: 40px;
- font-weight: bolder;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 .contentStyle {
- font-size: 36px;
- font-weight: 500;
- line-height: 120%;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 120%;
 }
 
 .subContentStyle {
- font-size: 27px;
- font-weight: 500;
- color: #A18B68 !important;
+  font-size: 27px;
+  font-weight: 500;
+  color: #A18B68 !important;
 }
 
 .opened {
 
+}
+
+.projectImg {
+  height: 100px;
 }

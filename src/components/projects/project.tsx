@@ -29,9 +29,12 @@ function ProjectContent() {
   for (let i in mainProjectRef) {
     console.log(project[i])
     const title = project[i]["title"]
+    const image = project[i]["image"]
     mainProjectCards.push(
-      <SwiperSlide className={"card"}>
-        <div ref={mainProjectRef[i]}>{title}</div>
+      <SwiperSlide className={"slide"}>
+        <div className={"cardFront"} ref={mainProjectRef[i]}
+             style={{backgroundImage: "url('"+image+"')"}}></div>
+        <div className={"cardBack"} ref={mainProjectRef[i]}>{title}</div>
       </SwiperSlide>
     )
   }
