@@ -12,6 +12,10 @@ const project = [{
   image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
   title: "title1"
 
+}, {
+  image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
+  title: "title1"
+
 }]
 
 function ProjectContent() {
@@ -20,12 +24,13 @@ function ProjectContent() {
     () =>
       Array(project.length)
         .fill(0)
-        .map((i) => createRef<HTMLInputElement>()),
+        .map((i) => createRef<HTMLDivElement>()),
     []
   );
 
   // @ts-ignore
   let mainProjectCards = []
+  const mainProjectContainerRef = useRef<any>(null);
   for (let i in mainProjectRef) {
     console.log(project[i])
     const title = project[i]["title"]
@@ -33,11 +38,24 @@ function ProjectContent() {
     mainProjectCards.push(
       <SwiperSlide className={"slide"}>
         <div className={"cardFront"} ref={mainProjectRef[i]}
-             style={{backgroundImage: "url('"+image+"')"}}></div>
+             style={{backgroundImage: "url('" + image + "')"}}></div>
         <div className={"cardBack"} ref={mainProjectRef[i]}>{title}</div>
       </SwiperSlide>
     )
   }
+  useEffect(() => {
+    new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        console.log(entry.intersectionRatio)
+        if (entry.intersectionRatio > 0.99) {
+          console.log("sex")
+        }
+        observer.unobserve(entry.target)
+      })
+    }, {root: mainProjectContainerRef.current})
+
+
+  }, [])
   return (
     <div className={"projectLayout"}>
       <div className={"primaryProjectContainer"}>
@@ -68,7 +86,6 @@ function ProjectContent() {
           >
             {mainProjectCards}
           </Swiper>
-
         </div>
       </div>
     </div>
