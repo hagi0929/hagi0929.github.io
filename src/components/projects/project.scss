@@ -25,19 +25,24 @@
 
   .primaryProjectContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     grid-template-areas: "text slide";
 
     .primaryProjectText {
+      z-index: 2;
+
       grid-area: text;
       display: grid;
-      grid-template-rows: auto 10px auto 0px auto 10px auto;
+      overflow: visible;
+      grid-template-rows: min-content 10px min-content 0px min-content 30px auto;
       grid-template-areas:
       "title"
       "."
       "content"
       "."
-      "subContent";
+      "subContent"
+      "."
+      "control";
 
       > span:nth-child(1) {
         grid-area: title;
@@ -51,52 +56,71 @@
         grid-area: subContent;
       }
 
-    }
+      > .control {
+        display: flex;
+        font-size: 26px;
+        grid-area: control;
 
-    .primaryProjectSlideContainer {
-      width: 100%;
-      height: 100%;
-      grid-area: slide;
+        > .controlButton {
+          margin-right: 30px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
 
-      .primaryProjectSlide {
-        height: 100%;
-        width: 100%;
-        overflow: visible;
+       }
+       > .controlButton:hover {
+         cursor: pointer;
 
-        .card {
-          width: 100%;
-          height: 100%;
-          border-radius: 30px;
-          background-color: rgba(255, 255, 255, 0.14);
-        }
-      }
+       }
+     }
 
-    }
+   }
 
-    .control {
-      grid-area: control;
+   .primaryProjectSlideContainer {
+     height: 100%;
+     grid-area: slide;
+     width: 100vw;
+     overflow: hidden;
 
-    }
+     .primaryProjectSlide {
+       height: 100%;
+       width: 400px;
+       overflow: visible;
+       margin-left: 0;
 
-  }
+       .card {
+         width: 400px;
+         height: 100%;
+         max-height: 200px;
+         border-radius: 30px;
+         background-color: #242424;
+       }
+     }
+
+   }
+
+
+ }
 
 }
 
 .titleStyle {
-  font-size: 40px;
-  font-weight: bolder;
+ font-size: 40px;
+ font-weight: bolder;
 }
 
 .contentStyle {
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 120%;
+ font-size: 36px;
+ font-weight: 500;
+ line-height: 120%;
 }
 
 .subContentStyle {
-  font-size: 27px;
-  font-weight: 500;
-  color: #A18B68 !important;
+ font-size: 27px;
+ font-weight: 500;
+ color: #A18B68 !important;
 }
 
 .opened {
