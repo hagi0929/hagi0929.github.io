@@ -14,15 +14,18 @@ const project = [{
   description: "This is a website made for people who are interested in mathematics. ",
   github: "https://github.com/hagi0929/MATH-BOARD",
   link: "https//naver.com",
-  skills: ["react"],
+  skills: ["React", "TypeScript", "SCSS", "HTML"],
 }, {
   image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
   title: "title1",
   content: "",
-  skills: ["react"],
+  skills: ["React"],
 }]
-const skills = {
-  react: "blue"
+const skillsColor = {
+  react: "#01d0f7",
+  typescript: "#007acc",
+  scss: "#cd679a",
+  html: "#ff5722"
 }
 
 function ProjectContent() {
@@ -46,8 +49,15 @@ function ProjectContent() {
     const description = project[i]["description"]
     const image = project[i]["image"]
 
-    for (const skill of project[i]["skills"]){
-      skillsElements.push(<span className="skill">{skill}</span>)
+    for (const skill of project[i]["skills"]) {
+
+      skillsElements.push(<span className="skill"
+                                style={{
+                                  // @ts-ignore
+                                  color: skillsColor[skill.toLowerCase()],
+                                  // @ts-ignore
+                                  background: skillsColor[skill.toLowerCase()] + "40"
+                                }}>{skill}</span>)
     }
     mainProjectCards.push(
       <SwiperSlide className={"slide"}>
