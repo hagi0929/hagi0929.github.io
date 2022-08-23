@@ -31,7 +31,6 @@
 
     .primaryProjectText {
       z-index: 2;
-
       grid-area: text;
       display: grid;
       overflow: visible;
@@ -46,14 +45,17 @@
       "control";
 
       > span:nth-child(1) {
+        font-size: 40px;
         grid-area: title;
       }
 
       > span:nth-child(2) {
+        font-size: 36px;
         grid-area: content;
       }
 
       > span:nth-child(3) {
+        font-size: 27px;
         grid-area: subContent;
       }
 
@@ -94,32 +96,55 @@
 
         .slide {
           width: 400px;
+          border-radius: 30px;
+          overflow: hidden;
 
           .cardFront {
+            padding: 30px;
             display: flex;
             align-content: center;
             justify-content: center;
-            height: 300px;
+            height: 200px;
             position: relative;
             border-radius: 30px;
             background-color: #242424;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             z-index: 2;
           }
 
           .cardBack {
-            color: var(--bg-color);
+            color: white;
             position: relative;
-            background-color: var(--primary-color);
+            background-color: #333333;
             z-index: 1;
             transition: 0.3s;
-            padding: 60px 30px 30px 30px;
+            padding: 80px 30px 30px 30px;
             display: flex;
-            flex-direction: row;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+            flex-direction: column;
+            border-radius: 30px;
             opacity: 0;
+
+            > span:nth-child(1) {
+              font-size: 20px;
+              grid-area: title;
+              padding-bottom: 10px;
+            }
+
+            > span:nth-child(2) {
+              font-size: 16px;
+              font-weight: 300 !important;
+              grid-area: content;
+              padding-bottom: 20px;
+              color: #c0c0c0 !important;
+
+
+            }
+
+            > span:nth-child(3) {
+              font-size: 13px;
+              grid-area: subContent;
+            }
           }
         }
       }
@@ -132,20 +157,20 @@
 }
 
 .titleStyle {
-  font-size: 40px;
   font-weight: bolder;
+  transform: rotate(0.04deg);
 }
 
 .contentStyle {
-  font-size: 36px;
   font-weight: 500;
   line-height: 120%;
+  transform: rotate(0.04deg);
 }
 
 .subContentStyle {
-  font-size: 27px;
   font-weight: 500;
   color: #A18B68 !important;
+  transform: rotate(0.04deg);
 }
 
 .opened {
@@ -154,4 +179,11 @@
 
 .projectImg {
   height: 100px;
+}
+.skill{
+  border-radius: 8px;
+  color: #01d0f7;
+  background: rgba(#01d0f7, 0.4);
+
+  padding: 4px 10px 4px 10px;
 }
