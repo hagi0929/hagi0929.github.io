@@ -95,7 +95,6 @@ function ProjectContent() {
             slidesPerView={1}
             centeredSlides={true}
             spaceBetween={20}
-            grabCursor={true}
             pagination={{
               clickable: true,
             }}

@@ -114,6 +114,11 @@
           }
 
           .cardBack {
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
             color: white;
             position: relative;
             background-color: #333333;
