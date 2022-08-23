@@ -114,11 +114,11 @@
           }
 
           .cardBack {
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
             color: white;
             position: relative;
             background-color: #333333;
@@ -185,12 +185,14 @@
 .projectImg {
   height: 100px;
 }
-.skill{
-  border-radius: 8px;
-  margin-right: 10px;
-  /*
-  color: #01d0f7;
-  background: rgba(#01d0f7, 0.4);*/
 
-  padding: 4px 10px 4px 10px;
+.slideContainer {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 7px;
+  .skill {
+    border-radius: 8px;
+    padding: 4px 10px 4px 10px;
+  }
 }

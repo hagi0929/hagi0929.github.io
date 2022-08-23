@@ -14,7 +14,7 @@ const project = [{
   description: "This is a website made for people who are interested in mathematics. ",
   github: "https://github.com/hagi0929/MATH-BOARD",
   link: "https//naver.com",
-  skills: ["React", "TypeScript", "SCSS", "HTML"],
+  skills: ["Django", "TypeScript", "SCSS", "HTML","MySql","AWS"],
 }, {
   image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
   title: "title1",
@@ -25,7 +25,11 @@ const skillsColor = {
   react: "#01d0f7",
   typescript: "#007acc",
   scss: "#cd679a",
-  html: "#ff5722"
+  django: "#218c65",
+  aws: "#f79918",
+  php: "#8993be",
+  html: "#ff5722",
+  mysql: "#4379a1"
 }
 
 function ProjectContent() {
@@ -66,7 +70,7 @@ function ProjectContent() {
         <div className={"cardBack"} ref={mainProjectRef[i]}>
           <span className={"titleStyle"}>{title}</span>
           <span className={"contentStyle"}>{description}</span>
-          <span>{skillsElements}</span>
+          <span className={"slideContainer"}>{skillsElements}</span>
         </div>
       </SwiperSlide>
     )
