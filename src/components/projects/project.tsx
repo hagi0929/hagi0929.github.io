@@ -9,7 +9,7 @@ import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import {Pagination} from "swiper";
 
 const project = [{
-  image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
+  image: "..../assets/projectImage/mathboard.svg",
   title: "title1"
 
 }, {
@@ -20,6 +20,7 @@ const project = [{
 
 function ProjectContent() {
   const [my_swiper, set_my_swiper] = useState(useSwiper());
+  const [swiperIndex, setSwiperIndex] = useState<number>(0)
   const mainProjectRef = useMemo(
     () =>
       Array(project.length)
@@ -30,32 +31,33 @@ function ProjectContent() {
 
   // @ts-ignore
   let mainProjectCards = []
-  const mainProjectContainerRef = useRef<any>(null);
+  const mainProjectContainerRef = useRef() as any;
   for (let i in mainProjectRef) {
     console.log(project[i])
     const title = project[i]["title"]
     const image = project[i]["image"]
     mainProjectCards.push(
       <SwiperSlide className={"slide"}>
-        <div className={"cardFront"} ref={mainProjectRef[i]}
+        <div className={"cardFront"}
              style={{backgroundImage: "url('" + image + "')"}}></div>
-        <div className={"cardBack"} ref={mainProjectRef[i]}>{title}</div>
+        <div className={"cardBack"} ref={mainProjectRef[i]}>
+          <span></span>
+        </div>
       </SwiperSlide>
     )
   }
   useEffect(() => {
-    new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        console.log(entry.intersectionRatio)
-        if (entry.intersectionRatio > 0.99) {
-          console.log("sex")
-        }
-        observer.unobserve(entry.target)
-      })
-    }, {root: mainProjectContainerRef.current})
-
-
-  }, [])
+    for (let i = 0; i < mainProjectRef.length; i++) {
+      if (swiperIndex == i) {
+        mainProjectRef[i].current!.style.top = "-30px"
+        mainProjectRef[i].current!.style.opacity = "1"
+      }
+      else{
+        mainProjectRef[i].current!.style.top = "-100%"
+        mainProjectRef[i].current!.style.opacity = "0"
+      }
+    }
+  }, [swiperIndex])
   return (
     <div className={"projectLayout"}>
       <div className={"primaryProjectContainer"}>
@@ -73,7 +75,8 @@ function ProjectContent() {
           <Swiper
             onInit={(ev) => {
               set_my_swiper(ev)
-            }}
+            }
+            }
             className={"primaryProjectSlide"}
             slidesPerView={1}
             centeredSlides={true}
@@ -82,6 +85,11 @@ function ProjectContent() {
             pagination={{
               clickable: true,
             }}
+            onSlideChange={
+              (ev) => {
+                setSwiperIndex(ev.activeIndex)
+              }
+            }
             modules={[Pagination]}
           >
             {mainProjectCards}

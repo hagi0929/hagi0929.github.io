@@ -26,7 +26,8 @@
   .primaryProjectContainer {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "text slide";
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "text slide"". slide";
 
     .primaryProjectText {
       z-index: 2;
@@ -93,28 +94,32 @@
 
         .slide {
           width: 400px;
-          height: 100%;
 
           .cardFront {
             display: flex;
             align-content: center;
             justify-content: center;
-            height: 80%;
+            height: 300px;
             position: relative;
             border-radius: 30px;
             background-color: #242424;
             background-repeat: no-repeat;
             background-size: cover;
-
             z-index: 2;
           }
 
           .cardBack {
+            color: var(--bg-color);
             position: relative;
-            border-radius: 30px;
-            background-color: #242424;
+            background-color: var(--primary-color);
             z-index: 1;
-            top: -30px;
+            transition: 0.3s;
+            padding: 60px 30px 30px 30px;
+            display: flex;
+            flex-direction: row;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            opacity: 0;
           }
         }
       }
