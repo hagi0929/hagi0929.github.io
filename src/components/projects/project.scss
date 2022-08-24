@@ -21,22 +21,29 @@
 }
 
 .projectLayout {
+  display: grid;
   width: 1000px;
-  grid-template-rows: 30vh min-content 30vh;
-  grid-template-areas: "." "mainProject" "." "." "secondaryProject" ".";
+  grid-template-rows: 30vh min-content 30vh min-content 100px;
+  grid-template-areas:
+          "."
+          "mainProject"
+          "."
+          "secondaryProject"
+          ".";
 
   .primaryProjectContainer {
+    width: inherit;
     display: grid;
     grid-area: mainProject;
+    grid-template-areas: "text slide";
     grid-template-columns: 50% 50%;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "text slide"". slide";
+  overflow: visible;
+
 
     .primaryProjectText {
       z-index: 2;
       grid-area: text;
       display: grid;
-      overflow: visible;
       grid-template-rows: min-content 10px min-content 0px min-content 30px auto;
       grid-template-areas:
       "title"
@@ -87,17 +94,16 @@
     .primaryProjectSlideContainer {
       height: 100%;
       grid-area: slide;
-      width: 100vw;
       overflow: hidden;
+      width: 50vw;
 
       .primaryProjectSlide {
-        height: 100vh;
+        height: 600px;
         width: 400px;
         overflow: visible;
-        margin-left: 0;
+        margin: 0;
 
         .slide {
-          width: 400px;
           height: min-content;
           border-radius: 30px;
           overflow: visible;
@@ -118,6 +124,9 @@
 
           .cardBack {
             background-color: #181818;
+            width: calc(100% - 60px);
+            padding: 80px 30px 30px 30px;
+            position: absolute;
           }
 
           .cardFront:hover {
@@ -133,10 +142,10 @@
   }
 
   .secondaryProjectContainer {
+    width: 100%;
     grid-area: secondaryProject;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 50px min-content;
     grid-template-areas: "text" "." "display";
 
     .secondaryProjectText {
@@ -155,9 +164,33 @@
     }
 
     .secondaryProjectDisplay {
+      width: 100%;
       grid-area: display;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, minmax(50px, auto));
+      grid-auto-flow: dense;
+      justify-items: stretch;
+      place-content: space-between center;
+      grid-gap: 20px;
+
+      .secondaryProjectComponent {
+        overflow: visible;
+        transition: 0.3s;
+        padding-top: 30px;
+
+        .cardBack {
+          color: #9C27B0;
+          padding: 60px 30px 30px 30px;
+          background: linear-gradient(180deg, #9C27B000 2.58%, #9C27B014 100%);
+        }
+      }
+
+      .secondaryProjectComponent:hover {
+        .cardBack {
+          transform: translateY(-10px);
+        }
+      }
     }
   }
 
@@ -188,15 +221,4 @@
   height: 100px;
 }
 
-.skillContainer {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 10px;
-  row-gap: 7px;
-
-  .skill {
-    border-radius: 8px;
-    padding: 4px 10px 4px 10px;
-  }
-}
 

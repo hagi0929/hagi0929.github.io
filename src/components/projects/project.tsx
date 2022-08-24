@@ -41,7 +41,7 @@ function ProjectContent() {
     () =>
       Array(project.length)
         .fill(0)
-        .map((i) => createRef<HTMLDivElement>()),
+        .map((i) => createRef<any>()),
     []
   );
 
@@ -49,47 +49,14 @@ function ProjectContent() {
   let mainProjectCards = []
   const mainProjectContainerRef = useRef() as any;
   for (let i in mainProjectRef) {
-    let skillsElements = []
-    console.log(project[i])
-    const title = project[i]["title"]
-    const description = project[i]["description"]
     const image = project[i]["image"]
-    const externalLink = () => {
-      if (typeof project[i]["link"] !== 'undefined') {
-        return <a href={project[i]["link"]} target="_blank"><BiLinkExternal/></a>
-      }
-    }
-    const githubLink = () => {
-      if (typeof project[i]["github"] !== 'undefined') {
-        return <a href={project[i]["github"]} target="_blank"><FiGithub/></a>
-      }
-    }
-
-    for (const skill of project[i]["skills"]) {
-
-      skillsElements.push(<span className="skill"
-                                style={{
-                                  // @ts-ignore
-                                  color: skillsColor[skill.toLowerCase()],
-                                  // @ts-ignore
-                                  background: skillsColor[skill.toLowerCase()] + "40"
-                                }}>{skill}</span>)
-    }
     mainProjectCards.push(
       <SwiperSlide onClick={() => {
         my_swiper.slideTo(parseInt(i))
       }} className={"slide"}>
         <div className={"cardFront"}
              style={{backgroundImage: "url('" + image + "')"}}></div>
-        <div  ref={mainProjectRef[i]}>
-          <div className={"titleContainer"}>
-            <span className={"titleStyle"}>{title}</span>
-            <div className={"linkContainer"}>{externalLink()}{githubLink()}
-            </div>
-          </div>
-          <span className={"contentStyle"}>{description}</span>
-          <span className={"skillContainer"}>{skillsElements}</span>
-        </div>
+        <InfoCard ref={mainProjectRef[i]} project={project[i]} colorfulSkill={true}/>
       </SwiperSlide>
     )
   }
@@ -147,7 +114,18 @@ function ProjectContent() {
           <span className={"subContentStyle"}>all made with love</span>
         </div>
         <div className={"secondaryProjectDisplay"}>
-          <div></div>
+          <div className={"secondaryProjectComponent"}>
+            <InfoCard project={project[0]}/>
+          </div>
+          <div className={"secondaryProjectComponent"}>
+            <InfoCard project={project[0]}/>
+          </div>
+          <div className={"secondaryProjectComponent"}>
+            <InfoCard project={project[0]}/>
+          </div>
+          <div className={"secondaryProjectComponent"}>
+            <InfoCard project={project[0]}/>
+          </div>
         </div>
       </div>
     </div>
