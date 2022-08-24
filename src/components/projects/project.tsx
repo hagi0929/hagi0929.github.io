@@ -3,18 +3,20 @@ import Marquee from "react-fast-marquee";
 import tech from "../../../assets/techstack.json";
 import awards from "../../../assets/techstack.json";
 import Typewriter from "typewriter-effect";
-
+import {BiLinkExternal} from 'react-icons/bi';
+import {FiGithub} from 'react-icons/fi';
 import {createRef, useEffect, useMemo, useRef, useState} from "react";
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import {Pagination} from "swiper";
+import InfoCard from "../UI/card"
 
 const project = [{
   image: "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
   title: "MATH BOARD",
   description: "This is a website made for people who are interested in mathematics. ",
   github: "https://github.com/hagi0929/MATH-BOARD",
-  link: "https//naver.com",
-  skills: ["Django", "TypeScript", "SCSS", "HTML","MySql","AWS"],
+  link: "http://www.mathboard.online/",
+  skills: ["Django", "TypeScript", "SCSS", "HTML", "MySql", "AWS"],
 }, {
   image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
   title: "title1",
@@ -52,6 +54,16 @@ function ProjectContent() {
     const title = project[i]["title"]
     const description = project[i]["description"]
     const image = project[i]["image"]
+    const externalLink = () => {
+      if (typeof project[i]["link"] !== 'undefined') {
+        return <a href={project[i]["link"]} target="_blank"><BiLinkExternal/></a>
+      }
+    }
+    const githubLink = () => {
+      if (typeof project[i]["github"] !== 'undefined') {
+        return <a href={project[i]["github"]} target="_blank"><FiGithub/></a>
+      }
+    }
 
     for (const skill of project[i]["skills"]) {
 
@@ -64,13 +76,19 @@ function ProjectContent() {
                                 }}>{skill}</span>)
     }
     mainProjectCards.push(
-      <SwiperSlide className={"slide"}>
+      <SwiperSlide onClick={() => {
+        my_swiper.slideTo(parseInt(i))
+      }} className={"slide"}>
         <div className={"cardFront"}
              style={{backgroundImage: "url('" + image + "')"}}></div>
-        <div className={"cardBack"} ref={mainProjectRef[i]}>
-          <span className={"titleStyle"}>{title}</span>
+        <div  ref={mainProjectRef[i]}>
+          <div className={"titleContainer"}>
+            <span className={"titleStyle"}>{title}</span>
+            <div className={"linkContainer"}>{externalLink()}{githubLink()}
+            </div>
+          </div>
           <span className={"contentStyle"}>{description}</span>
-          <span className={"slideContainer"}>{skillsElements}</span>
+          <span className={"skillContainer"}>{skillsElements}</span>
         </div>
       </SwiperSlide>
     )
@@ -78,10 +96,10 @@ function ProjectContent() {
   useEffect(() => {
     for (let i = 0; i < mainProjectRef.length; i++) {
       if (swiperIndex == i) {
-        mainProjectRef[i].current!.style.top = "-60px"
+        mainProjectRef[i].current!.style.top = "calc(100% - 60px)"
         mainProjectRef[i].current!.style.opacity = "1"
       } else {
-        mainProjectRef[i].current!.style.top = "-100%"
+        mainProjectRef[i].current!.style.top = "0"
         mainProjectRef[i].current!.style.opacity = "0"
       }
     }
@@ -121,6 +139,15 @@ function ProjectContent() {
           >
             {mainProjectCards}
           </Swiper>
+        </div>
+      </div>
+      <div className={"secondaryProjectContainer"}>
+        <div className={"secondaryProjectText"}>
+          <span className={"titleStyle"}>Other Noteworthy Projects</span>
+          <span className={"subContentStyle"}>all made with love</span>
+        </div>
+        <div className={"secondaryProjectDisplay"}>
+          <div></div>
         </div>
       </div>
     </div>

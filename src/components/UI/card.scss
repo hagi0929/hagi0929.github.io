@@ -1,0 +1,60 @@
+.cardInfo {
+  width: calc(100% - 60px);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  transition: 0.3s;
+  padding: 80px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  > span:nth-child(1) {
+    font-size: 20px;
+    grid-area: title;
+    padding: 10px 0 5px 0;
+  }
+
+  > span:nth-child(2) {
+    font-size: 16px;
+    font-weight: 300 !important;
+    grid-area: content;
+    padding: 5px 0 10px 0;
+    color: #c0c0c0 !important;
+  }
+
+  > span:nth-child(3) {
+    font-size: 12px;
+    grid-area: subContent;
+    padding-top: 10px;
+  }
+
+  .titleContainer {
+    line-height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    //justify-content: space-between;
+
+
+    .linkContainer {
+      font-size: 25px;
+      display: flex;
+      gap: 5px;
+      width: min-content;
+      opacity: 0.8;
+    }
+  }
+}
