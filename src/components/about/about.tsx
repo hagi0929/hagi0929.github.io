@@ -44,17 +44,29 @@ function AboutContent() {
       </EZIO>
 */}
       <div className={"aboutIntroContainer"}>
-        <EZIO className={"line quoteContainer"}>
-          <div className={"quote left"}>first solve the problem,</div>
-          <div className={"quote right reverse"}>then write the code.</div>
+        <EZIO className={"line quoteContainer"} handleIntersect={(refs: any) => {
+          refs.current.className += " activateAnimation"
+        }}>
+          <div className={"quote left animation titleText"}>first solve the problem,</div>
+          <div className={"quote right reverse animation titleText"}>then write the code.</div>
+          <div className={"author down reverse animation titleSubText"}>- John Jhonson -</div>
+        </EZIO>
+        <EZIO className={"line descriptionContainer titleSubText"} handleIntersect={(refs: any) => {
+          refs.current.className += " activateAnimation"
+        }}>
+          <div className={"quote down animation description"}>Lorem ipsum dolor sit amet. Ea repellat nobis aut eius perspiciatis
+          vel laborum dolore id numquam consectetur non similique molestiae. Et
+          ipsa minima non mollitia laborum ab commodi fugit. Sed libero quos et
+          necessitatibus dignissimos et omnis aperiam in exercitationem
+          molestias id asperiores dolores. sibal cex.</div>
         </EZIO>
       </div>
       <div className={"skillsContainer"}>
-        <EZIO className={"skillIntro"} handleIntersect={(refs: any) => {
+        <EZIO className={"line skillIntro"} handleIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
-          <span className={"skillIntroText"}>I do&nbsp;</span>
-          <span ref={introTypeRef} className={"skillIntroType"}>
+          <div className={"skillIntroText down animation"}>I do&nbsp;</div>
+          <div ref={introTypeRef} className={"skillIntroType down animation"}>
             <Typewriter
               onInit={(typewriter) => {
                 const temps = [
@@ -78,28 +90,28 @@ function AboutContent() {
                 loop: true,
               }}
             />
-          </span>
+          </div>
         </EZIO>
         <EZIO className={"techStackContainer"} handleIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
           <div className={"line reverse"}>
-            <div className={"languageT animation"}>Language</div>
+            <div className={"languageT down animation"}>Language</div>
           </div>
           <div className={"line"}>
-            <div className={"languageC animation gray"}>Python C++ Java Javascript Typescript CSS/Scss HTML PHP SQL</div>
+            <div className={"languageC down animation gray"}>Python C++ Java Javascript Typescript CSS/Scss HTML PHP SQL</div>
           </div>
           <div className={"line reverse"}>
-            <div className={"frameworkT animation"}>Framework</div>
+            <div className={"frameworkT down animation"}>Framework</div>
           </div>
           <div className={"line"}>
-            <div className={"frameworkC animation gray"}>React.js Node.js django</div>
+            <div className={"frameworkC down animation gray"}>React.js Node.js django</div>
           </div>
           <div className={"line reverse"}>
-            <div className={"toolsT animation"}>Tools</div>
+            <div className={"toolsT down animation"}>Tools</div>
           </div>
           <div className={"line"}>
-            <div className={"toolsC animation gray"}>MySQL Tensorflow Git AWS</div>
+            <div className={"toolsC down animation gray"}>MySQL Tensorflow Git AWS</div>
           </div>
         </EZIO>
       </div>

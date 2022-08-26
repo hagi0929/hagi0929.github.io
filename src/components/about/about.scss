@@ -33,18 +33,21 @@
       gap: 80px;
 
       .skillIntro {
+        font-family: "nanumsquare", sans-serif;
         line-height: 86px;
         font-size: 64px;
         display: flex;
         width: 700px;
+        font-weight: bolder;
 
         .skillIntroText {
+          transition: 1s;
           color: gray;
         }
 
         .skillIntroType {
+          transition: 1s;
           padding-left: 20px;
-          transition: 0.2s;
         }
       }
 
@@ -61,7 +64,6 @@
         div {
           transition: 1s all;
           overflow: hidden;
-          transform: translateY(100%);
         }
 
         .languageT {
@@ -98,21 +100,23 @@
 
     .aboutIntroContainer {
       width: 100%;
-      display: grid;
+      display: flex;
       grid-area: quoteArea;
-      grid-template-areas:
-              "title1"
-              "."
-              "title2"
-              "."
-              "author"
-              "."
-              "description";
-      grid-template-rows: min-content 0 min-content 30px min-content 100px min-content;
-      .quoteContainer{
+      flex-direction: column;
+      gap: 50px;
 
+      .quoteContainer {
+        grid-area: title;
+        line-height: 84px;
       }
+
+      .descriptionContainer {
+        grid-area: description;
+        text-align: center;
+      }
+
       .titleText {
+        font-family: 'IBM Plex Serif', serif;
         font-size: 64px;
       }
 
@@ -121,32 +125,21 @@
       }
 
 
-      .quote1 {
+      .quote {
         transition: 1s all;
-        transition-delay: 100ms;
-        transform: translateX(-100%);
-        grid-area: title1;
-        min-width: 757px;
-      }
-
-      .quote2 {
-        transition: 1s all;
-        transition-delay: 200ms;
-        transform: translateX(100%);
-        grid-area: title2;
       }
 
       .author {
-        transition-delay: 300ms;
-        grid-area: author;
+
+        transition: 1s all;
+        transition-delay: 800ms;
         text-align: center;
-        transform: translateY(100%);
       }
 
       .description {
-        transition-delay: 400ms;
-        grid-area: description;
-        transform: translateY(100%);
+        transition: 1s all;
+        transition-delay: 1000ms;
+        opacity: 0;
       }
     }
   }
@@ -188,6 +181,23 @@
 .reverse {
   text-align: right;
 }
+
 .gray {
   color: gray;
+}
+
+.left {
+  transform: translateX(-100%);
+}
+
+.right {
+  transform: translateX(100%);
+}
+
+.up {
+  transform: translateY(-100%);
+}
+
+.down {
+  transform: translateY(100%);
 }
