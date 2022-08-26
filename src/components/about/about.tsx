@@ -1,10 +1,10 @@
 import "./about.scss";
 import Marquee from "react-fast-marquee";
-import tech from "../../../assets/techstack.json";
-import awards from "../../../assets/techstack.json";
+import tech from "../../assets/data.json";
+import awards from "../../assets/data.json";
 import Typewriter from "typewriter-effect";
-
-import { useEffect, useRef, useState } from "react";
+import {EZIO} from "../animation/animation";
+import {useEffect, useRef, useState} from "react";
 
 function AboutContent() {
   const quoteContainerRef = useRef<HTMLDivElement>(null);
@@ -13,21 +13,6 @@ function AboutContent() {
     // @ts-ignore
     introTypeRef.current.style.background = val;
   };
-
-  useEffect(() => {
-    console.log("quoteContainerRef");
-    new IntersectionObserver(
-      (entries) => {
-        console.log("cex");
-        if (entries[0].isIntersecting) {
-          quoteContainerRef.current!.className += " activateAnimation";
-        }
-      },
-      {
-        threshold: [0.5],
-      }
-    ).observe(quoteContainerRef.current!);
-  }, []);
   useEffect(() => {
     const changeTypeColor = (val: String) => {
       // @ts-ignore
@@ -36,26 +21,38 @@ function AboutContent() {
   }, []);
   return (
     <div className={"aboutLayout"}>
-      <div ref={quoteContainerRef} className={"quoteContainer"}>
-        <div className={"quote1 titleText"}>
+      {/*
+      <EZIO ref={quoteContainerRef} className={"quoteContainer"} handleIntersect={(refs: any) => {
+        refs.current.className += " activateAnimation"
+      }}>
+        <div className={"quote1 titleText animation"}>
           <span className={"translucent"}>first solve the</span> problem,
         </div>
-        <div className={"quote2 titleText"}>
-          <span className={"translucent"}>then write the</span> code.
+        <div className={"quote2 titleText animation"}>
+          <span className={"translucent "}>then write the</span> code.
         </div>
-        <div className={"author titleSubText translucent"}>
+        <div className={"author titleSubText translucent animation"}>
           - John Jhonson -
         </div>
-        <div className={"description titleSubText translucent"}>
+        <div className={"description titleSubText translucent animation"}>
           Lorem ipsum dolor sit amet. Ea repellat nobis aut eius perspiciatis
           vel laborum dolore id numquam consectetur non similique molestiae. Et
           ipsa minima non mollitia laborum ab commodi fugit. Sed libero quos et
           necessitatibus dignissimos et omnis aperiam in exercitationem
           molestias id asperiores dolores. sibal cex.
         </div>
+      </EZIO>
+*/}
+      <div className={"aboutIntroContainer"}>
+        <EZIO className={"line quoteContainer"}>
+          <div className={"quote left"}>first solve the problem,</div>
+          <div className={"quote right reverse"}>then write the code.</div>
+        </EZIO>
       </div>
-      <div className={"skillsContainer grid"}>
-        <div className={"skillIntro"}>
+      <div className={"skillsContainer"}>
+        <EZIO className={"skillIntro"} handleIntersect={(refs: any) => {
+          refs.current.className += " activateAnimation"
+        }}>
           <span className={"skillIntroText"}>I do&nbsp;</span>
           <span ref={introTypeRef} className={"skillIntroType"}>
             <Typewriter
@@ -82,14 +79,30 @@ function AboutContent() {
               }}
             />
           </span>
-        </div>
-        <span className={"languageT T"}>Language</span>
-        <span className={"languageC C"}>Python C++ Java Javascript Typescript CSS/Scss HTML PHP SQL</span>
-              <span className={"frameworkT T"}>Framework</span>
-        <span className={"frameworkC C"}>React.js Node.js django</span>
-        <span className={"toolsT T"}>Tools</span>
-        <span className={"toolsC C"}>MySQL Tensorflow Git AWS</span>
-</div>
+        </EZIO>
+        <EZIO className={"techStackContainer"} handleIntersect={(refs: any) => {
+          refs.current.className += " activateAnimation"
+        }}>
+          <div className={"line reverse"}>
+            <div className={"languageT animation"}>Language</div>
+          </div>
+          <div className={"line"}>
+            <div className={"languageC animation gray"}>Python C++ Java Javascript Typescript CSS/Scss HTML PHP SQL</div>
+          </div>
+          <div className={"line reverse"}>
+            <div className={"frameworkT animation"}>Framework</div>
+          </div>
+          <div className={"line"}>
+            <div className={"frameworkC animation gray"}>React.js Node.js django</div>
+          </div>
+          <div className={"line reverse"}>
+            <div className={"toolsT animation"}>Tools</div>
+          </div>
+          <div className={"line"}>
+            <div className={"toolsC animation gray"}>MySQL Tensorflow Git AWS</div>
+          </div>
+        </EZIO>
+      </div>
     </div>
   );
 }
@@ -97,9 +110,7 @@ function AboutContent() {
 function About() {
   return (
     <div className={"mainLayout"}>
-      <div className={"side "}></div>
-      <AboutContent />
-      <div className={"side1 "}></div>
+      <AboutContent/>
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import "./project.scss";
 import Marquee from "react-fast-marquee";
-import tech from "../../../assets/techstack.json";
-import awards from "../../../assets/techstack.json";
 import Typewriter from "typewriter-effect";
 import {BiLinkExternal} from 'react-icons/bi';
 import {FiGithub} from 'react-icons/fi';
@@ -9,31 +7,10 @@ import {createRef, useEffect, useMemo, useRef, useState} from "react";
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import {Pagination} from "swiper";
 import InfoCard from "../UI/card"
+import data from "../../assets/data.json"
 
-const project = [{
-  image: "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-  title: "MATH BOARD",
-  description: "This is a website made for people who are interested in mathematics. ",
-  github: "https://github.com/hagi0929/MATH-BOARD",
-  link: "http://www.mathboard.online/",
-  skills: ["Django", "TypeScript", "SCSS", "HTML", "MySql", "AWS"],
-}, {
-  image: "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-  title: "title1",
-  content: "",
-  skills: ["React"],
-}]
-const skillsColor = {
-  react: "#01d0f7",
-  typescript: "#007acc",
-  scss: "#cd679a",
-  django: "#218c65",
-  aws: "#f79918",
-  php: "#8993be",
-  html: "#ff5722",
-  mysql: "#4379a1"
-}
-
+const project = data.projectMain
+const projectSecondary = data.projectSub
 function ProjectContent() {
   const [my_swiper, set_my_swiper] = useState(useSwiper());
   const [swiperIndex, setSwiperIndex] = useState<number>(0)
@@ -49,7 +26,7 @@ function ProjectContent() {
   let mainProjectCards = []
   const mainProjectContainerRef = useRef() as any;
   for (let i in mainProjectRef) {
-    const image = project[i]["image"]
+    const image = project[i]['image']
     mainProjectCards.push(
       <SwiperSlide onClick={() => {
         my_swiper.slideTo(parseInt(i))
@@ -58,6 +35,21 @@ function ProjectContent() {
              style={{backgroundImage: "url('" + image + "')"}}></div>
         <InfoCard ref={mainProjectRef[i]} project={project[i]} colorfulSkill={true}/>
       </SwiperSlide>
+    )
+  }
+  let secondaryProjectCards = []
+  for (let i in projectSecondary) {
+    const image = projectSecondary[i]["image"]
+    const TColor = projectSecondary[i]["color"]
+    secondaryProjectCards.push(
+      <div className={"secondaryProjectComponent"}>
+        <div className={"thumbnail"} style={{backgroundImage: "url('" + image + "')"}}></div>
+        <InfoCard project={projectSecondary[i]}
+                  style={{
+                    color: TColor,
+                    background: "linear-gradient(180deg, " + TColor + "00 2.58%, " + TColor + "14 100%)",
+                  }}/>
+      </div>
     )
   }
   useEffect(() => {
@@ -114,18 +106,7 @@ function ProjectContent() {
           <span className={"subContentStyle"}>all made with love</span>
         </div>
         <div className={"secondaryProjectDisplay"}>
-          <div className={"secondaryProjectComponent"}>
-            <InfoCard project={project[0]}/>
-          </div>
-          <div className={"secondaryProjectComponent"}>
-            <InfoCard project={project[0]}/>
-          </div>
-          <div className={"secondaryProjectComponent"}>
-            <InfoCard project={project[0]}/>
-          </div>
-          <div className={"secondaryProjectComponent"}>
-            <InfoCard project={project[0]}/>
-          </div>
+          {secondaryProjectCards}
         </div>
       </div>
     </div>

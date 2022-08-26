@@ -1,36 +1,25 @@
 .mainLayoutHome {
   width: 100vw;
-  height: 100vh;
   grid-area: content;
   position: fixed;
-  display: grid;
   place-items: center;
   background: #111111;
-  grid-template-columns: 1fr minmax(200px, 1440px) 1fr;
-  grid-template-areas: "side content side1";
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  color: white;
   transition: 1s all;
-
-  .side {
-    grid-area: side;
-    min-width: 200px;
-  }
-
-  .side1 {
-    grid-area: side1;
-    min-width: 200px;
-  }
+  justify-content: center;
 }
 
 .homeLayout {
+  max-width: 1440px;
   height: 100%;
+  width: inherit;
   grid-template-columns: repeat(12, 1fr);
   grid-area: content;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   place-items: center;
-  background: #111111;
-  color: white;
   grid-template-areas:
   ". . . . . . . . . ."
   ". header header header header header header header header ."

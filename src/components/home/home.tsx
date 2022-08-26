@@ -1,7 +1,7 @@
 import "./home.scss";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
-import FadeIn from "../animation/animation";
+import {FadeIn} from "../animation/animation";
 
 function HomeContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -65,9 +65,7 @@ function HomeContent() {
 function Home() {
   return (
     <div className={"mainLayoutHome"}>
-      <div className={"side "}></div>
       <HomeContent />
-      <div className={"side1 "}></div>
     </div>
   );
 }

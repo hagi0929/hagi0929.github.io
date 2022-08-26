@@ -1,170 +1,161 @@
 .mainLayout {
   font-weight: 700;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr minmax(800px, 1440px) 1fr;
-  grid-template-areas: "side content side1";
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
   transition: 1s all;
-
-  .side {
-    grid-area: side;
-    min-width: 200px;
-  }
-
-  .side1 {
-    grid-area: side1;
-    min-width: 200px;
-  }
+  display: flex;
+  justify-content: center;
 
   .aboutLayout {
-
+    max-width: 1000px;
     width: 100%;
     display: grid;
     grid-area: content;
     grid-template-rows: 250px min-content 50vh min-content 50vh;
+    justify-items: center;
     grid-template-areas:
-  ". . . . . . . . . . . ."
-  ". quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea quoteArea ."
-  ". . . . . . . . . . . ."
-  ". skills skills skills skills skills skills skills skills skills skills ."
-  ". . . . . . . . . . . .";
-    grid-template-columns: repeat(12, 1fr);
+  "."
+  "quoteArea"
+  "."
+  "skills"
+  ".";
 
-    > .skillsContainer {
+    .skillsContainer {
+      max-width: 900px;
+      display: flex;
       height: min-content;
       grid-area: skills;
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      grid-template-rows: min-content 100px min-content 10px min-content 10px min-content;
-      grid-template-areas:
-      ". skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro skillIntro ."
-      ". . . . . . . . . ."
-      ". languageT languageC languageC languageC languageC languageC languageC languageC ."
-      ". . . . . . . . . ."
-      ". frameworkT frameworkC frameworkC frameworkC frameworkC frameworkC frameworkC frameworkC ."
-      ". . . . . . . . . ."
-      ". toolsT toolsC toolsC toolsC toolsC toolsC toolsC toolsC .";
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      gap: 80px;
 
-      > .skillIntro {
-      font-size: 64px;
-        grid-area: skillIntro;
+      .skillIntro {
+        line-height: 86px;
+        font-size: 64px;
         display: flex;
+        width: 700px;
 
-        > .skillIntroText {
+        .skillIntroText {
           color: gray;
         }
 
-        > .skillIntroType {
+        .skillIntroType {
           padding-left: 20px;
           transition: 0.2s;
         }
       }
-      >.T{
-        text-align: right;
-        overflow: visible;
-      }
-      >.C{
-        color: gray;
-      }
-      > .languageT {
-        grid-area: languageT;
-      }
 
-      > .languageC {
-        grid-area: languageC;
-      }
+      .techStackContainer {
+        font-size: 20px;
+        display: grid;
+        grid-template-rows: min-content min-content min-content;
+        gap: 10px;
+        grid-template-areas:
+                "title1 content1"
+                "title2 content2"
+                "title3 content3";
 
-      > .frameworkT {
-        grid-area: frameworkT;
-      }
+        div {
+          transition: 1s all;
+          overflow: hidden;
+          transform: translateY(100%);
+        }
 
-      > .frameworkC {
-        grid-area: frameworkC;
-      }
+        .languageT {
+          grid-area: title1;
+          transition-delay: 100ms;
+        }
 
-      > .toolsT {
-        grid-area: toolsT;
-      }
+        .languageC {
+          grid-area: content1;
+          transition-delay: 200ms;
+        }
 
-      > .toolsC {
-        grid-area: toolsC;
+        .frameworkT {
+          grid-area: title2;
+          transition-delay: 300ms;
+        }
+
+        .frameworkC {
+          grid-area: content2;
+          transition-delay: 400ms;
+        }
+
+        .toolsT {
+          grid-area: title3;
+          transition-delay: 500ms;
+        }
+
+        .toolsC {
+          grid-area: content3;
+          transition-delay: 600ms;
+        }
       }
     }
 
-    .quoteContainer {
+    .aboutIntroContainer {
       width: 100%;
       display: grid;
       grid-area: quoteArea;
       grid-template-areas:
-              "title1 title1 title1 title1 title1 title1 title1 title1 title1 title1"
-              ". . . . . . . . . ."
-              "title2 title2 title2 title2 title2 title2 title2 title2 title2 title2"
-              ". . . . . . . . . ."
-              "author author author author author author author author author author"
-              ". . . . . . . . . ."
-              ". description description description description description description description description .";
-      grid-template-columns: repeat(10, 1fr);
+              "title1"
+              "."
+              "title2"
+              "."
+              "author"
+              "."
+              "description";
       grid-template-rows: min-content 0 min-content 30px min-content 100px min-content;
+      .quoteContainer{
 
+      }
       .titleText {
         font-size: 64px;
-        opacity: 0;
       }
 
       .titleSubText {
         font-size: 20px;
       }
 
-      .translucent {
-        color: gray;
-      }
 
       .quote1 {
+        transition: 1s all;
+        transition-delay: 100ms;
         transform: translateX(-100%);
         grid-area: title1;
         min-width: 757px;
       }
 
       .quote2 {
+        transition: 1s all;
+        transition-delay: 200ms;
         transform: translateX(100%);
         grid-area: title2;
       }
 
       .author {
+        transition-delay: 300ms;
         grid-area: author;
         text-align: center;
-        opacity: 0;
+        transform: translateY(100%);
       }
 
       .description {
+        transition-delay: 400ms;
         grid-area: description;
-        opacity: 0;
+        transform: translateY(100%);
       }
     }
   }
 }
 
 .activateAnimation {
-
-  .quote1 {
-    animation: moveToX 1s forwards;
-  }
-
-  .quote2 {
-    animation: moveToX 1s forwards;
-  }
-
-  .author {
-    animation: showUp 3s forwards;
-    animation-delay: 0.5s;
-  }
-
-  .description {
-    animation: showUp 3s forwards;
-    animation-delay: 1s;
+  .animation {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -187,4 +178,16 @@
       text-align: center;
     }
   }
+}
+
+.line {
+  width: 100%;
+  overflow: hidden;
+}
+
+.reverse {
+  text-align: right;
+}
+.gray {
+  color: gray;
 }

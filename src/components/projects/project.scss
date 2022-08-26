@@ -22,7 +22,7 @@
 
 .projectLayout {
   display: grid;
-  width: 1000px;
+  max-width: 1000px;
   grid-template-rows: 30vh min-content 30vh min-content 100px;
   grid-template-areas:
           "."
@@ -32,12 +32,12 @@
           ".";
 
   .primaryProjectContainer {
-    width: inherit;
+    width: 1000px;
     display: grid;
     grid-area: mainProject;
     grid-template-areas: "text slide";
     grid-template-columns: 50% 50%;
-  overflow: visible;
+    overflow: visible;
 
 
     .primaryProjectText {
@@ -177,12 +177,12 @@
       .secondaryProjectComponent {
         overflow: visible;
         transition: 0.3s;
+        -webkit-backface-visibility: hidden;
+
         padding-top: 30px;
 
         .cardBack {
-          color: #9C27B0;
           padding: 60px 30px 30px 30px;
-          background: linear-gradient(180deg, #9C27B000 2.58%, #9C27B014 100%);
         }
       }
 

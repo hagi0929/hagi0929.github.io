@@ -1,9 +1,9 @@
 import "./App.scss";
-import React, { useState, useRef, useEffect, useMemo, createRef } from "react";
+import React, {useState, useRef, useEffect, useMemo, createRef} from "react";
 import "./globalStyle.scss";
-import { Navigate, Route } from "react-router-dom";
+import {Navigate, Route} from "react-router-dom";
 import NavBar from "../components/floatItems/navBar";
-import { useMediaQuery } from "react-responsive";
+import {useMediaQuery} from "react-responsive";
 import Home from "../components/home/home";
 import About from "../components/about/about";
 import {
@@ -17,8 +17,9 @@ import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 import ScrollTracker from "../components/floatItems/scrollIndicator";
 // @ts-ignore
-import { useScrollLock } from "@hornbeck/scroll-lock";
+import {useScrollLock} from "@hornbeck/scroll-lock";
 import Project from "../components/projects/project";
+import Contact from "../components/contact/contact";
 
 let optionList = [
   ["normalFont", 0, " focus"],
@@ -27,10 +28,10 @@ let optionList = [
   ["normalFont", 3, " focus"],
 ];
 const themeChooser = [
-  <AboutTheme />,
-  <AboutTheme />,
-  <ProjectTheme />,
-  <AboutTheme />,
+  <AboutTheme/>,
+  <AboutTheme/>,
+  <ProjectTheme/>,
+  <AboutTheme/>,
 ];
 
 function useWindowDimensions() {
@@ -62,7 +63,7 @@ function useWindowDimensions() {
 }
 
 function App() {
-  const { height, width } = useWindowDimensions();
+  const {height, width} = useWindowDimensions();
   const pageRef = useMemo(
     () =>
       Array(4)
@@ -114,7 +115,7 @@ function App() {
       return (height * r) / pageRef[i].current?.clientHeight;
     };
     for (let i = 0; i < 4; i += 1) {
-      const ratioHalf = calculateRatio(0.7, i);
+      const ratioHalf = calculateRatio(0.5, i);
       new IntersectionObserver(
         (entries) => {
           observerState[i] = entries[0].intersectionRatio > ratioHalf;
@@ -136,17 +137,18 @@ function App() {
     pageRef[2].current?.clientHeight,
     pageRef[3].current?.clientHeight,
   ]);
-  useEffect(() => {}, [page]);
+  useEffect(() => {
+  }, [page]);
 
   return (
     <div className="App">
-      <AnimationKit />
+      <AnimationKit/>
       {themeChooser[page]}
       <div className={"home"}>
-        <Home />
+        <Home/>
       </div>
       <div className={"menuBar float"}>
-        <NavBar options={optionList[page]} menuNum={menuClicked} />
+        <NavBar options={optionList[page]} menuNum={menuClicked}/>
       </div>
       <div className={"socials float"}>
         <div className={"socialText"}>
@@ -182,18 +184,18 @@ function App() {
         </a>
       </div>
       <div className={"progress float"}>
-        <ScrollTracker />
+        <ScrollTracker/>
       </div>
       <div className={"layoutMain"}>
         <div ref={pageRef[0]} className={"gridHome page"}></div>
         <div ref={pageRef[1]} className={"gridAboutMe page"}>
-          <About />
+          <About/>
         </div>
         <div ref={pageRef[2]} className={"gridProjects page"}>
-          <Project />
+          <Project/>
         </div>
         <div ref={pageRef[3]} className={"gridContacts page"}>
-          <About />
+          <Contact/>
         </div>
       </div>
     </div>

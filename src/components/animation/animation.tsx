@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import "./animation.scss";
+import {} from "../../assets/data.json"
 
 interface FadeInInputs {
   text: String[];
@@ -11,8 +12,6 @@ function FadeIn(props: FadeInInputs) {
   let textNum = props.text.length;
   let displayList = [];
   for (let i = 0; i < textNum; i++) {
-    console.log(
-        props.text[i])
     displayList.push(
       <span
         style={{
@@ -26,7 +25,31 @@ function FadeIn(props: FadeInInputs) {
       </span>
     );
   }
-  console.log(displayList)
   return <div className={"FadeIn"}>{displayList}</div>;
 }
-export default FadeIn
+
+function EZIO(props: any) {
+  const component = useRef(null)
+  useEffect(() => {
+      let observer = new IntersectionObserver(([entry]) => {
+          if (entry.intersectionRatio>=0.99) {
+            props.handleIntersect(component)
+            observer.disconnect()
+          }
+        },
+        {
+          threshold: [1],
+        }
+      )
+      observer.observe(component.current!)
+    }
+
+    ,
+    []
+  )
+  return (<div className={props.className} ref={component}>
+    {props.children}
+  </div>)
+}
+
+export {FadeIn, EZIO}

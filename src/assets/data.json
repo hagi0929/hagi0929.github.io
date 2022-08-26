@@ -1,0 +1,61 @@
+{
+  "projectMain": [
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "MATH BOARD",
+      "description": "test description main project cex. ",
+      "github": "https://github.com/hagi0929/MATH-BOARD",
+      "link": "http://www.mathboard.online/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ]
+    },
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "MATH BOARD",
+      "description": "test description main project cex. ",
+      "github": "https://github.com/hagi0929/MATH-BOARD",
+      "link": "http://www.mathboard.online/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ]
+    }
+  ],
+  "projectSub": [
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "MATH BOARD",
+      "description": "test description sec projct cex. ",
+      "github": "https://github.com/hagi0929/MATH-BOARD",
+      "link": "http://www.mathboard.online/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ],
+      "color": "#E91E63"
+    },
+    {
+      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
+      "title": "title1",
+      "content": "",
+      "skills": [
+        "React"
+      ],
+      "color": "#9C27B0"
+    }
+  ]
+}

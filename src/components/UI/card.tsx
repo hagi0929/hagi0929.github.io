@@ -18,7 +18,6 @@ const skillsColor = {
 
 const InfoCard = forwardRef((prop: any, ref) => {
     let skillsElements = []
-    console.log(prop.project)
     const title = prop.project["title"]
     const description = prop.project["description"]
     const externalLink = () => {
@@ -55,7 +54,7 @@ const InfoCard = forwardRef((prop: any, ref) => {
 
     return (
       // @ts-ignore
-      <div ref={ref} className={"cardBack cardInfo"}>
+      <div ref={ref} className={"cardBack cardInfo"} style={prop.style}>
         <div className={"titleContainer"}>
           <span className={"titleStyle"}>{title}</span>
           <div className={"linkContainer"}>{externalLink()}{githubLink()}
