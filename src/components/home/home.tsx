@@ -23,7 +23,7 @@ function HomeContent() {
       <div className={"homeHeader"}>
         <div className={"TitleContainer"}>
           <span className={"homeHeaderTitleText"}>
-            <FadeIn delay={0} duration={0.3} text={["Hi,", "I'm", "Jaehak"]} />
+            <FadeIn delay={0} duration={0.2} text={["Hi,", "I'm", "Jaehak"]} />
           </span>
           <div className={"shaker"}>
             <img
@@ -37,7 +37,7 @@ function HomeContent() {
         <div className={"content"}>
           <FadeIn
             delay={2}
-            duration={0.1}
+            duration={0.01}
             text={[
               "An",
               "enthusiastic",

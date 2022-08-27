@@ -48,9 +48,6 @@ const InfoCard = forwardRef((prop: any, ref) => {
       skillsElements.push(<span className="skill"
                                 style={skillStyle(skill)}>{skill}</span>)
     }
-    InfoCard.defaultProps = {
-      colorfulSkill: false
-    }
 
     return (
       // @ts-ignore
@@ -60,8 +57,8 @@ const InfoCard = forwardRef((prop: any, ref) => {
           <div className={"linkContainer"}>{externalLink()}{githubLink()}
           </div>
         </div>
-        <span className={"contentStyle"}>{description}</span>
-        <span className={"skillContainer"}>{skillsElements}</span>
+        <div className={"contentStyle contentContainer"}>{description}</div>
+        <div className={"skillContainer"}>{skillsElements}</div>
       </div>
     )
   }

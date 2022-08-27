@@ -30,16 +30,15 @@ function FadeIn(props: FadeInInputs) {
 
 function EZIO(props: any) {
   const component = useRef(null)
+  console.log(props.className, props.IOOptions)
   useEffect(() => {
       let observer = new IntersectionObserver(([entry]) => {
-          if (entry.intersectionRatio>=0.99) {
-            props.handleIntersect(component)
+          if (entry.intersectionRatio>=(props.threshold-0.1)) {
+            props.onIntersect(component)
             observer.disconnect()
           }
         },
-        {
-          threshold: [1],
-        }
+        {threshold: props.threshold}
       )
       observer.observe(component.current!)
     }
@@ -52,4 +51,7 @@ function EZIO(props: any) {
   </div>)
 }
 
+    EZIO.defaultProps = {
+      threshold: 1
+    }
 export {FadeIn, EZIO}

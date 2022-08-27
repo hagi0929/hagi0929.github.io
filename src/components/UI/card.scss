@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: column;
   border-radius: 30px;
+  height: 100%;
+  gap: 10px;
+
 
   a {
     text-decoration: none;
@@ -22,6 +25,7 @@
   }
 
   > span:nth-child(1) {
+
     font-size: 20px;
     grid-area: title;
     padding: 10px 0 5px 0;
@@ -52,16 +56,21 @@
 
 
     .linkContainer {
-      font-size: 20px;
+      font-size: 25px;
       display: flex;
       gap: 5px;
       width: min-content;
       opacity: 0.8;
     }
   }
+  .contentContainer{
+    flex-grow: 1;
+    padding-bottom: 20px;
+  }
 }
 
 .skillContainer {
+  font-size: 13px;
   display: flex;
   flex-wrap: wrap;
   column-gap: 10px;

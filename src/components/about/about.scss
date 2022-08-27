@@ -68,32 +68,26 @@
 
         .languageT {
           grid-area: title1;
-          transition-delay: 100ms;
         }
 
         .languageC {
           grid-area: content1;
-          transition-delay: 200ms;
         }
 
         .frameworkT {
           grid-area: title2;
-          transition-delay: 300ms;
         }
 
         .frameworkC {
           grid-area: content2;
-          transition-delay: 400ms;
         }
 
         .toolsT {
           grid-area: title3;
-          transition-delay: 500ms;
         }
 
         .toolsC {
           grid-area: content3;
-          transition-delay: 600ms;
         }
       }
     }
@@ -132,13 +126,11 @@
       .author {
 
         transition: 1s all;
-        transition-delay: 800ms;
         text-align: center;
       }
 
       .description {
         transition: 1s all;
-        transition-delay: 1000ms;
         opacity: 0;
       }
     }
@@ -171,33 +163,4 @@
       text-align: center;
     }
   }
-}
-
-.line {
-  width: 100%;
-  overflow: hidden;
-}
-
-.reverse {
-  text-align: right;
-}
-
-.gray {
-  color: gray;
-}
-
-.left {
-  transform: translateX(-100%);
-}
-
-.right {
-  transform: translateX(100%);
-}
-
-.up {
-  transform: translateY(-100%);
-}
-
-.down {
-  transform: translateY(100%);
 }

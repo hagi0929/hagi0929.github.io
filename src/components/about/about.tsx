@@ -21,40 +21,18 @@ function AboutContent() {
   }, []);
   return (
     <div className={"aboutLayout"}>
-      {/*
-      <EZIO ref={quoteContainerRef} className={"quoteContainer"} handleIntersect={(refs: any) => {
-        refs.current.className += " activateAnimation"
-      }}>
-        <div className={"quote1 titleText animation"}>
-          <span className={"translucent"}>first solve the</span> problem,
-        </div>
-        <div className={"quote2 titleText animation"}>
-          <span className={"translucent "}>then write the</span> code.
-        </div>
-        <div className={"author titleSubText translucent animation"}>
-          - John Jhonson -
-        </div>
-        <div className={"description titleSubText translucent animation"}>
-          Lorem ipsum dolor sit amet. Ea repellat nobis aut eius perspiciatis
-          vel laborum dolore id numquam consectetur non similique molestiae. Et
-          ipsa minima non mollitia laborum ab commodi fugit. Sed libero quos et
-          necessitatibus dignissimos et omnis aperiam in exercitationem
-          molestias id asperiores dolores. sibal cex.
-        </div>
-      </EZIO>
-*/}
       <div className={"aboutIntroContainer"}>
-        <EZIO className={"line quoteContainer"} handleIntersect={(refs: any) => {
+        <EZIO className={"line quoteContainer"} onIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
           <div className={"quote left animation titleText"}>first solve the problem,</div>
           <div className={"quote right reverse animation titleText"}>then write the code.</div>
-          <div className={"author down reverse animation titleSubText"}>- John Jhonson -</div>
+          <div className={"author down reverse animation titleSubText gray"}>- John Jhonson -</div>
         </EZIO>
-        <EZIO className={"line descriptionContainer titleSubText"} handleIntersect={(refs: any) => {
+        <EZIO className={"line descriptionContainer titleSubText"} onIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
-          <div className={"quote down animation description"}>Lorem ipsum dolor sit amet. Ea repellat nobis aut eius perspiciatis
+          <div className={"quote down animation description gray"}>Lorem ipsum dolor sit amet. Ea repellat nobis aut eius perspiciatis
           vel laborum dolore id numquam consectetur non similique molestiae. Et
           ipsa minima non mollitia laborum ab commodi fugit. Sed libero quos et
           necessitatibus dignissimos et omnis aperiam in exercitationem
@@ -62,7 +40,7 @@ function AboutContent() {
         </EZIO>
       </div>
       <div className={"skillsContainer"}>
-        <EZIO className={"line skillIntro"} handleIntersect={(refs: any) => {
+        <EZIO className={"line skillIntro"} onIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
           <div className={"skillIntroText down animation"}>I do&nbsp;</div>
@@ -92,7 +70,7 @@ function AboutContent() {
             />
           </div>
         </EZIO>
-        <EZIO className={"techStackContainer"} handleIntersect={(refs: any) => {
+        <EZIO className={"techStackContainer"} onIntersect={(refs: any) => {
           refs.current.className += " activateAnimation"
         }}>
           <div className={"line reverse"}>
