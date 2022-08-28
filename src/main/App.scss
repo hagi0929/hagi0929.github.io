@@ -2,9 +2,6 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  animation: enableScroll forwards;
-  animation-delay: 3s;
-  animation-fill-mode: both;
 }
 
 .home {
@@ -85,7 +82,7 @@
     padding-top: 5px;
     opacity: 0;
     animation: showUp 1s forwards;
-    animation-delay: 3.5s;
+    animation-delay: 4s;
     width: 25px;
     height: 25px;
     filter: invert(100%);

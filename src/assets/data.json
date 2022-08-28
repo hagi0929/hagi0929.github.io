@@ -56,7 +56,7 @@
       "skills": [
         "React"
       ],
-      "color": "#9C27B0"
+      "color": "#C2185B"
     },
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
@@ -71,42 +71,6 @@
         "HTML",
         "MySql",
         "AWS"
-      ],
-      "color": "#E91E63"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
-      ],
-      "color": "#9C27B0"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
-      "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
-      ],
-      "color": "#E91E63"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
       ],
       "color": "#9C27B0"
     },
@@ -124,7 +88,7 @@
         "MySql",
         "AWS"
       ],
-      "color": "#E91E63"
+      "color": "#5727B0"
     },
     {
       "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
@@ -134,7 +98,7 @@
       "skills": [
         "React"
       ],
-      "color": "#9C27B0"
+      "color": "#272AB0"
     },
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
@@ -150,7 +114,7 @@
         "MySql",
         "AWS"
       ],
-      "color": "#E91E63"
+      "color": "#276BB0"
     },
     {
       "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
@@ -160,7 +124,7 @@
       "skills": [
         "React"
       ],
-      "color": "#9C27B0"
+      "color": "#57ACDC"
     },
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
@@ -176,7 +140,7 @@
         "MySql",
         "AWS"
       ],
-      "color": "#E91E63"
+      "color": "#57DCBE"
     },
     {
       "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
@@ -186,7 +150,7 @@
       "skills": [
         "React"
       ],
-      "color": "#9C27B0"
+      "color": "#60C6BE"
     }
   ]
 }

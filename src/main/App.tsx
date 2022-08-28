@@ -24,7 +24,7 @@ import Contact from "../components/contact/contact";
 let optionList = [
   ["normalFont", 0, " focus"],
   ["normalFont", 1, " focus"],
-  ["projectFont", 2, " focus"],
+  ["normalFont", 2, " focus"],
   ["normalFont", 3, " focus"],
 ];
 const themeChooser = [
@@ -74,7 +74,6 @@ function App() {
   const [page, setPage] = useState(0);
   const [lock, setLock] = useState(false);
   useScrollLock(lock);
-  const [scrollSnapSwitch, setScrollSnapSwitch] = useState<any>([null, null]);
   const goToPage = (pageNo: number, top: boolean = true) => {
     let adder = 0;
     if (top) {
@@ -106,7 +105,7 @@ function App() {
     setLock(true);
     setTimeout(() => {
       setLock(false);
-    }, 5000);
+    }, 3500);
   }, []);
   useEffect(() => {
     const observerState = new Array(4).fill(false);
@@ -171,7 +170,7 @@ function App() {
           </a>
         </div>
         <a
-          href="https://github.com/hagi0929/personal-website-v2"
+          href="https://github.com/hagi0929"
           target="_blank"
         >
           <img

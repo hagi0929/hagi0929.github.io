@@ -4,7 +4,7 @@
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--primary-color);
-  transition: 1s all;
+  transition: 0.5s color, 0.5s background-color;
   display: flex;
   justify-content: center;
 
@@ -61,7 +61,7 @@
                 "title2 content2"
                 "title3 content3";
 
-        div {
+        .down {
           transition: 1s all;
           overflow: hidden;
         }
@@ -141,6 +141,7 @@
   .animation {
     opacity: 1 !important;
     transform: none !important;
+    transition: 0s;
   }
 }
 

@@ -26,10 +26,10 @@ function ScrollTracker() {
         style={{
           transform: "translateY(" + scrollY + "px) translateX(0.1px)",
         }}
-        href="https://github.com/hagi0929"
+        href="https://github.com/hagi0929/personal-website-v2"
         target="_blank"
       >
-        <span className={"gray"}>Made by</span> <span className={"white"}>hagi0929</span>
+        <span className={"ssdds"}>Made by</span> <span className={"white"}>hagi0929</span>
       </a>
     </div>
   );

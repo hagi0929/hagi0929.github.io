@@ -58,7 +58,7 @@ function ProjectContent() {
           refs.current.className += " activateAnimation";
         }}
       >
-        <div className={"secondaryProjectComponent foo up animation"}>
+        <div className={"secondaryProjectComponent up animation"}>
           <div
             className={"container"}
             style={{
