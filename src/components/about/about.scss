@@ -145,23 +145,3 @@
   }
 }
 
-@media (min-width: 1080px) {
-  .aboutLayout {
-  }
-  @media (min-width: 1320px) {
-    .grid {
-      column-gap: 20px;
-    }
-    .quote2 {
-      text-align: right;
-    }
-  }
-  @media (max-width: 1319px) {
-    .grid {
-      column-gap: 10px;
-    }
-    .quote2 {
-      text-align: center;
-    }
-  }
-}

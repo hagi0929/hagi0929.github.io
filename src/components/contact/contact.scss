@@ -43,7 +43,7 @@
         color: white;
         font-family: "roboto", serif;
         font-weight: 300;
-        font-size: 100px;
+      font-size: clamp(3rem, 15vmin, 9rem);
         display: flex;
         flex-direction: column;
         border-top: white solid 3px;
@@ -53,7 +53,7 @@
         margin: 3px 0 3px 0;
 
         .lets {
-          height: 100px;
+          height: clamp(3rem, 15vmin, 9rem);
         }
 
         .effectContainer {
@@ -84,7 +84,7 @@
       position: relative;
       opacity: 0;
       color: white;
-      font-size: 24px;
+      font-size: clamp(0.8rem, 3vmin, 1.5rem);
       font-weight: 300;
       text-align: center;
       mix-blend-mode: difference;
