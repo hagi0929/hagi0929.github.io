@@ -11,7 +11,7 @@
   flex-direction: column;
   border-radius: 30px;
   height: 100%;
-  gap: 10px;
+  gap: 0.625em;
 
 
   a {
@@ -26,58 +26,58 @@
 
   > span:nth-child(1) {
 
-    font-size: 20px;
+    font-size: 1.25rem;
     grid-area: title;
-    padding: 10px 0 5px 0;
+    padding: 0.625em 0 0.313em 0;
   }
 
   > span:nth-child(2) {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 300 !important;
     grid-area: content;
-    padding: 5px 0 10px 0;
+    padding: 0.313em 0 0.625em 0;
     opacity: 0.7;
   }
 
   > span:nth-child(3) {
-    font-size: 12px;
+    font-size: 0.75rem;
     grid-area: subContent;
-    padding-top: 10px;
+    padding-top: 0.625em;
   }
 
   .titleContainer {
-    line-height: 20px;
+    line-height: 1.25em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.625em;
     align-items: center;
     //justify-content: space-between;
 
 
     .linkContainer {
-      font-size: 25px;
+      font-size: 1.75em;
       display: flex;
-      gap: 5px;
+      gap: 0.313em;
       width: min-content;
       opacity: 0.8;
     }
   }
   .contentContainer{
     flex-grow: 1;
-    padding-bottom: 20px;
+    padding-bottom: 0.5em;
   }
 }
 
 .skillContainer {
-  font-size: 13px;
+  font-size: 0.7em;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 10px;
-  row-gap: 8px;
+  column-gap: 0.800em;
+  row-gap: 0.5px;
 
   .skill {
-    border-radius: 8px;
+    border-radius: 0.800em;
     opacity: 0.8;
   }
 

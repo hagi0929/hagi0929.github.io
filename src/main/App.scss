@@ -25,26 +25,31 @@
   .gridHome {
     grid-area: home;
     height: 100vh;
+  width: 100vw;
     z-index: -1;
   }
 
   .gridAboutMe {
     grid-area: aboutMe;
+  width: 100vw;
     z-index: 2;
   }
 
   .gridProjects {
     grid-area: projects;
+  width: 100vw;
     z-index: 2;
   }
 
   .gridContacts {
     grid-area: contacts;
+  width: 100vw;
     z-index: 2;
   }
 
   .gridRightSpace {
     grid-area: right;
+  width: 100vw;
     z-index: 2;
   }
 }
