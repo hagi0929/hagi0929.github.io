@@ -11,6 +11,7 @@ import {
   AboutTheme,
   ProjectTheme,
   AnimationKit,
+  Spacing,
 } from "./globalStyle";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -141,6 +142,7 @@ function App() {
 
   return (
     <div className="App">
+      <Spacing/>
       <AnimationKit/>
       {themeChooser[page]}
       <div className={"home"}>

@@ -84,8 +84,18 @@ const AnimationKit = createGlobalStyle`
     transform: none
   }
 }
-
-  
 }
 `;
-export { HomeTheme, AboutTheme, ProjectTheme, AnimationKit };
+const Spacing = createGlobalStyle`
+@media (max-width: 750px){
+  :root {
+  --spacing:30px
+  }
+}
+@media (min-width: 751px){
+  :root {
+  --spacing:150px
+  }
+}
+`
+export {HomeTheme, AboutTheme, ProjectTheme, AnimationKit, Spacing};

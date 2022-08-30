@@ -12,18 +12,13 @@
 }
 
 .homeLayout {
-  max-width: 1440px;
+  max-width: 1000px;
+  margin: 0 var(--spacing) 0 var(--spacing);
   height: 100%;
-  width: inherit;
-  grid-template-columns: repeat(12, 1fr);
-  grid-area: content;
-  display: grid;
+  width: 100%;
+  display: flex;
   grid-template-rows: 1fr min-content 1fr;
   place-items: center;
-  grid-template-areas:
-  ". . . . . . . . . ."
-  ". header header header header header header header header ."
-  ". . . . . . . . . .";
 
   .homeHeader {
     grid-area: header;
@@ -31,25 +26,24 @@
     justify-content: center;
     flex-direction: column;
 
-    > .TitleContainer {
-      transform: rotate(0.04deg);
-      font-size: 64px;
+    .TitleContainer {
+      font-size: clamp(2.7rem, 8vw, 5rem);
       display: flex;
       flex-direction: row;
       align-items: baseline;
 
-      > .homeHeaderTitleText {
+      .homeHeaderTitleText {
         display: inline
       }
 
-      > .shaker {
+      .shaker {
         width: 50px;
         height: 50px;
         animation: showUp 1s forwards, wave 1s forwards;
         animation-delay: 1s, 1.5s;
         animation-fill-mode: both;
 
-        > .homeHeaderTitleIcon {
+        .homeHeaderTitleIcon {
           background-size: contain;
 
           width: 100%;
@@ -61,7 +55,7 @@
           user-select: none;
         }
 
-        > .homeHeaderTitleIcon:hover {
+        .homeHeaderTitleIcon:hover {
           animation: wave 1s forwards;
           animation-delay: 0.1s;
           cursor: pointer;
@@ -70,33 +64,22 @@
       }
     }
 
-    > .content {
-      font-size: 24px;
+    .content {
+      max-width: 700px;
+      font-size: clamp(1.3rem, 4vmin, 2rem);
       font-weight: 200;
       font-family: "roboto", serif;
     }
   }
 }
 
-@media (min-width: 1080px) {
-  .homeLayout {
-  }
-  @media (min-width: 1320px) {
-    .homeLayout {
-      column-gap: 20px;
-    }
-  }
-  @media (max-width: 1319px) {
-    .homeLayout {
-      column-gap: 10px;
-    }
+@media (max-width: 450px) {
+  .TitleContainer{
+    flex-direction: column-reverse !important;
   }
 }
-
-@keyframes showUpAndWave {
-  0% {
-    animation: wave 1s forwards;
-  }
-  50% {
+@media (max-width: 451px) {
+  .TitleContainer{
+    flex-direction: column-reverse !important;
   }
 }
