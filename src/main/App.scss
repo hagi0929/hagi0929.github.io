@@ -195,9 +195,13 @@
 
 @media (max-width: 750px) {
   .menuBar {
-    left: 0 !important;
+    left: 2px !important;
   }
   .progress {
-    left: calc(100vw - 20px) !important;
+    left: calc(100vw - 22px) !important;
+  }
+  .socials {
+    left: 2px !important;
+
   }
 }

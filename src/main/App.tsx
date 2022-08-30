@@ -155,27 +155,27 @@ function App() {
       <div className={"menuBar float"}>
         <NavBar options={optionList[page]} menuNum={menuClicked} />
       </div>
-      {isSmallerDevice && (
-        <div className={"socials float"}>
-          <div className={"socialText"}>
-            <a
-              href="https://www.facebook.com/hagi0929/"
-              target="_blank"
-              className={"facebook"}
-            >
-              FACEBOOK
-            </a>
-            <a
-              href="https://www.instagram.com/ha.__.gi/"
-              target="_blank"
-              className={"instagram"}
-            >
-              INSTAGRAM
-            </a>
-            <a href="" target="_blank" className={"linkedIn"}>
-              LINKED IN
-            </a>
-          </div>
+      <div className={"socials float"}>
+        <div className={"socialText"}>
+          <a
+            href="https://www.facebook.com/hagi0929/"
+            target="_blank"
+            className={"facebook"}
+          >
+            FACEBOOK
+          </a>
+          <a
+            href="https://www.instagram.com/ha.__.gi/"
+            target="_blank"
+            className={"instagram"}
+          >
+            INSTAGRAM
+          </a>
+          <a href="" target="_blank" className={"linkedIn"}>
+            LINKED IN
+          </a>
+        </div>
+        {isSmallerDevice && (
           <a href="https://github.com/hagi0929" target="_blank">
             <img
               className={"githubIcon"}
@@ -185,8 +185,9 @@ function App() {
               alt="d"
             />
           </a>
-        </div>
-      )}
+        )}
+      </div>
+
       <div className={"progress float"}>
         <ScrollTracker />
       </div>

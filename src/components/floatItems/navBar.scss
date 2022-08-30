@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   transition: 0.1s all;
-  transform: rotate(0.04deg);
   gap: 30px;
   a {
     line-height: 20px;
@@ -45,7 +44,7 @@
   .navBarMenu{
     gap: 10px !important;
   >a{
-    writing-mode:tb-rl
+    writing-mode:vertical-lr
   }
   }
 }
