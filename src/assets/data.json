@@ -2,10 +2,10 @@
   "projectMain": [
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "MATH BOARD",
-      "description": "test description main project cex. ",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
+      "title": "test",
+      "description": "test description main project. ",
+      "github": "https://github.com/hagi0929",
+      "link": "jnjn",
       "skills": [
         "Django",
         "TypeScript",
@@ -18,8 +18,8 @@
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
       "title": "sec",
-      "description": "test description main project cex. longer deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger des",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
+      "description": "test description main project. longer deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger des",
+      "github": "https://github.com/hagi0929",
       "link": "http://www.mathboard.online/",
       "skills": [
         "Django",
@@ -35,9 +35,9 @@
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
       "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
+      "description": "hello world",
+      "github": "https://github.com/hagi0929",
+      "link": "http://www.google.com/",
       "skills": [
         "Django",
         "TypeScript",
@@ -47,110 +47,6 @@
         "AWS"
       ],
       "color": "#E91E63"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
-      ],
-      "color": "#C2185B"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
-      "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
-      ],
-      "color": "#9C27B0"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
-      "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
-      ],
-      "color": "#5727B0"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
-      ],
-      "color": "#272AB0"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
-      "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
-      ],
-      "color": "#276BB0"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
-      ],
-      "color": "#57ACDC"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello sibal",
-      "github": "https://github.com/hagi0929/MATH-BOARD",
-      "link": "http://www.mathboard.online/",
-      "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
-      ],
-      "color": "#57DCBE"
-    },
-    {
-      "image": "https://fujifilm-x.com/wp-content/uploads/2019/08/x-t30_sample-images02.jpg",
-      "title": "title1",
-      "description": "test description sec projct cex. ",
-      "content": "",
-      "skills": [
-        "React"
-      ],
-      "color": "#60C6BE"
     }
   ]
 }
