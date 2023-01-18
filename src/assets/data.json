@@ -47,6 +47,22 @@
         "AWS"
       ],
       "color": "#E91E63"
+    },
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "auto gen test",
+      "description": "hello world",
+      "github": "https://github.com/hagi0929",
+      "link": "http://www.google.com/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ],
+      "color": "#E91E63"
     }
   ]
 }

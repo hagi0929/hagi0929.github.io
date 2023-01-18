@@ -27,11 +27,20 @@ function Contact() {
     }
   };
   const handleButtonClick = () => {
+    if (hoverBoolean){
     ref.current!.className = "mainLayoutContact clicked";
     setTop(<div className={"block animation"}>ministove3yo@gmail.com</div>);
 
     setBottom(<div className={"block animation"}>j54kim@uwaterloo.ca</div>);
     setHover(false);
+    }
+    else {
+      ref.current!.className = "mainLayoutContact";
+      setTop(<div className={"block animation"}></div>);
+
+      setBottom(<div className={"block animation"}></div>);
+      setHover(true);
+    }
   };
   return (
     <div ref={ref} className={"mainLayoutContact"}>
