@@ -2,8 +2,8 @@
   "projectMain": [
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "test",
-      "description": "test description main project. ",
+      "title": "WFind!t (in-progress)",
+      "description": "A waterloo campus web based application that helps students find their lost items on the campus",
       "github": "https://github.com/hagi0929",
       "link": "jnjn",
       "skills": [
@@ -17,8 +17,38 @@
     },
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "sec",
-      "description": "test description main project. longer deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger deslonger des",
+      "title": "IamCold",
+      "description": "A campus navigation app, which helps students to go to their classes through indoor tunnels and bridges.",
+      "github": "https://github.com/hagi0929",
+      "link": "http://www.mathboard.online/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ]
+    },
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "Openbrowser",
+      "description": "A full-stack project that uses decentralized storage and block chain to transfer and store images privately",
+      "github": "https://github.com/hagi0929",
+      "link": "http://www.mathboard.online/",
+      "skills": [
+        "Django",
+        "TypeScript",
+        "SCSS",
+        "HTML",
+        "MySql",
+        "AWS"
+      ]
+    },
+    {
+      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "title": "Unitfication",
+      "description": "A chrome extension that automatically converts all sites from American or Imperial units to SI metric and vice versa",
       "github": "https://github.com/hagi0929",
       "link": "http://www.mathboard.online/",
       "skills": [
@@ -34,8 +64,8 @@
   "projectSub": [
     {
       "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
-      "title": "auto gen test",
-      "description": "hello world",
+      "title": "Openbrowser ",
+      "description": "A full-stack project that uses decentralized storage and block chain to transfer and store images privately",
       "github": "https://github.com/hagi0929",
       "link": "http://www.google.com/",
       "skills": [
