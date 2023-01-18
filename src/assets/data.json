@@ -1,7 +1,7 @@
 {
   "projectMain": [
     {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "image": "https://github.com/hagi0929/personal-website-v2/blob/master/src/assets/projectImage/Wfinit.png?raw=true",
       "title": "WFind!t (in-progress)",
       "description": "A waterloo campus web based application that helps students find their lost items on the campus",
       "github": "https://github.com/hagi0929",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "image": "https://github.com/hagi0929/personal-website-v2/blob/master/src/assets/projectImage/Group%2022.jpg?raw=true",
       "title": "IamCold",
       "description": "A campus navigation app, which helps students to go to their classes through indoor tunnels and bridges.",
       "github": "https://github.com/hagi0929",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "image": "https://raw.githubusercontent.com/hagi0929/personal-website-v2/a84e72c9cff8445114a265aaf20a1e867f03a1ac/assets/projectImage/mathboard.svg",
+      "image": "",
       "title": "Unitfication",
       "description": "A chrome extension that automatically converts all sites from American or Imperial units to SI metric and vice versa",
       "github": "https://github.com/hagi0929",
