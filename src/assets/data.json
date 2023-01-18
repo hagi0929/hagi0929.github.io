@@ -2,31 +2,28 @@
   "projectMain": [
     {
       "image": "https://github.com/hagi0929/personal-website-v2/blob/master/src/assets/projectImage/Wfinit.png?raw=true",
-      "title": "WFind!t (in-progress)",
-      "description": "A waterloo campus web based application that helps students find their lost items on the campus",
+      "title": "WFind!t",
+      "description": "(in-progress) A waterloo campus web based application that helps students find their lost items on the campus",
       "github": "https://github.com/hagi0929",
-      "link": "jnjn",
+      "link": "https://github.com/WFindit",
       "skills": [
         "Django",
         "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
+        "React",
+        "Maria DB",
         "AWS"
       ]
     },
     {
-      "image": "https://github.com/hagi0929/personal-website-v2/blob/master/src/assets/projectImage/Group%2022.jpg?raw=true",
+      "image": "https://github.com/hagi0929/personal-website-v2/blob/master/src/assets/projectImage/Group%2022.png?raw=true",
       "title": "IamCold",
       "description": "A campus navigation app, which helps students to go to their classes through indoor tunnels and bridges.",
       "github": "https://github.com/hagi0929",
       "link": "http://www.mathboard.online/",
       "skills": [
+        "React Native",
+        "Javascript",
         "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
         "AWS"
       ]
     },
@@ -37,12 +34,10 @@
       "github": "https://github.com/hagi0929",
       "link": "http://www.mathboard.online/",
       "skills": [
-        "Django",
+        "React",
         "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
+        "Python",
+        "Flask"
       ]
     },
     {
@@ -52,12 +47,9 @@
       "github": "https://github.com/hagi0929",
       "link": "http://www.mathboard.online/",
       "skills": [
-        "Django",
-        "TypeScript",
-        "SCSS",
-        "HTML",
-        "MySql",
-        "AWS"
+        "JavaScript",
+        "CSS",
+        "HTML"
       ]
     }
   ],
