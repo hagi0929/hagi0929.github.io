@@ -85,6 +85,162 @@
         "AWS"
       ],
       "color": "#E91E63"
-    }
-  ]
+    },
+    {"title": "Personal Website V2",
+"description": "Version 2 of the personal website, showcasing portfolio projects, skills, and experience.",
+"github": "https://github.com/hagi0929/personal-website-v2",
+"link": "http://www.example.com/",
+"skills": [
+"TypeScript",
+"HTML",
+"CSS"
+],
+"color": "#E91E63"
+},
+    {"title": "Openbrowser Frontend",
+"description": "Frontend implementation for the Openbrowser project, a decentralized storage and block chain-based platform for transferring and storing images privately.",
+"github": "https://github.com/hagi0929/openbrowser-frontend",
+"link": "http://www.example.com/",
+"skills": [
+"TypeScript",
+"HTML",
+"CSS"
+],
+"color": "#4CAF50"
+},
+    {"title": "RusticChess Client",
+"description": "Client frontend for RusticChess, a full-stack chess game with a Rust server backend and TypeScript frontend. Offers an intuitive and user-friendly interface.",
+"github": "https://github.com/hagi0929/RusticChess-Client",
+"link": "http://www.example.com/",
+"skills": [
+"TypeScript",
+"HTML",
+"CSS"
+],
+"color": "#2196F3"
+},
+    {"title": "RusticChess Server",
+"description": "Server backend for RusticChess, a full-stack chess game with a Rust server backend and TypeScript frontend. Handles game logic and player connections.",
+"github": "https://github.com/hagi0929/RusticChess-Server",
+"link": "",
+"skills": [
+"Rust"
+],
+"color": "#9C27B0"
+},
+    {"title": "MedSpacy",
+"description": "Fork of MedSpacy, a library for clinical NLP with spaCy.",
+"github": "https://github.com/hagi0929/medspacy",
+"link": "",
+"skills": [
+"Jupyter Notebook",
+"Python"
+],
+"color": "#3F51B5"
+},
+    {"title": "Rust Algorithms",
+"description": "Fork of TheAlgorithms/Rust, a collection of algorithms implemented in the Rust programming language.",
+"github": "https://github.com/hagi0929/RustAlgorithms",
+"link": "",
+"skills": [
+"Rust"
+],
+"color": "#FF5722"
+},
+    {"title": "Hagi0929",
+"description": "",
+"github": "https://github.com/hagi0929/hagi0929",
+"link": "",
+"skills": [],
+"color": "#FFEB3B"
+},
+    {"title": "Openbrowser Frontend Prototype",
+"description": "Prototype version of the Openbrowser project frontend.",
+"github": "https://github.com/hagi0929/openbrowser-frontend-prototype",
+"link": "",
+"skills": [
+"Python"
+],
+"color": "#CDDC39"
+},
+    {"title": "Neu-Calculator",
+"description": "A web-based calculator with a neumorphism-inspired user interface. Perform basic arithmetic operations in style.",
+"github": "https://github.com/hagi0929/Neu-Calculator",
+"link": "",
+"skills": [
+"HTML",
+"CSS",
+"JavaScript"
+],
+"color": "#8BC34A"
+},
+    {"title": "Quad-Tree Image Compression",
+"description": "An image compression algorithm based on the quad-tree data structure.",
+"github": "https://github.com/hagi0929/quad-tree-image-compression",
+"link": "",
+"skills": [],
+"color": "#009688"
+},
+    {"title": "Polybets UI",
+"description": "User interface for the Polybets project.",
+"github": "https://github.com/hagi0929/polybets-ui",
+"link": "",
+"skills": [
+"TypeScript",
+"HTML",
+"CSS"
+],
+"color": "#00BCD4"
+},
+    {"title": "app.lp.finance",
+"description": "Financial application built using modern web technologies.",
+"github": "https://github.com/hagi0929/app.lp.finance",
+"link": "",
+"skills": [
+"JavaScript",
+"HTML",
+"CSS"
+],
+"color": "#03A9F4"
+},
+    {"title": "Leetcode Solutions",
+"description": "A collection of Leetcode solutions, aiming to solve at least one problem per day.",
+"github": "https://github.com/hagi0929/leetcode",
+"link": "",
+"skills": [
+"Python"
+],
+"color": "#3F51B5"
+},
+    {"title": "Scroll Stopper",
+"description": "A browser extension that stops scrolling, created to learn how browser extensions work.",
+"github": "https://github.com/hagi0929/scroll-stopper",
+"link": "",
+"skills": [
+"JavaScript",
+"HTML",
+"CSS"
+],
+"color": "#673AB7"
+},
+    {"title": "Baekjoon Online Judge Solutions",
+"description": "A repository containing solutions to problems from the Baekjoon Online Judge platform.",
+"github": "https://github.com/hagi0929/baekjoon",
+"link": "",
+"skills": [
+"Python"
+],
+"color": "#607D8B"
+},
+    {"title": "Magic 8-Ball",
+"description": "A web-based version of the classic Magic 8-Ball toy, providing random answers to user questions.",
+"github": "https://github.com/hagi0929/magic-8-ball",
+"link": "",
+"skills": [
+"HTML",
+"CSS",
+"JavaScript"
+],
+"color": "#795548"
+},  ]
 }
