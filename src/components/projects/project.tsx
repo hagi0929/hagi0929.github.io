@@ -78,7 +78,7 @@ function ProjectContent() {
   }
 
   let secondaryProjectCards = [];
-  for (let i in secondaryProjects) {
+  for (let i in secondaryProjects.reverse()) {
     const image = secondaryProjects[i].Thumbnail[0] || "";
     const TColor = getRandomColor();
     secondaryProjectCards.push(
