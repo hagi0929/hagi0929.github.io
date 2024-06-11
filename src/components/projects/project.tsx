@@ -23,6 +23,16 @@ interface Project {
 const projects: Project[] = data;
 const fileDir: string = process.env.PUBLIC_URL + "/files";
 
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+
 function ProjectContent() {
   const [my_swiper, set_my_swiper] = useState(useSwiper());
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
@@ -53,9 +63,9 @@ function ProjectContent() {
           className={"cardFront"}
           style={{ backgroundImage: `url(${fileDir}/${image})`,
           backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
- }}
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+        }}
         >
         <img src="" alt="" /></div>
         <InfoCard
@@ -70,7 +80,7 @@ function ProjectContent() {
   let secondaryProjectCards = [];
   for (let i in secondaryProjects) {
     const image = secondaryProjects[i].Thumbnail[0] || "";
-    const TColor = "#000";
+    const TColor = getRandomColor();
     secondaryProjectCards.push(
       <EZIO
         key={i}

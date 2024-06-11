@@ -3,6 +3,7 @@ import { BiLinkExternal } from 'react-icons/bi';
 import { FiGithub } from 'react-icons/fi';
 import { forwardRef } from 'react';
 import skillsColor from './skillsColor';
+import { MdMargin } from 'react-icons/md';
 
 interface Project {
   Techstack: string[];
@@ -24,14 +25,24 @@ const normalizeSkillName = (skill: string): string => {
   return skill.replace(' ', '').replace('-', '').toLowerCase();
 };
 
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 const InfoCard = forwardRef<HTMLDivElement, InfoCardProps>((props, ref) => {
   const { project, colorfulSkill, style } = props;
   const skillsElements = project.Techstack.map((skill) => {
     const normalizedSkill = normalizeSkillName(skill);
+    const color = skillsColor[normalizedSkill] || getRandomColor()
     const skillStyle = colorfulSkill
       ? {
-          color: skillsColor[normalizedSkill] || "white",
-          background: `${skillsColor[normalizedSkill]}40`,
+          color: color,
+          background: `${color}40`,
           padding: "4px 10px 4px 10px",
           opacity: 1,
         }
