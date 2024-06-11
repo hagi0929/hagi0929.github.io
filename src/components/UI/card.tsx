@@ -1,67 +1,72 @@
-import './card.scss'
-import {BiLinkExternal} from 'react-icons/bi';
-import {FiGithub} from 'react-icons/fi';
-import {createRef, forwardRef, useEffect, useMemo, useRef, useState} from "react";
-import {SwiperSlide} from "swiper/react";
+import './card.scss';
+import { BiLinkExternal } from 'react-icons/bi';
+import { FiGithub } from 'react-icons/fi';
+import { forwardRef } from 'react';
+import skillsColor from './skillsColor';
 
-const skillsColor = {
-  react: "#01d0f7",
-  typescript: "#007acc",
-  scss: "#cd679a",
-  django: "#218c65",
-  aws: "#f79918",
-  php: "#8993be",
-  html: "#ff5722",
-  mysql: "#4379a1"
+interface Project {
+  Techstack: string[];
+  Description: string | null;
+  Website: string | null;
+  Github: string | null;
+  Thumbnail: string[];
+  isPrimary: boolean;
+  name: string;
 }
 
+interface InfoCardProps {
+  project: Project;
+  colorfulSkill: boolean;
+  style?: React.CSSProperties;
+}
 
-const InfoCard = forwardRef((prop: any, ref) => {
-    let skillsElements = []
-    const title = prop.project["title"]
-    const description = prop.project["description"]
-    const externalLink = () => {
-      if (typeof prop.project["link"] !== 'undefined') {
-        return <a href={prop.project["link"]} target="_blank"><BiLinkExternal/></a>
-      }
-    }
-    const githubLink = () => {
-      if (typeof prop.project["github"] !== 'undefined') {
-        return <a href={prop.project["github"]} target="_blank"><FiGithub/></a>
-      }
-    }
-    const skillStyle = (skill:any) => {
-      if (prop.colorfulSkill) {
-        return {
-          // @ts-ignore
-          color: skillsColor[skill.toLowerCase()],
-          // @ts-ignore
-          background: skillsColor[skill.toLowerCase()] + "40",
+const normalizeSkillName = (skill: string): string => {
+  return skill.replace(' ', '').replace('-', '').toLowerCase();
+};
+
+const InfoCard = forwardRef<HTMLDivElement, InfoCardProps>((props, ref) => {
+  const { project, colorfulSkill, style } = props;
+  const skillsElements = project.Techstack.map((skill) => {
+    const normalizedSkill = normalizeSkillName(skill);
+    const skillStyle = colorfulSkill
+      ? {
+          color: skillsColor[normalizedSkill] || "white",
+          background: `${skillsColor[normalizedSkill]}40`,
           padding: "4px 10px 4px 10px",
-          opacity: 1
+          opacity: 1,
         }
-      } else {
-        return {}
-      }
-    }
-    for (const skill of prop.project["skills"]) {
-      skillsElements.push(<span className="skill"
-                                style={skillStyle(skill)}>{skill}</span>)
-    }
+      : {};
 
     return (
-      // @ts-ignore
-      <div ref={ref} className={"cardBack cardInfo"} style={prop.style}>
-        <div className={"titleContainer"}>
-          <span className={"titleStyle"}>{title}</span>
-          <div className={"linkContainer"}>{externalLink()}{githubLink()}
-          </div>
-        </div>
-        <div className={"contentStyle contentContainer"}>{description}</div>
-        <div className={"skillContainer"}>{skillsElements}</div>
-      </div>
-    )
-  }
-)
+      <span key={skill} className="skill" style={skillStyle}>
+        {skill}
+      </span>
+    );
+  });
 
-export default InfoCard
+  return (
+    <div ref={ref} className={"cardBack cardInfo"} style={style}>
+      <div className={"titleContainer"}>
+        <span className={"titleStyle"}>{project.name}</span>
+        <div className={"linkContainer"}>
+          {project.Website && (
+            <a href={project.Website} target="_blank" rel="noopener noreferrer">
+              <BiLinkExternal />
+            </a>
+          )}
+          {project.Github && (
+            <a href={project.Github} target="_blank" rel="noopener noreferrer">
+              <FiGithub />
+            </a>
+          )}
+        </div>
+      </div>
+      <div className={"contentStyle contentContainer"}>
+        {project.Description}
+      </div>
+      <div className={"skillContainer"}>{skillsElements}</div>
+    </div>
+  );
+});
+
+export default InfoCard;

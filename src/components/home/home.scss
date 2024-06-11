@@ -39,13 +39,12 @@
       .shaker {
         width: 50px;
         height: 50px;
-        animation: showUp 1s forwards, wave 1s forwards;
+        animation: showUp 1s forwards;
         animation-delay: 1s, 1.5s;
         animation-fill-mode: both;
 
         .homeHeaderTitleIcon {
           background-size: contain;
-
           width: 100%;
           height: 100%;
           -webkit-touch-callout: none;
@@ -67,8 +66,8 @@
     .content {
       max-width: 700px;
       font-size: clamp(1.3rem, 4vmin, 2rem);
-      font-weight: 200;
-      font-family: "roboto", serif;
+      font-weight: 500;
+      font-family: "Inter", serif;
     }
   }
 }

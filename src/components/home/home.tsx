@@ -2,6 +2,7 @@ import "./home.scss";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
 import {FadeIn} from "../animation/animation";
+import handimoji from './waving-hand_1f44b.png';
 
 function HomeContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -23,12 +24,12 @@ function HomeContent() {
       <div className={"homeHeader"}>
         <div className={"TitleContainer"}>
           <span className={"homeHeaderTitleText"}>
-            <FadeIn delay={0} duration={0.2} text={["Hi,", "I'm", "Jaehak"]} />
+            <FadeIn delay={0} duration={0.2} text={["Hi,", "I'm", "Jaehak", "Kim"]} />
           </span>
           <div className={"shaker"}>
             <img
               src={
-                "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/118/waving-hand-sign_1f44b.png"
+                handimoji
               }
               className={"homeHeaderTitleIcon"}
             ></img>
@@ -39,21 +40,10 @@ function HomeContent() {
             delay={2}
             duration={0.01}
             text={[
-              "An",
-              "enthusiastic",
-              "university",
-              "student,",
-              "and",
-              "a",
-              "math",
-              "lover",
-              "who's",
-              "interested",
-              "in",
-              "combining",
-              "mathematics",
-              "into",
-              "programming",
+              "CS",
+              "@",
+              "U",
+              "Waterloo",
             ]}
           />
         </div>

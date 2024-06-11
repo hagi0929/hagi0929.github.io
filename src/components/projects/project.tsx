@@ -7,29 +7,43 @@ import { createRef, useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Pagination } from "swiper";
 import InfoCard from "../UI/card";
-import data from "../../assets/data.json";
+import data from "../../assets/variables/Projects.json";
 import { EZIO } from "../animation/animation";
 
-const project = data.projectMain;
-const projectSecondary = data.projectSub;
+interface Project {
+  Techstack: string[];
+  Description: string | null;
+  Website: string | null;
+  Github: string | null;
+  Thumbnail: string[];
+  isPrimary: boolean;
+  name: string;
+}
+
+const projects: Project[] = data;
+const fileDir: string = process.env.PUBLIC_URL + "/files";
 
 function ProjectContent() {
   const [my_swiper, set_my_swiper] = useState(useSwiper());
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
+
+  const mainProjects = projects.filter((project) => project.isPrimary);
+  const secondaryProjects = projects.filter((project) => !project.isPrimary);
+
   const mainProjectRef = useMemo(
     () =>
-      Array(project.length)
+      Array(mainProjects.length)
         .fill(0)
-        .map((i) => createRef<any>()),
-    []
+        .map(() => createRef<any>()),
+    [mainProjects.length]
   );
 
-  // @ts-ignore
   let mainProjectCards = [];
   for (let i in mainProjectRef) {
-    const image = project[i]["image"];
+    const image = mainProjects[i].Thumbnail[0] || "";
     mainProjectCards.push(
       <SwiperSlide
+        key={i}
         onClick={() => {
           my_swiper.slideTo(parseInt(i));
         }}
@@ -37,22 +51,29 @@ function ProjectContent() {
       >
         <div
           className={"cardFront"}
-          style={{ backgroundImage: "url('" + image + "')" }}
-        ></div>
+          style={{ backgroundImage: `url(${fileDir}/${image})`,
+          backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundPosition: 'center',
+ }}
+        >
+        <img src="" alt="" /></div>
         <InfoCard
           ref={mainProjectRef[i]}
-          project={project[i]}
+          project={mainProjects[i]}
           colorfulSkill={true}
         />
       </SwiperSlide>
     );
   }
+
   let secondaryProjectCards = [];
-  for (let i in projectSecondary) {
-    const image = projectSecondary[i]["image"];
-    const TColor = projectSecondary[i]["color"];
+  for (let i in secondaryProjects) {
+    const image = secondaryProjects[i].Thumbnail[0] || "";
+    const TColor = "#000";
     secondaryProjectCards.push(
       <EZIO
+        key={i}
         className={"line P100"}
         onIntersect={(refs: any) => {
           refs.current.className += " activateAnimation";
@@ -73,17 +94,18 @@ function ProjectContent() {
           >
             <div
               className={"thumbnail"}
-              style={{ backgroundImage: "url('" + image + "')" }}
+              style={{ backgroundImage: `url(${fileDir}/${image})` }}
             ></div>
-            <InfoCard project={projectSecondary[i]} />
+            <InfoCard project={secondaryProjects[i]} colorfulSkill={true} />
           </div>
         </div>
       </EZIO>
     );
   }
+
   useEffect(() => {
     for (let i = 0; i < mainProjectRef.length; i++) {
-      if (swiperIndex == i) {
+      if (swiperIndex === i) {
         mainProjectRef[i].current!.style.top = "calc(100% - 60px)";
         mainProjectRef[i].current!.style.opacity = "1";
       } else {
@@ -91,7 +113,8 @@ function ProjectContent() {
         mainProjectRef[i].current!.style.opacity = "0";
       }
     }
-  }, [swiperIndex]);
+  }, [swiperIndex, mainProjectRef]);
+
   return (
     <div className={"projectLayout"}>
       <EZIO
@@ -104,7 +127,7 @@ function ProjectContent() {
         <div className={"primaryProjectText left animation"}>
           <span className={"titleStyle"}>Projects</span>
           <span className={"contentStyle"}>
-            Throughout 6 years of programming experience I have made planty of
+            Throughout 6 years of programming experience I have made plenty of
             projects
           </span>
           <span className={"subContentStyle"}>
@@ -154,15 +177,15 @@ function ProjectContent() {
           }}
         >
           <div className={"line titleStyle"}>
-            <div className={"up animation foo"}>
-              Other Noteworthy Projects
-            </div>
+            <div className={"up animation foo"}>Other Noteworthy Projects</div>
           </div>
           <div className={"line subContentStyle"}>
             <div className={"up animation foo"}>all made with love</div>
           </div>
         </EZIO>
-        <div className={"secondaryProjectDisplay"}>{secondaryProjectCards}</div>
+        <div className={"secondaryProjectDisplay"}>
+          {secondaryProjectCards}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import {useEffect, useRef, useState} from "react";
 import "./animation.scss";
-import {} from "../../assets/data.json"
 
 interface FadeInInputs {
   text: String[];

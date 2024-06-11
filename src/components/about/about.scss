@@ -13,14 +13,9 @@
     margin: 0 var(--spacing) 0 var(--spacing);
     display: grid;
     grid-area: content;
-    grid-template-rows: 250px min-content 50vh min-content 50vh;
+    grid-template-rows: 50vh min-content 50vh;
     justify-items: center;
-    grid-template-areas:
-  "."
-  "quoteArea"
-  "."
-  "skills"
-  ".";
+    grid-template-areas: "." "skills" ".";
 
     .aboutIntroContainer {
       width: 100%;
@@ -29,10 +24,6 @@
       flex-direction: column;
       gap: 50px;
 
-      .quoteContainer {
-        grid-area: title;
-        line-height: 84px;
-      }
 
       .descriptionContainer {
         grid-area: description;
@@ -41,20 +32,18 @@
 
       .titleText {
         font-family: 'IBM Plex Serif', serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.5rem, 6vw, 4rem);
       }
 
       .titleSubText {
-      font-size: clamp(1.3rem, 3vmin, 2rem);
+        font-size: clamp(1.3rem, 3vmin, 2rem);
       }
-
 
       .quote {
         transition: 1s all;
       }
 
       .author {
-
         transition: 1s all;
         text-align: center;
       }
@@ -78,7 +67,7 @@
 
       .skillIntro {
         font-family: "IBM Plex Serif", sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.5rem, 6vw, 4rem);
         display: flex;
         font-weight: bolder;
 
@@ -94,7 +83,7 @@
       }
 
       .techStackContainer {
-      font-size: clamp(1.3rem, 3vmin, 2rem);
+        font-size: clamp(1.3rem, 3vmin, 2rem);
         display: grid;
         grid-template-rows: min-content min-content min-content;
         gap: 10px;
@@ -133,7 +122,6 @@
         }
       }
     }
-
   }
 }
 
@@ -144,4 +132,3 @@
     transition: 0s;
   }
 }
-
